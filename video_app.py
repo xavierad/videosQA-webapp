@@ -16,13 +16,6 @@ app = Flask(__name__)
 # get a list of videos
 @app.route("/API/videos/", methods=['GET'])
 def returnsVideosJSON():
-    with open(log.txt, "a") as log:
-        # datetime object containing current date and time and converting it to a string
-        now = datetime.now()       
-        dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
-        print("date and time = ", dt_string)	
-        log.write(dt_string + ' | ' + 'Videos dictionary returned' + str(listVideosDICT()) + '\n')
-
     return {"videos": listVideosDICT()}
 
 # get a single video
@@ -62,7 +55,8 @@ def newView(id):
     
 @app.route("/")
 def index():
-    return app.send_static_file('index.html')
+    pass
+    # return app.send_static_file('index.html')
     
 if __name__ == "__main__":
    app.run(host='127.0.0.1', port=8000, debug=True)

@@ -1,0 +1,4 @@
+TIMESTAMP            : EVENT
+
+28/11/2020 19:10:11 : Videos dictionary returned []
+28/11/2020 19:10:14 : Videos dictionary returned []

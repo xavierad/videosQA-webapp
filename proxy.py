@@ -11,7 +11,7 @@
 
 '''
 Dúvidas:
-( ) - 
+( ) - 308 response?
 ( ) - 
 ( ) - 
 
@@ -57,7 +57,7 @@ a extensbilidade requerida. Provavelment ter-se-á que torná-la numa aplicaçã
 from flask import Flask, abort, request, redirect, url_for, session, jsonify, render_template
 from flask_dance.consumer import OAuth2ConsumerBlueprint
 from time import sleep
-import requests
+import requests as rq
 from datetime import datetime
 # import os  # necessary so that our server does not need https
 # from Video_DB import *
@@ -84,11 +84,12 @@ app = Flask(__name__)
 
 
 
-
+# Target database address
+URL = 'http://127.0.0.1:8000/API/'
 
 # A log file that will store all events ocurred in the system
-with open(log.txt,'w') as log:
-    log.write('TIMESTAMP | EVENT\n\n')
+with open("log.txt",'w') as log:    
+    log.write('{: <20s} : {:}\n\n'.format("TIMESTAMP", "EVENT"))
 
 
 #                           PROXY ENDPOINTS
@@ -98,15 +99,16 @@ with open(log.txt,'w') as log:
 # get a list of videos
 @app.route("/API/videos/", methods=['GET'])
 def returnsVideosJSON():
-    with open(log.txt, "a") as log:
+    resp = rq.get(URL + 'videos').json()
+    with open("log.txt", "a") as log:
         # datetime object containing current date and time and converting it to a string
         now = datetime.now()       
-        dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
-        print("date and time = ", dt_string)	
-        # log.write(dt_string + ' | ' + 'Videos dictionary returned' + str(listVideosDICT()) + '\n')
+        dt_string = now.strftime("%d/%m/%Y %H:%M:%S")        
+        log.write('{: <20s}: {:}\n'.format(dt_string, 'Videos dictionary returned ' + str(resp['videos'][:])))
 
-    # return {"videos": listVideosDICT()}
-    pass
+
+    return resp
+    
 
 # get a single video
 @app.route("/API/videos/<int:id>/")
@@ -153,9 +155,9 @@ def createNewVideo():
 # Related to users
 #-----------------------------------------------------------------------------
 
-# @app.route("/")
-# def index():
-#     return app.send_static_file('index.html')
+@app.route("/")
+def index():
+    return app.send_static_file('index.html')
     
 # Related to users
 #-----------------------------------------------------------------------------
