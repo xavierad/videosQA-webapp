@@ -32,10 +32,11 @@ def returnSingleVideoJSON(id):
 def createNewVideo():
     sleep(0.1)
     j = request.get_json()
+    print(j)
     print (type(j))
     ret = False
     try:
-        print(j["description"])
+        print(j["url"])
         ret = newVideo(j["description"], j['url'])
     except:
         abort(400)
@@ -55,8 +56,8 @@ def newView(id):
     
 @app.route("/")
 def index():
-    pass
-    # return app.send_static_file('index.html')
+    # pass
+    return app.send_static_file('index.html')
     
 if __name__ == "__main__":
    app.run(host='127.0.0.1', port=8000, debug=True)

@@ -44,6 +44,7 @@ def listVideos():
 def listVideosDICT():
     ret_list = []
     lv = listVideos()
+    print(lv)
     for v in lv:
         vd = v.to_dictionary()
         del(vd["url"])

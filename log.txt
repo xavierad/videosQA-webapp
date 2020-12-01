@@ -1,4 +1,2 @@
-TIMESTAMP            : EVENT
+01/12/2020 18:57:02  : Videos dictionary returned [{'description': 'Donald Trump vs. Hillary Clinton Third Debate Cold Open - SNL', 'video_id': 1}, {'description': 'Tim', 'video_id': 2}, {'description': 'arevarevae', 'video_id': 3}]
 
-28/11/2020 19:10:11 : Videos dictionary returned []
-28/11/2020 19:10:14 : Videos dictionary returned []
