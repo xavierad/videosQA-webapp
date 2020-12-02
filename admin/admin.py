@@ -1,6 +1,8 @@
 from flask import Flask, render_template, Blueprint, redirect, url_for
 
-def construct_blueprint(fenix_blueprint):
+admin_list = ['ist187094', 'ist187136', 'ist14021']
+
+def construct_admin_bp(fenix_blueprint):
     admin = Blueprint("admin", __name__, static_folder="static", template_folder="templates")
 
     @admin.route("/home")
@@ -18,10 +20,14 @@ def construct_blueprint(fenix_blueprint):
             #res contains the responde made to /api/fenix/vi/person (information about current user)
             data = resp.json() 
             print(resp.json())
-            return render_template("adminPage.html", username=data['username'], name=data['name'])
+            if data['username'] in admin_list:
+                return render_template("adminPage.html", username=data['username'], name=data['name'])
+            else:
+                return redirect(url_for("home_page"))
+        
 
-    @admin.route('/test')
-    def test():
-        return "<h1>Test</h1>"
+    @admin.route('/videoPage')
+    def videoPage():
+        return render_template("videoPage.html")
 
     return admin 

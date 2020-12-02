@@ -13,15 +13,15 @@
 Dúvidas:
 ( ) - 308 response?
 ( ) - can log be only global variable present in proxy? 
-( ) - confirm extensibility logic of video_app
+(X) - confirm extensibility logic of video_app
 ( ) - 
 ( ) - 
 ( ) - 
 
 
 A fazer:
-( ) - videos request endpoints
-( ) - videos list page
+(X) - videos request endpoints
+(X) - videos list page
 ( ) - video page
 ( ) - 
 ( ) - 
@@ -50,7 +50,7 @@ a extensbilidade requerida. Provavelment ter-se-á que torná-la numa aplicaçã
 # 1) video, 
 # 2) question,
 # 3) answer,
-# 4) user stats,
+# 4) user manager,
 # 5) logs (is it?)
 #
 # Operations that can be performed: 
@@ -60,6 +60,7 @@ a extensbilidade requerida. Provavelment ter-se-á que torná-la numa aplicaçã
 # 4) 
 #            
 # (URI and Possible Methods, GET,POST,PATCH/PUT)
+#ist14021 - João Silva
 
 from flask import Flask, abort, request, redirect, url_for, session, jsonify, render_template
 from flask_dance.consumer import OAuth2ConsumerBlueprint
@@ -69,7 +70,7 @@ from datetime import datetime
 # from Video_DB import *
 #necessary so that our server does not need https
 import os
-from admin.admin import construct_blueprint
+from admin.admin import construct_admin_bp
 
 os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
 
@@ -77,6 +78,7 @@ app = Flask(__name__)
 app.secret_key = "supersekrit"  # Replace this with your own secret!
 app.config['SESSION_TYPE'] = 'filesystem'
 app.config['SESSION_PERMANENT'] = False
+# Pedro
 fenix_blueprint = OAuth2ConsumerBlueprint(
     "fenix-example", __name__,
     # this value should be retrived from the FENIX OAuth page
@@ -88,9 +90,22 @@ fenix_blueprint = OAuth2ConsumerBlueprint(
     token_url="https://fenix.tecnico.ulisboa.pt/oauth/access_token",
     authorization_url="https://fenix.tecnico.ulisboa.pt/oauth/userdialog",
 )
+# # Xavier
+# fenix_blueprint = OAuth2ConsumerBlueprint(
+#     "fenix-example", __name__,
+#     # this value should be retrived from the FENIX OAuth page
+#     client_id="1132965128044779",
+#     # this value should be retrived from the FENIX OAuth page
+#     client_secret="HOmZwGuoFApLQEdqum3DTdSMk6XpLux6qJoqhZZVrKRQ+0cqo/rBnAupdik01GLsqunxF2EIR2jYef8skOS3Jg==",
+#     # do not change next lines
+#     base_url="https://fenix.tecnico.ulisboa.pt/",
+#     token_url="https://fenix.tecnico.ulisboa.pt/oauth/access_token",
+#     authorization_url="https://fenix.tecnico.ulisboa.pt/oauth/userdialog",
+# )
+
 
 app.register_blueprint(fenix_blueprint)
-app.register_blueprint(construct_blueprint(fenix_blueprint), url_prefix="/admin")
+app.register_blueprint(construct_admin_bp(fenix_blueprint), url_prefix="/admin")
 
 
 # Target database address
@@ -130,6 +145,7 @@ def logout():
 # Related to login
 #-----------------------------------------------------------------------------
 # Related to videos
+
 # get a list of videos
 @app.route("/API/videos/", methods=['GET'])
 def returnsVideosJSON():
@@ -138,11 +154,10 @@ def returnsVideosJSON():
     
     # datetime object containing current date and time and converting it to a string
     now = datetime.now()    
-    write_to_log(timestamp=now.strftime("%d/%m/%Y %H:%M:%S"),
+    write_to_log(mode="a",timestamp=now.strftime("%d/%m/%Y %H:%M:%S"),
         event='Videos dictionary returned ' + str(resp['videos'][:]))        
 
     return resp
-    
 
 # get a single video
 @app.route("/API/videos/<int:id>/")
@@ -152,8 +167,8 @@ def returnSingleVideoJSON(id):
 
     # datetime object containing current date and time and converting it to a string
     now = datetime.now()    
-    write_to_log(timestamp=now.strftime("%d/%m/%Y %H:%M:%S"),
-        event='Single video dictionary returned ' + str(resp[:]))  
+    write_to_log(mode="a",timestamp=now.strftime("%d/%m/%Y %H:%M:%S"),
+        event='Single video dictionary returned ' + str(resp))  
 
     return resp
 
@@ -162,16 +177,18 @@ def returnSingleVideoJSON(id):
 def createNewVideo():
     url = URL+'videos/'
     j = request.get_json()
+    print(j)
     try:
         print(j["description"])
-        ret = rq.post(url, json=j)
+        ret = rq.post(url, json=j).json()
     except:
         abort(400)
         #the arguments were incorrect
     if ret:
         now = datetime.now()    
-        write_to_log(timestamp=now.strftime("%d/%m/%Y %H:%M:%S"),
+        write_to_log(mode="a",timestamp=now.strftime("%d/%m/%Y %H:%M:%S"),
             event='Created new video with id ' + str(ret))  
+        print(ret)
         return {"id": ret}
     else:
         abort(409)
@@ -179,7 +196,7 @@ def createNewVideo():
 
 # @app.route("/API/videos/<int:id>/views", methods=['PUT', 'PATCH'])
 # def newView(id):
-    # rq.put(URL+'videos/'+str(id)+'/views', )
+#     rq.put(URL+'videos/'+str(id)+'/views', )
 
 # Related to videos
 #-----------------------------------------------------------------------------
