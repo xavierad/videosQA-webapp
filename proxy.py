@@ -14,7 +14,7 @@ Dúvidas:
 ( ) - 308 response?
 ( ) - can log be only global variable present in proxy? 
 (X) - confirm extensibility logic of video_app
-( ) - 
+( ) - index.html porquÊ no static e não no template?
 ( ) - 
 ( ) - 
 
