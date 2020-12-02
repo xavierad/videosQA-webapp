@@ -56,7 +56,7 @@
                 data: JSON.stringify(requestData),
                 success: function(data){
                    //TODO 5 after creating the video update the table
-                  console.log("resppnse for video creation"+data)
+                  console.log("response for video creation "+data)
                   console.log(data)
                   updateVideostable()
                 }
@@ -77,60 +77,6 @@
               addNewVideo(newVideoURl, newVideoDESC)
                 //TODO 3 - get the values of #newVideoURL and newVideoDescription
                 // and pass those values to the addNewVideo function
-
-            })
-
-            var vPlayer = videojs('videoPlayer');
-
-            $("#buttonVideoPause").click(function(){
-                vPlayer.pause()
-                var pauseTime = vPlayer.currentTime()
-                console.log(pauseTime)
-                $("#resumetime").val(pauseTime)
-
-             })
-            $("#buttonVideoResume").click(function(){
-                vPlayer.currentTime( parseFloat($("#resumetime").val()))
-                vPlayer.play()
-            })
-
-
-            $("#buttonPlayVideo").click(function(){
-              videoID = $("#playVideoID").val()
-
-                //TODO 6 - get the value of #playVideoID
-
-                $.ajax({
-                  //TODO 7 - retrieve the corresponding URL by 
-                //        calling the /videos/<id>/ REST endpoint)
-                  url: '/API/videos/'+videoID+'/',
-                  type: "GET",
-                  dataType: "json",
-                  success: function (data) {
-                    console.log(data)
-                    url = data['url']
-                    console.log(url)
-                    //TODO 8 - update the player with the url retrieved
-                    vPlayer.src({ "type": "video/youtube", "src": url});
-                    vPlayer.play()
-
-                    $.ajax({
-                      //TODO 9 - increase the number of views
-                      url: '/API/videos/'+videoID+'/views',
-                      type: "PUT",
-                      dataType: "json",
-                      success: function (data) {
-                        console.log(data)
-                      }
-                    })
-                  }
-                });
-                
-              
-
-
-
-               // TODO 11 - update the table
 
             })
 
@@ -156,7 +102,7 @@
 
     <h3>Add a new Video</h3>
     <div class="ui input">
-      <input type="text" placeholder="Video URL" id="newVideoURL">
+        <input type="text" placeholder="Video URL" id="newVideoURL" required>
     </div>
     <div class="ui input">
       <input type="text" placeholder="Video Description" id="newVideoDescription">

@@ -78,30 +78,39 @@ app = Flask(__name__)
 app.secret_key = "supersekrit"  # Replace this with your own secret!
 app.config['SESSION_TYPE'] = 'filesystem'
 app.config['SESSION_PERMANENT'] = False
-# Pedro
-fenix_blueprint = OAuth2ConsumerBlueprint(
-    "fenix-example", __name__,
-    # this value should be retrived from the FENIX OAuth page
-    client_id="1695915081466076",
-    # this value should be retrived from the FENIX OAuth page
-    client_secret="TOxHh4DiSz/Z6hT+kRKASmJ5cmDD3dSPm79J+ikRtG991k09qypy29v7EZQsP82kV3tM2MPxfKXbm7mJop7KMg==",
-    # do not change next lines
-    base_url="https://fenix.tecnico.ulisboa.pt/",
-    token_url="https://fenix.tecnico.ulisboa.pt/oauth/access_token",
-    authorization_url="https://fenix.tecnico.ulisboa.pt/oauth/userdialog",
-)
-# # Xavier
-# fenix_blueprint = OAuth2ConsumerBlueprint(
-#     "fenix-example", __name__,
-#     # this value should be retrived from the FENIX OAuth page
-#     client_id="1132965128044779",
-#     # this value should be retrived from the FENIX OAuth page
-#     client_secret="HOmZwGuoFApLQEdqum3DTdSMk6XpLux6qJoqhZZVrKRQ+0cqo/rBnAupdik01GLsqunxF2EIR2jYef8skOS3Jg==",
-#     # do not change next lines
-#     base_url="https://fenix.tecnico.ulisboa.pt/",
-#     token_url="https://fenix.tecnico.ulisboa.pt/oauth/access_token",
-#     authorization_url="https://fenix.tecnico.ulisboa.pt/oauth/userdialog",
-# )
+
+# apagar no final do projeto os ifs
+import sys
+
+if not len(sys.argv) == 1 or sys.argv[1] =='pedro':
+    # Pedro
+    print(sys.argv[1])
+    fenix_blueprint = OAuth2ConsumerBlueprint(
+        "fenix-example", __name__,
+        # this value should be retrived from the FENIX OAuth page
+        client_id="1695915081466076",
+        # this value should be retrived from the FENIX OAuth page
+        client_secret="TOxHh4DiSz/Z6hT+kRKASmJ5cmDD3dSPm79J+ikRtG991k09qypy29v7EZQsP82kV3tM2MPxfKXbm7mJop7KMg==",
+        # do not change next lines
+        base_url="https://fenix.tecnico.ulisboa.pt/",
+        token_url="https://fenix.tecnico.ulisboa.pt/oauth/access_token",
+        authorization_url="https://fenix.tecnico.ulisboa.pt/oauth/userdialog",
+    )
+elif sys.argv[1]=='xavier':
+    print(sys.argv[1])
+    fenix_blueprint = OAuth2ConsumerBlueprint(
+        "fenix-example", __name__,
+        # this value should be retrived from the FENIX OAuth page
+        client_id="1132965128044779",
+        # this value should be retrived from the FENIX OAuth page
+        client_secret="HOmZwGuoFApLQEdqum3DTdSMk6XpLux6qJoqhZZVrKRQ+0cqo/rBnAupdik01GLsqunxF2EIR2jYef8skOS3Jg==",
+        # do not change next lines
+        base_url="https://fenix.tecnico.ulisboa.pt/",
+        token_url="https://fenix.tecnico.ulisboa.pt/oauth/access_token",
+        authorization_url="https://fenix.tecnico.ulisboa.pt/oauth/userdialog",
+    )
+else:
+    sys.exit()
 
 
 app.register_blueprint(fenix_blueprint)
