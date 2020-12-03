@@ -37,7 +37,7 @@
                 var my_id = v["video_id"]
                 var my_url = "{{ url_for('admin.video_page') }}/#id#".replace('#id#', my_id)
                 $('#videosTable > tbody:last-child').
-                    append('<tr> <td><a href="#url#"'.
+                    append('<tr> <td class="selectable"><a href="#url#"'.
                       replace("#url#", my_url)+'>'+ v["video_id"]+'</a></td><td>' +v["description"] + '</td><td id="nviews'+v["video_id"]+'">xxx</td></tr>');
                   getVideoViews(v["video_id"])
             });
@@ -111,7 +111,7 @@
   <title>{% block title %}{% endblock %} - Flask</title>
 
 
-<a href="{{ url_for("logout") }}"> Logout</a>
+
 
 
 </html>

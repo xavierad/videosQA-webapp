@@ -1,2 +1,30 @@
 TIMESTAMP            : EVENT
 
+03/12/2020 02:02:27  : Videos dictionary returned []
+
+03/12/2020 02:02:45  : Created new video with id {'id': 1}
+
+03/12/2020 02:02:45  : Videos dictionary returned [{'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'video_id': 1}]
+
+03/12/2020 02:02:46  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 0}
+
+03/12/2020 02:02:56  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 0}
+
+03/12/2020 02:03:01  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 0}
+
+03/12/2020 02:04:13  : Videos dictionary returned [{'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'video_id': 1}]
+
+03/12/2020 02:04:13  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 1}
+
+03/12/2020 02:04:39  : Videos dictionary returned [{'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'video_id': 1}]
+
+03/12/2020 02:04:39  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 1}
+
+03/12/2020 02:04:53  : Videos dictionary returned [{'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'video_id': 1}]
+
+03/12/2020 02:04:53  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 1}
+
+03/12/2020 02:05:50  : Videos dictionary returned [{'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'video_id': 1}]
+
+03/12/2020 02:05:50  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 1}
+

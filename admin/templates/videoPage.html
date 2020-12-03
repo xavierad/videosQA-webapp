@@ -13,13 +13,32 @@
     <link href="https://vjs.zencdn.net/7.8.4/video-js.css" rel="stylesheet" />
     <script src="http://vjs.zencdn.net/7.8.4/video.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-youtube/2.6.1/Youtube.min.js"></script>
+    
+    
 
     <script>
       $(document).ready(function(){
 
+        printVideoDescription();
+
         var vPlayer = videojs('videoPlayer');
         // vPlayer.src({ "type": "video/youtube", "src": "https://www.youtube.com/watch?v=xjS6SftYQaQ"});
         // vPlayer.play()
+
+        function printVideoDescription(){          
+          var videoID = '{{videoID}}'
+          $.ajax({
+            url: '/API/videos/'+videoID+'/',
+            type: "GET",
+            dataType: "json",
+            success: function (data) {
+              console.log(data);
+              var div = document.getElementById('description_hd');              
+              description_header = "<h1>"+data['description']+"</h1>"
+              div.innerHTML += description_header
+            }
+          })
+        }        
 
         $("#buttonVideoPause").click(function(){
             vPlayer.pause()
@@ -65,9 +84,10 @@
 
     </script>
 
-  </head>
+  
+  <head></head>
   <body>
-
+    <div id=description_hd></div>
     <video  id="videoPlayer" controls 
             class="video-js vjs-default-skin"
             width="640"
