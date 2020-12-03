@@ -15,14 +15,14 @@ Dúvidas:
 ( ) - can log be only global variable present in proxy? 
 (X) - confirm extensibility logic of video_app
 ( ) - index.html porquÊ no static e não no template?
-( ) - 
+( ) - quando login: demora muito tempo
 ( ) - 
 
 
 A fazer:
 (X) - videos request endpoints
 (X) - videos list page
-( ) - video page
+(X) - video page (watch and count view (not for a user particulary))
 ( ) - 
 ( ) - 
 ( ) - 
@@ -203,9 +203,11 @@ def createNewVideo():
         abort(409)
     #if there is an erro return ERROR 409
 
-# @app.route("/API/videos/<int:id>/views", methods=['PUT', 'PATCH'])
-# def newView(id):
-#     rq.put(URL+'videos/'+str(id)+'/views', )
+@app.route("/API/videos/<int:id>/views", methods=['PUT', 'PATCH'])
+def newView(id):
+    ret = rq.put(URL+'videos/'+str(id)+'/views', str(id)).json()
+    return ret
+
 
 # Related to videos
 #-----------------------------------------------------------------------------

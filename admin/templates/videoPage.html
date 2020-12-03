@@ -15,66 +15,53 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-youtube/2.6.1/Youtube.min.js"></script>
 
     <script>
+      $(document).ready(function(){
 
-        $(document).ready(function(){
+        var vPlayer = videojs('videoPlayer');
+        // vPlayer.src({ "type": "video/youtube", "src": "https://www.youtube.com/watch?v=xjS6SftYQaQ"});
+        // vPlayer.play()
 
-            var vPlayer = videojs('videoPlayer');
-            // vPlayer.src({ "type": "video/youtube", "src": "https://www.youtube.com/watch?v=xjS6SftYQaQ"});
-            // vPlayer.play()
+        $("#buttonVideoPause").click(function(){
+            vPlayer.pause()
+            var pauseTime = vPlayer.currentTime()
+            console.log(pauseTime)
+            $("#resumetime").val(pauseTime)
 
-            $("#buttonVideoPause").click(function(){
-                vPlayer.pause()
-                var pauseTime = vPlayer.currentTime()
-                console.log(pauseTime)
-                $("#resumetime").val(pauseTime)
+          })
+        $("#buttonVideoResume").click(function(){
+            vPlayer.currentTime( parseFloat($("#resumetime").val()))
+            vPlayer.play()
+        })
 
-             })
-            $("#buttonVideoResume").click(function(){
-                vPlayer.currentTime( parseFloat($("#resumetime").val()))
+        $("#buttonPlayVideo").click(function(){
+          var videoID = '{{videoID}}'
+            $.ajax({            
+            // retrieve the corresponding URL by 
+            // calling the /videos/<id>/ REST endpoint)
+              url: '/API/videos/'+videoID+'/',
+              type: "GET",
+              dataType: "json",
+              success: function (data) {
+                console.log(data)
+                url = data['url']
+                console.log(url)
+                //TODO 8 - update the player with the url retrieved
+                vPlayer.src({ "type": "video/youtube", "src": url});
                 vPlayer.play()
-            })
-
-
-            $("#buttonPlayVideo").click(function(){
-              videoID = $("#playVideoID").val()
-
-                //TODO 6 - get the value of #playVideoID
 
                 $.ajax({
-                  //TODO 7 - retrieve the corresponding URL by 
-                //        calling the /videos/<id>/ REST endpoint)
-                  url: '/API/videos/'+videoID+'/',
-                  type: "GET",
+                  //TODO 9 - increase the number of views
+                  url: '/API/videos/'+videoID+'/views',
+                  type: "PUT",
                   dataType: "json",
                   success: function (data) {
                     console.log(data)
-                    url = data['url']
-                    console.log(url)
-                    //TODO 8 - update the player with the url retrieved
-                    vPlayer.src({ "type": "video/youtube", "src": url});
-                    vPlayer.play()
-
-                    $.ajax({
-                      //TODO 9 - increase the number of views
-                      url: '/API/videos/'+videoID+'/views',
-                      type: "PUT",
-                      dataType: "json",
-                      success: function (data) {
-                        console.log(data)
-                      }
-                    })
                   }
-                });
-                
-              
-
-
-
-               // TODO 11 - update the table
-
-            })
-
-        });
+                })
+              }
+            });
+        })
+      });
 
     </script>
 
@@ -85,17 +72,18 @@
             class="video-js vjs-default-skin"
             width="640"
             data-setup='{ "autoplay": true, "preload": "auto", "techOrder": ["youtube"], "sources": [{ "type": "video/youtube" }'
-    >
-    </video>
-    <h3>Control Video</h3>
+    ></video>
+    <button class="ui button" id="buttonPlayVideo">
+      Play
+    </button>
     <button class="ui button" id="buttonVideoPause">
-     PAUSE Video
+     Pause
     </button> 
     <div class="ui input focus" >
       <input type="text" id="resumetime">
     </div>
     <button class="ui button" id="buttonVideoResume">
-      RESUME Video
+      Resume
     </button>
 
   </body>

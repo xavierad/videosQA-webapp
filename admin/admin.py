@@ -24,10 +24,15 @@ def construct_admin_bp(fenix_blueprint):
                 return render_template("adminPage.html", username=data['username'], name=data['name'])
             else:
                 return redirect(url_for("home_page"))
-        
 
-    @admin.route('/videoPage')
-    def videoPage():
-        return render_template("videoPage.html")
+    @admin.route('/video_page')
+    @admin.route('/video_page/<string:id>')
+    def video_page(id):
+        # id = int(id)
+        return render_template("videoPage.html", videoID=id)  
+
+    # @admin.route('/videoPage/<int:id>')
+    # def videoPage(id):
+    #     return render_template("videoPage.html")
 
     return admin 
