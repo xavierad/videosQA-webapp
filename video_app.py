@@ -4,7 +4,6 @@ confirm with professor: this flask will provide QA and user stats to proxy (howe
 '''
 
 from flask import Flask, abort, request, redirect, url_for, session, jsonify, render_template
-import requests as rq
 from time import sleep
 from Video_DB import *
 

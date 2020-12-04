@@ -1,12 +1,7 @@
 
 
 
-# Alguns apontamentos
-# REST API to manipulate resources: 
-# videos, video list (endpoint or not?), creation of a video (through REST API form), list of questions and answers, user stats
-# What are the endpoints to manipulate those resources (give a name to each resource), define what data is transferred between client/server
-#
-# all this in proxy: endpoints, resources and data
+
 
 
 '''
@@ -15,7 +10,9 @@ Dúvidas:
 ( ) - can log be only global variable present in proxy? 
 (X) - confirm extensibility logic of video_app
 ( ) - index.html porquÊ no static e não no template?
-( ) - quando login: demora muito tempo
+( ) - login: token and takes too much time
+( ) - 
+( ) - 
 ( ) - 
 
 
@@ -23,14 +20,19 @@ A fazer:
 (X) - videos request endpoints
 (X) - videos list page
 (X) - video page (watch and count view (not for a user particulary))
+(X) - proxy endpoints related to user manager
+( ) - TO FIX: when entered on admin page, token is taken again (but it's not necessary)
 ( ) - 
 ( ) - 
 ( ) - 
 
 Notas: 
-- VideoDB não pode ser apenas importado e chamar os seus métodos no proxy, é como se estivesse a implementar no Proxy, pois não satisfaz
-a extensbilidade requerida. Provavelment ter-se-á que torná-la numa aplicação Flask para que assim interaja com o Proxy de forma extensível.
-
+- VideoDb cannot be simply imported to proxy and its methods to be called. It would be like we were implementing all in proxy and this does not satisfy extensibility
+Probably we must tranfor videoDb into a flask app in order to interact with proxy through REST.
+- REST API to manipulate resources: 
+videos, video list (endpoint or not?), creation of a video (through REST API form), list of questions and answers, user stats
+What are the endpoints to manipulate those resources (give a name to each resource), define what data is transferred between client/server
+all this in proxy: endpoints, resources and data
 '''
 
 # -------------------------------------------------------------------------------------
@@ -119,8 +121,10 @@ app.register_blueprint(construct_admin_bp(fenix_blueprint), url_prefix="/admin")
 app.register_blueprint(construct_regular_bp(fenix_blueprint), url_prefix="/regular")
 
 
-# Target database address
-URL = 'http://127.0.0.1:8000/API/'
+# Target databases addresses
+VIDEOS_URL = 'http://127.0.0.1:8000/API/'
+USERS_URL = 'http://127.0.0.1:9000/API/'
+
 
 # A log file that will store all events ocurred in the system
 def write_to_log(f="log.txt", mode="w", timestamp="TIMESTAMP", event="EVENT"):
@@ -140,7 +144,18 @@ def home_page():
     # The access token is generated everytime the user authenticates into FENIX
     print(fenix_blueprint.session.authorized)
     print("Access token: "+ str(fenix_blueprint.session.access_token))
-    return render_template("appPage.html", loggedIn = fenix_blueprint.session.authorized)
+
+    if fenix_blueprint.session.authorized == False:
+        #if not logged in browser is redirected to login page (in this case FENIX handled the login)
+        return render_template("appPage.html", loggedIn = fenix_blueprint.session.authorized)
+
+    #if the user is authenticated then a request to FENIX is made
+    resp = fenix_blueprint.session.get("/api/fenix/v1/person/")
+    #res contains the responde made to /api/fenix/vi/person (information about current user)
+    data = resp.json() 
+    print(resp.json())
+           
+    return render_template("appPage.html", loggedIn = fenix_blueprint.session.authorized, userID=data['username'], userName=data['name'])
 
 @app.route('/logout')
 def logout():
@@ -160,7 +175,7 @@ def logout():
 # get a list of videos
 @app.route("/API/videos/", methods=['GET'])
 def returnsVideosJSON():
-    url = URL + 'videos'
+    url = VIDEOS_URL + 'videos'
     resp = rq.get(url).json()
     
     # datetime object containing current date and time and converting it to a string
@@ -173,7 +188,7 @@ def returnsVideosJSON():
 # get a single video
 @app.route("/API/videos/<int:id>/")
 def returnSingleVideoJSON(id):
-    url = URL+'videos/'+str(id)
+    url = VIDEOS_URL+'videos/'+str(id)
     resp = rq.get(url).json()
 
     # datetime object containing current date and time and converting it to a string
@@ -186,7 +201,7 @@ def returnSingleVideoJSON(id):
 # create a new video
 @app.route("/API/videos/", methods=['POST'])
 def createNewVideo():
-    url = URL+'videos/'
+    url = VIDEOS_URL+'videos/'
     j = request.get_json()
     print(j)
     try:
@@ -207,9 +222,8 @@ def createNewVideo():
 
 @app.route("/API/videos/<int:id>/views", methods=['PUT', 'PATCH'])
 def newView(id):
-    ret = rq.put(URL+'videos/'+str(id)+'/views', str(id)).json()
+    ret = rq.put(VIDEOS_URL+'videos/'+str(id)+'/views', str(id)).json()
     return ret
-
 
 # Related to videos
 #-----------------------------------------------------------------------------
@@ -222,6 +236,54 @@ def newView(id):
 # Related to answers
 #-----------------------------------------------------------------------------
 # Related to users
+
+# get a list of users registered
+@app.route("/API/users", methods=['GET'])
+def returnsUsersJSON():
+    url = USERS_URL + 'users'
+    resp = rq.get(url).json()
+    
+    # datetime object containing current date and time and converting it to a string
+    now = datetime.now()    
+    write_to_log(mode="a",timestamp=now.strftime("%d/%m/%Y %H:%M:%S"),
+        event='Users dictionary returned ' + str(resp['users'][:]))        
+
+    return resp
+
+# get a single user
+@app.route("/API/users/<int:id>/")
+def returnSingleUserJSON(id):
+    url = USERS_URL+'users/'+str(id)
+    resp = rq.get(url).json()
+
+    # datetime object containing current date and time and converting it to a string
+    now = datetime.now()    
+    write_to_log(mode="a",timestamp=now.strftime("%d/%m/%Y %H:%M:%S"),
+        event='Single user dictionary returned ' + str(resp))  
+
+    return resp
+
+# create a new user
+@app.route("/API/users/", methods=['POST'])
+def createNewUser():
+    url = USERS_URL+'users/'
+    j = request.get_json()
+    print(j)
+    try:
+        print(j["id"])
+        ret = rq.post(url, json=j).json()
+    except:
+        abort(400)
+        #the arguments were incorrect
+    if ret:
+        now = datetime.now()    
+        write_to_log(mode="a",timestamp=now.strftime("%d/%m/%Y %H:%M:%S"),
+            event='Created new user with id ' + str(ret))  
+        print(ret)
+        return {"id": ret}
+    else:
+        abort(409)
+    #if there is an erro return ERROR 409
 
 # Related to users
 #-----------------------------------------------------------------------------

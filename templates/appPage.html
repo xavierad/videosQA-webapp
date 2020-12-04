@@ -1,17 +1,53 @@
-<!doctype html>
-<title>{% block title %}{% endblock %} - Flask</title>
 
-{% if loggedIn %}
-<p style="font-family:helvetica">User logged in</p>
-<br>
-<p style="font-family:helvetica">Select an option:</p>
-<a href="{{ url_for("admin.admin_page") }}"> <p style="font-family:helvetica">Private part of the site (needs auth)</p></a>
-<a href="{{ url_for("regular.regular_page") }}"> <p style="font-family:helvetica">List of Videos</p></a>
-<br>
-<a href="{{ url_for("logout") }}"> <p style="font-family:helvetica">Logout</p></a>
+<!DOCTYPE html>
+<html>    
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+        <link rel="stylesheet" type="text/css"  href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.7/dist/semantic.css">
+        <script  src="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.7/dist/semantic.js">  </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-xmlrpc/0.4.3/jquery.xmlrpc.js"> </script>
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
+        <link href="https://vjs.zencdn.net/7.8.4/video-js.css" rel="stylesheet" />
+        <script src="http://vjs.zencdn.net/7.8.4/video.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-youtube/2.6.1/Youtube.min.js"></script>
+    
+        <script>
+            // $(document).ready(function(){
 
-{% else %}
-<a href="{{ url_for("fenix-example.login") }}">Login with OAuth</a>
+            function addNewUser(){            
+                var newUserID = '{{userID}}'
+                var newUserNAME = '{{userName}}'
+                let requestData={"id": newUserID, 'name': newUserNAME}
+                $.ajax({
+                    url: '/API/users/',
+                    type: "POST",
+                    dataType: "json",
+                    contentType: 'application/json',
+                    data: JSON.stringify(requestData),
+                    success: function(data){
+                    console.log("response for user creation "+data)
+                    console.log(data)
+                    }
+                });
+            }
+            // });
+        </script>
 
-{% endif %}
+        <title>{% block title %}{% endblock %} - Flask</title>
+
+        {% if loggedIn %}
+        <p style="font-family:helvetica">User {{newUserID}} logged in</p>
+        <br>
+        <p style="font-family:helvetica">Select an option:</p>
+        <a href="{{ url_for("admin.admin_page") }}"> <p style="font-family:helvetica">Private part of the site (needs auth)</p></a>
+        <a href="{{ url_for("regular.regular_page") }}"> <p style="font-family:helvetica">List of Videos</p></a>
+        <br>
+        <a href="{{ url_for("logout") }}"> <p style="font-family:helvetica">Logout</p></a>
+
+        {% else %}
+        <a href="{{ url_for("fenix-example.login") }}" onclick='addNewUser()'>Login with OAuth</a>
+
+        {% endif %}
+    </head>
+</html>
