@@ -1,7 +1,7 @@
 from flask import Flask, render_template, Blueprint, redirect, url_for
 
-#admin_list = ['ist187094', 'ist187136', 'ist14021']
-admin_list = ['ist187136', 'ist14021']
+admin_list = ['ist187094', 'ist187136', 'ist14021']
+#admin_list = ['ist187136', 'ist14021']
 
 def construct_admin_bp(fenix_blueprint):
     admin = Blueprint("admin", __name__, static_folder="static", template_folder="templates")

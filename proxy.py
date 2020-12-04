@@ -62,14 +62,12 @@ a extensbilidade requerida. Provavelment ter-se-á que torná-la numa aplicaçã
 # (URI and Possible Methods, GET,POST,PATCH/PUT)
 #ist14021 - João Silva
 
+import os 
 from flask import Flask, abort, request, redirect, url_for, session, jsonify, render_template
 from flask_dance.consumer import OAuth2ConsumerBlueprint
 from time import sleep
 import requests as rq
 from datetime import datetime
-# from Video_DB import *
-#necessary so that our server does not need https
-import os
 from admin.admin import construct_admin_bp
 from regular.regular import construct_regular_bp
 
@@ -82,10 +80,12 @@ app.config['SESSION_PERMANENT'] = False
 
 # apagar no final do projeto os ifs
 import sys
-
-if not len(sys.argv) == 1 or sys.argv[1] =='pedro':
+fenix_id = ''
+if len(sys.argv) > 1 :
+    fenix_id = sys.argv[1]
+if fenix_id == '' or fenix_id == 'pedro':
     # Pedro
-    print(sys.argv[1])
+    print(fenix_id)
     fenix_blueprint = OAuth2ConsumerBlueprint(
         "fenix-example", __name__,
         # this value should be retrived from the FENIX OAuth page
@@ -97,8 +97,8 @@ if not len(sys.argv) == 1 or sys.argv[1] =='pedro':
         token_url="https://fenix.tecnico.ulisboa.pt/oauth/access_token",
         authorization_url="https://fenix.tecnico.ulisboa.pt/oauth/userdialog",
     )
-elif sys.argv[1]=='xavier':
-    print(sys.argv[1])
+elif fenix_id=='xavier':
+    print(fenix_id)
     fenix_blueprint = OAuth2ConsumerBlueprint(
         "fenix-example", __name__,
         # this value should be retrived from the FENIX OAuth page
