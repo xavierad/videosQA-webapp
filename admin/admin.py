@@ -1,6 +1,7 @@
 from flask import Flask, render_template, Blueprint, redirect, url_for
 
 admin_list = ['ist187094', 'ist187136', 'ist14021']
+#admin_list = ['ist187136', 'ist14021']
 
 def construct_admin_bp(fenix_blueprint):
     admin = Blueprint("admin", __name__, static_folder="static", template_folder="templates")
@@ -29,7 +30,7 @@ def construct_admin_bp(fenix_blueprint):
     @admin.route('/video_page/<string:id>')
     def video_page(id):
         # id = int(id)
-        return render_template("videoPage.html", videoID=id)  
+        return render_template("admin_videoPage.html", videoID=id)  
 
     # @admin.route('/videoPage/<int:id>')
     # def videoPage(id):

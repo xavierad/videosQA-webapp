@@ -2,11 +2,13 @@
 <title>{% block title %}{% endblock %} - Flask</title>
 
 {% if loggedIn %}
-User logged in
+<p style="font-family:helvetica">User logged in</p>
 <br>
-<a href="{{ url_for("admin.admin_page") }}"> Private part of the site (needs auth)</a>
+<p style="font-family:helvetica">Select an option:</p>
+<a href="{{ url_for("admin.admin_page") }}"> <p style="font-family:helvetica">Private part of the site (needs auth)</p></a>
+<a href="{{ url_for("admin.admin_page") }}"> <p style="font-family:helvetica">List of Videos</p></a>
 <br>
-<a href="{{ url_for("logout") }}"> Logout</a>
+<a href="{{ url_for("logout") }}"> <p style="font-family:helvetica">Logout</p></a>
 
 
 {% else %}
