@@ -5,7 +5,8 @@ from flask import render_template
 from flask import request
 from flask import jsonify, url_for
 from flask import session
-from admin.admin import construct_blueprint
+from admin.admin import construct_admin_bp
+from regular.regular import construct_regular_bp
 
 
 import requests
@@ -32,7 +33,8 @@ fenix_blueprint = OAuth2ConsumerBlueprint(
 )
 
 app.register_blueprint(fenix_blueprint)
-app.register_blueprint(construct_blueprint(fenix_blueprint), url_prefix="/admin")
+app.register_blueprint(construct_admin_bp(fenix_blueprint), url_prefix="/admin")
+app.register_blueprint(construct_regular_bp(fenix_blueprint), url_prefix="/regular")
 
 @app.route('/')
 def home_page():

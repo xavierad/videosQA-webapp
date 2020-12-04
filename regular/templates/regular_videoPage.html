@@ -1,0 +1,114 @@
+
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css"  href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.7/dist/semantic.css">
+    <script  src="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.7/dist/semantic.js">  </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-xmlrpc/0.4.3/jquery.xmlrpc.js"> </script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+    <link href="https://vjs.zencdn.net/7.8.4/video-js.css" rel="stylesheet" />
+    <script src="http://vjs.zencdn.net/7.8.4/video.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-youtube/2.6.1/Youtube.min.js"></script>
+    
+    
+
+    <script>
+      $(document).ready(function(){
+
+        printVideoDescription();
+
+        var vPlayer = videojs('videoPlayer');
+        // vPlayer.src({ "type": "video/youtube", "src": "https://www.youtube.com/watch?v=xjS6SftYQaQ"});
+        // vPlayer.play()
+
+        function printVideoDescription(){          
+          var videoID = '{{videoID}}'
+          $.ajax({
+            url: '/API/videos/'+videoID+'/',
+            type: "GET",
+            dataType: "json",
+            success: function (data) {
+              console.log(data);
+              var div = document.getElementById('description_hd');              
+              description_header = "<h1>"+data['description']+"</h1>"
+              div.innerHTML += description_header
+            }
+          })
+        }        
+
+        $("#buttonVideoPause").click(function(){
+            vPlayer.pause()
+            var pauseTime = vPlayer.currentTime()
+            console.log(pauseTime)
+            $("#resumetime").val(pauseTime)
+
+          })
+        $("#buttonVideoResume").click(function(){
+            vPlayer.currentTime( parseFloat($("#resumetime").val()))
+            vPlayer.play()
+        })
+
+        $("#buttonPlayVideo").click(function(){
+          var videoID = '{{videoID}}'
+            $.ajax({            
+            // retrieve the corresponding URL by 
+            // calling the /videos/<id>/ REST endpoint)
+              url: '/API/videos/'+videoID+'/',
+              type: "GET",
+              dataType: "json",
+              success: function (data) {
+                console.log(data)
+                url = data['url']
+                console.log(url)
+                //TODO 8 - update the player with the url retrieved
+                vPlayer.src({ "type": "video/youtube", "src": url});
+                vPlayer.play()
+
+                $.ajax({
+                  //TODO 9 - increase the number of views
+                  url: '/API/videos/'+videoID+'/views',
+                  type: "PUT",
+                  dataType: "json",
+                  success: function (data) {
+                    console.log(data)
+                  }
+                })
+              }
+            });
+        })
+      });
+
+    </script>
+
+  
+  <head></head>
+  <body>
+    <br>
+    <div id=description_hd></div>
+    <br>
+    <video  id="videoPlayer" controls 
+            class="video-js vjs-default-skin"
+            width="640"
+            data-setup='{ "autoplay": true, "preload": "auto", "techOrder": ["youtube"], "sources": [{ "type": "video/youtube" }'
+    ></video>
+    <br>
+    <button class="ui button" id="buttonPlayVideo">
+      Play
+    </button>
+    <button class="ui button" id="buttonVideoPause">
+     Pause
+    </button> 
+    <div class="ui input focus" >
+      <input type="text" id="resumetime">
+    </div>
+    <button class="ui button" id="buttonVideoResume">
+      Resume
+    </button>
+
+  </body>
+
+</html>

@@ -71,6 +71,7 @@ from datetime import datetime
 #necessary so that our server does not need https
 import os
 from admin.admin import construct_admin_bp
+from regular.regular import construct_regular_bp
 
 os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
 
@@ -115,6 +116,7 @@ else:
 
 app.register_blueprint(fenix_blueprint)
 app.register_blueprint(construct_admin_bp(fenix_blueprint), url_prefix="/admin")
+app.register_blueprint(construct_regular_bp(fenix_blueprint), url_prefix="/regular")
 
 
 # Target database address
