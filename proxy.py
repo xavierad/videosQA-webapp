@@ -272,13 +272,15 @@ def createNewUser():
     try:
         print(j["id"])
         ret = rq.post(url, json=j).json()
-    except:
+        print('AQUI:' + ret)
+    except Exception as e:
+        print(e)
         abort(400)
         #the arguments were incorrect
     if ret:
         now = datetime.now()    
         write_to_log(mode="a",timestamp=now.strftime("%d/%m/%Y %H:%M:%S"),
-            event='Created new user with id ' + str(ret))  
+            event='Created new user ' + str(ret))  
         print(ret)
         return {"id": ret}
     else:

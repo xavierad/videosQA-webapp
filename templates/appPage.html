@@ -13,31 +13,36 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-youtube/2.6.1/Youtube.min.js"></script>
     
         <script>
-            // $(document).ready(function(){
+            $(document).ready(function(){
+                if ('{{userID}}' != '') {                  
+                    addNewUser()   
+                }
 
-            function addNewUser(){            
-                var newUserID = '{{userID}}'
-                var newUserNAME = '{{userName}}'
-                let requestData={"id": newUserID, 'name': newUserNAME}
-                $.ajax({
-                    url: '/API/users/',
-                    type: "POST",
-                    dataType: "json",
-                    contentType: 'application/json',
-                    data: JSON.stringify(requestData),
-                    success: function(data){
-                    console.log("response for user creation "+data)
-                    console.log(data)
-                    }
-                });
-            }
-            // });
+                function addNewUser(){            
+                    var newUserID = '{{userID}}'
+                    var newUserNAME = '{{userName}}'
+                    let requestData={"id": newUserID, 'name': newUserNAME}
+                    $.ajax({
+                        url: '/API/users/',
+                        type: "POST",
+                        dataType: "json",
+                        contentType: 'application/json',
+                        data: JSON.stringify(requestData),
+                        success: function(data){
+                        console.log("response for user creation "+data)
+                        console.log(data)
+                        }
+                    });
+                }
+            });
         </script>
 
+        
         <title>{% block title %}{% endblock %} - Flask</title>
 
         {% if loggedIn %}
-        <p style="font-family:helvetica">User {{newUserID}} logged in</p>
+        
+        <p style="font-family:helvetica">User {{userID}} logged in</p>
         <br>
         <p style="font-family:helvetica">Select an option:</p>
         <a href="{{ url_for("admin.admin_page") }}"> <p style="font-family:helvetica">Private part of the site (needs auth)</p></a>
@@ -46,7 +51,7 @@
         <a href="{{ url_for("logout") }}"> <p style="font-family:helvetica">Logout</p></a>
 
         {% else %}
-        <a href="{{ url_for("fenix-example.login") }}" onclick='addNewUser()'>Login with OAuth</a>
+        <a href="{{ url_for("fenix-example.login") }}">Login with OAuth</a>
 
         {% endif %}
     </head>

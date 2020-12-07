@@ -1,6 +1,7 @@
 from sqlalchemy import create_engine, Column, Integer, String, Date, ForeignKey
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship, scoped_session, sessionmaker
+from sqlalchemy.exc import IntegrityError
 import datetime
 from os import path
 
@@ -17,7 +18,7 @@ Base = declarative_base()
 
 #Declaration of data
 class User(Base):
-    __tablename__ = 'Video'
+    __tablename__ = 'User'
     id = Column(String, primary_key=True)
     name = Column(String)
     # url = Column(String)

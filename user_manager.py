@@ -2,7 +2,7 @@
 A user manager database application to serve proxy
 '''
 
-from flask import Flask, abort, request, redirect, url_for, session, jsonify, render_template
+from flask import Flask, abort, request, redirect, url_for, session, jsonify, render_template, Response
 from time import sleep
 from User_DB import *
 
@@ -41,8 +41,8 @@ def createNewUser():
         #the arguments were incorrect
     if ret:
         return {"id": ret}
-    else:
-        abort(409)
+    else:        
+        return Response(status=208)
     # if there is an erro return ERROR 409
 
 
