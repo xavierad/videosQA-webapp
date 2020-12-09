@@ -39,10 +39,10 @@ def createNewUser():
     except:
         abort(400)
         #the arguments were incorrect
-    if ret:
+    if ret != {}:
         return {"id": ret}
     else:        
-        return Response(status=208)
+        return {}
     # if there is an erro return ERROR 409
 
 
@@ -53,4 +53,4 @@ def index():
     # return app.send_static_file('index.html')
     
 if __name__ == "__main__":
-   app.run(host='127.0.0.1', port=9000, debug=True)
+   app.run(host='127.0.0.1', port=8001, debug=True)

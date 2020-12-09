@@ -77,5 +77,7 @@ def newUser(id, name):
         print(usr.id)
         sql_session.close()
         return usr.id
-    except:
+    except IntegrityError:
+        return {}
+    except: 
         return None
