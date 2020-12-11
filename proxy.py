@@ -123,7 +123,8 @@ app.register_blueprint(construct_regular_bp(fenix_blueprint), url_prefix="/regul
 
 # Target databases addresses
 VIDEOS_URL = 'http://127.0.0.1:8000/API/'
-USERS_URL = 'http://127.0.0.1:9000/API/'
+USERS_URL = 'http://127.0.0.1:8001/API/'
+QUESTIONS_URL = 'http://127.0.0.1:8002/API/'
 
 
 # A log file that will store all events ocurred in the system
@@ -293,11 +294,42 @@ def createNewUser():
 # Related to users
 #-----------------------------------------------------------------------------
 
-# @app.route("/")
-# def index():
-#     return app.send_static_file('index.html')
-    
+#-----------------------------------------------------------------------------
+# Related to Questions
 
+# get a list of questions
+@app.route("/API/questions/", methods=['GET'])
+def returnsQuestionsJSON():
+    url = QUESTIONS_URL + 'questions/'
+    resp = rq.get(url).json()
+    
+    # datetime object containing current date and time and converting it to a string
+    now = datetime.now()    
+    write_to_log(mode="a",timestamp=now.strftime("%d/%m/%Y %H:%M:%S"),
+        event='Questions dictionary returned ' + str(resp['questions'][:]))        
+
+    return resp
+
+@app.route("/API/questions/", methods=['POST'])
+def createNewQuestion():
+    url = QUESTIONS_URL+'questions/'
+    j = request.get_json()
+    print(j)
+    try:
+        print(j["question"])
+        ret = rq.post(url, json=j).json()
+    except:
+        abort(400)
+        #the arguments were incorrect
+    if ret:
+        now = datetime.now()    
+        write_to_log(mode="a",timestamp=now.strftime("%d/%m/%Y %H:%M:%S"),
+            event='Created new question with id ' + str(ret))  
+        print(ret)
+        return {"id": ret}
+    else:
+        abort(409)
+    #if there is an erro return ERROR 409
 
 if __name__ == "__main__":
    app.run(debug=True) # by default it will run in 127.0.0.1:5000

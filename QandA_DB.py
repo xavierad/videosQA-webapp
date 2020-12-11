@@ -5,7 +5,7 @@ import datetime
 from os import path
 
 # SQL access layer initialization
-DATABASE_FILE = "Q&A.sqlite"
+DATABASE_FILE = "QandA.sqlite"
 db_exists = False
 if path.exists(DATABASE_FILE):
     db_exists = True
@@ -20,30 +20,20 @@ class Question(Base):
     __tablename__ = 'Question'
     id = Column(Integer, primary_key=True)
     question = Column(String)
+    #time = Column(String)
+    #user = Column(String)
 
     def __repr__(self):
         return "<Question (id=%d Question=%s>" % (self.id, self.question)
 
     def to_dictionary(self):
-        return {"question_id": self.id, "question": self.answer}
-
-class Answer(Question):
-    __tablename__ = 'Answer'
-    id = Column(Integer, primary_key=True)
-    answer = Column(String)
-
-    def __repr__(self):
-        return "<Answer (id=%d Answer=%s>" % (self.id, self.answer)
-
-    def to_dictionary(self):
-        return {"answer_id": self.id, "answer": self.answer}
+        return {"question_id": self.id, "question": self.question}
 
 
-Base.metadata.create_all(engine) #Create tables for the data models
 
+Base.metadata.create_all(engine)
 Session = sessionmaker(bind=engine)
 sql_session = scoped_session(Session)
-# session = Session()
 
 
 def listQuestions():
@@ -55,10 +45,8 @@ def listQuestionsDICT():
     lq = listQuestions()
     print(lq)
     for q in lq:
-        qa = q.to_dictionary()
-        del(qa["url"])
-        del(qa["views"])
-        ret_list.append(qa)
+        quest = q.to_dictionary()
+        ret_list.append(quest)
     return ret_list
 
 def getQuestion(id):
@@ -66,30 +54,23 @@ def getQuestion(id):
     sql_session.close()
     return q
 
-def getVideoDICT(id):
-    return getVideo(id).to_dictionary()
-
-def newVideoView(id):
-    b = sql_session.query(Video).filter(Video.id==id).first()
-    b.views+=1
-    n = b.views
-    sql_session.commit()
-    sql_session.close()
-    return n
+def getQuestionDICT(id):
+    return getQuestion(id).to_dictionary()
 
 
-def newVideo(description , url):
-    vid = Video(description = description, url = url)
+def newQuestion(question):
+    q = Question(question = question)
     try:
-        sql_session.add(vid)
+        sql_session.add(q)
         sql_session.commit()
-        print(vid.id)
+        print(q.id)
         sql_session.close()
-        return vid.id
-    except:
+        return q.id
+    except Exception as e:
+        print(e)
         return None
 
 
 
-# if __name__ == "__main__":
-#     pass
+if __name__ == "__main__":
+     pass

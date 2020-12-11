@@ -1,8 +1,58 @@
 TIMESTAMP            : EVENT
 
-09/12/2020 12:15:16  : Videos dictionary returned [{'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'video_id': 1}]
+11/12/2020 13:49:05  : Questions dictionary returned [{'question_id': 1}, {'question_id': 2}, {'question_id': 3}, {'question_id': 4}, {'question_id': 5}, {'question_id': 6}, {'question_id': 7}]
 
-09/12/2020 12:15:16  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 2}
+11/12/2020 13:49:05  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 3}
 
-09/12/2020 12:15:18  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 2}
+11/12/2020 13:50:19  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 3}
+
+11/12/2020 13:50:19  : Questions dictionary returned [{'question_id': 1}, {'question_id': 2}, {'question_id': 3}, {'question_id': 4}, {'question_id': 5}, {'question_id': 6}, {'question_id': 7}]
+
+11/12/2020 13:50:32  : Questions dictionary returned [{'question_id': 1}, {'question_id': 2}, {'question_id': 3}, {'question_id': 4}, {'question_id': 5}, {'question_id': 6}, {'question_id': 7}]
+
+11/12/2020 13:50:32  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 3}
+
+11/12/2020 13:51:12  : Questions dictionary returned [{'question_id': 1}, {'question_id': 2}, {'question_id': 3}, {'question_id': 4}, {'question_id': 5}, {'question_id': 6}, {'question_id': 7}]
+
+11/12/2020 13:51:12  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 3}
+
+11/12/2020 13:51:28  : Questions dictionary returned [{'question_id': 1}, {'question_id': 2}, {'question_id': 3}, {'question_id': 4}, {'question_id': 5}, {'question_id': 6}, {'question_id': 7}]
+
+11/12/2020 13:51:28  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 3}
+
+11/12/2020 13:51:31  : Created new question with id {'id': 8}
+
+11/12/2020 13:51:31  : Questions dictionary returned [{'question_id': 1}, {'question_id': 2}, {'question_id': 3}, {'question_id': 4}, {'question_id': 5}, {'question_id': 6}, {'question_id': 7}, {'question_id': 8}]
+
+11/12/2020 13:56:45  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 3}
+
+11/12/2020 13:56:45  : Questions dictionary returned [{'question_id': 1}, {'question_id': 2}, {'question_id': 3}, {'question_id': 4}, {'question_id': 5}, {'question_id': 6}, {'question_id': 7}, {'question_id': 8}]
+
+11/12/2020 13:58:22  : Questions dictionary returned [{'question_id': 1}, {'question_id': 2}, {'question_id': 3}, {'question_id': 4}, {'question_id': 5}, {'question_id': 6}, {'question_id': 7}, {'question_id': 8}]
+
+11/12/2020 13:58:22  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 3}
+
+11/12/2020 13:59:31  : Questions dictionary returned [{'question_id': 1}, {'question_id': 2}, {'question_id': 3}, {'question_id': 4}, {'question_id': 5}, {'question_id': 6}, {'question_id': 7}, {'question_id': 8}]
+
+11/12/2020 13:59:31  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 3}
+
+11/12/2020 13:59:49  : Questions dictionary returned [{'question_id': 1}, {'question_id': 2}, {'question_id': 3}, {'question_id': 4}, {'question_id': 5}, {'question_id': 6}, {'question_id': 7}, {'question_id': 8}]
+
+11/12/2020 13:59:49  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 3}
+
+11/12/2020 14:00:04  : Questions dictionary returned [{'question_id': 1}, {'question_id': 2}, {'question_id': 3}, {'question_id': 4}, {'question_id': 5}, {'question_id': 6}, {'question_id': 7}, {'question_id': 8}]
+
+11/12/2020 14:00:04  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 3}
+
+11/12/2020 14:03:35  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 3}
+
+11/12/2020 14:03:35  : Questions dictionary returned [{'question': 'Does God really exists?', 'question_id': 1}, {'question': 'Does God really exists?', 'question_id': 2}, {'question': 'Does God exists?', 'question_id': 3}, {'question': 'Does God exists?', 'question_id': 4}, {'question': 'agregae', 'question_id': 5}, {'question': 'asva', 'question_id': 6}, {'question': 'zbzdf', 'question_id': 7}, {'question': 'abcdef', 'question_id': 8}]
+
+11/12/2020 14:03:37  : Questions dictionary returned [{'question': 'Does God really exists?', 'question_id': 1}, {'question': 'Does God really exists?', 'question_id': 2}, {'question': 'Does God exists?', 'question_id': 3}, {'question': 'Does God exists?', 'question_id': 4}, {'question': 'agregae', 'question_id': 5}, {'question': 'asva', 'question_id': 6}, {'question': 'zbzdf', 'question_id': 7}, {'question': 'abcdef', 'question_id': 8}]
+
+11/12/2020 14:03:37  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 3}
+
+11/12/2020 14:05:41  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 3}
+
+11/12/2020 14:05:41  : Questions dictionary returned [{'question': 'Does God really exists?', 'question_id': 1}, {'question': 'Does God really exists?', 'question_id': 2}, {'question': 'Does God exists?', 'question_id': 3}, {'question': 'Does God exists?', 'question_id': 4}, {'question': 'agregae', 'question_id': 5}, {'question': 'asva', 'question_id': 6}, {'question': 'zbzdf', 'question_id': 7}, {'question': 'abcdef', 'question_id': 8}]
 

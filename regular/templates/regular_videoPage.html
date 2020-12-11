@@ -17,9 +17,44 @@
     
 
     <script>
+
+    function updateQuestionstable(){
+                $.ajax({
+                    url: '/API/questions/',
+                    type: "GET",
+                    dataType: "json",
+                    success: function (data) {
+                        console.log(data);
+                        $('#questionsTable > tbody:last-child').empty()
+                        data["questions"].forEach(q => {
+                          console.log(q["question_id"]+" "+q["question"])
+                            $('#questionsTable > tbody:last-child').
+                                append('<tr><td>'+ q["question_id"]+'</td><td>' +q["question"] + '</td></tr>');
+                        });
+                    }
+                });
+            }
+
+    function addNewQuestion(question){
+              let requestData={"question": question}
+              $.ajax({
+                  url: '/API/questions/',
+                  type: "POST",
+                  dataType: "json",
+                  contentType: 'application/json',
+                  data: JSON.stringify(requestData),
+                  success: function(data){
+                    console.log("response for question creation"+data)
+                    console.log(data)
+                    updateQuestionstable()
+                  }
+              });
+          }
+
       $(document).ready(function(){
 
         printVideoDescription();
+        updateQuestionstable();
 
         var vPlayer = videojs('videoPlayer');
         // vPlayer.src({ "type": "video/youtube", "src": "https://www.youtube.com/watch?v=xjS6SftYQaQ"});
@@ -38,7 +73,12 @@
               div.innerHTML += description_header
             }
           })
-        }        
+        }  
+
+        $("#buttonAddQuestion").click(function(){
+              newQuestion = $("#newQuestion").val()
+              addNewQuestion(newQuestion)
+        })      
 
         $("#buttonVideoPause").click(function(){
             vPlayer.pause()
@@ -87,6 +127,7 @@
   
   <head></head>
   <body>
+    <!-- V I D E O -->
     <br>
     <div id=description_hd></div>
     <br>
@@ -107,6 +148,27 @@
     </div>
     <button class="ui button" id="buttonVideoResume">
       Resume
+    </button>
+
+    <!-- Q U E S T I O N S  &  A N S W E R S -->
+    <h3>List of questions</h3>
+    <table class="ui celled table selectable" id="questionsTable" >
+      <thead>
+        <tr>
+          <th>Time</th>  <th>Question</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+
+    <h3>Add a new question</h3>
+
+    <div class="ui input">
+      <input type="text" placeholder="Question" id="newQuestion">
+    </div>
+    <button class="ui button" id="buttonAddQuestion">
+      Add new question
     </button>
 
   </body>
