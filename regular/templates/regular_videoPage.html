@@ -27,16 +27,16 @@
                         console.log(data);
                         $('#questionsTable > tbody:last-child').empty()
                         data["questions"].forEach(q => {
-                          console.log(q["question_id"]+" "+q["question"])
+                          console.log(q["time"]+" "+q["question"])
                             $('#questionsTable > tbody:last-child').
-                                append('<tr><td>'+ q["question_id"]+'</td><td>' +q["question"] + '</td></tr>');
+                                append('<tr><td>'+ q["time"]+'</td><td>' +q["question"] + '</td></tr>');
                         });
                     }
                 });
             }
 
-    function addNewQuestion(question){
-              let requestData={"question": question}
+    function addNewQuestion(question, time){
+              let requestData={"question": question, "time": time}
               $.ajax({
                   url: '/API/questions/',
                   type: "POST",
@@ -77,7 +77,8 @@
 
         $("#buttonAddQuestion").click(function(){
               newQuestion = $("#newQuestion").val()
-              addNewQuestion(newQuestion)
+              newTime = $("#resumetime").val()
+              addNewQuestion(newQuestion, newTime)
         })      
 
         $("#buttonVideoPause").click(function(){

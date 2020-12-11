@@ -20,14 +20,14 @@ class Question(Base):
     __tablename__ = 'Question'
     id = Column(Integer, primary_key=True)
     question = Column(String)
-    #time = Column(String)
+    time = Column(String)
     #user = Column(String)
 
     def __repr__(self):
-        return "<Question (id=%d Question=%s>" % (self.id, self.question)
+        return "<Question (id=%d Question=%s Time=%s)>" % (self.id, self.question, self.time)
 
     def to_dictionary(self):
-        return {"question_id": self.id, "question": self.question}
+        return {"question_id": self.id, "question": self.question, "time": self.time}
 
 
 
@@ -46,6 +46,7 @@ def listQuestionsDICT():
     print(lq)
     for q in lq:
         quest = q.to_dictionary()
+        del(quest["time"])
         ret_list.append(quest)
     return ret_list
 
@@ -58,8 +59,8 @@ def getQuestionDICT(id):
     return getQuestion(id).to_dictionary()
 
 
-def newQuestion(question):
-    q = Question(question = question)
+def newQuestion(question, time):
+    q = Question(question = question, time = time)
     try:
         sql_session.add(q)
         sql_session.commit()
