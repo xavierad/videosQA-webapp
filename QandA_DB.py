@@ -46,7 +46,6 @@ def listQuestionsDICT():
     print(lq)
     for q in lq:
         quest = q.to_dictionary()
-        del(quest["time"])
         ret_list.append(quest)
     return ret_list
 

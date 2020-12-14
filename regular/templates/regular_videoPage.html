@@ -49,12 +49,15 @@
                     updateQuestionstable()
                   }
               });
+              
           }
 
       $(document).ready(function(){
 
         printVideoDescription();
         updateQuestionstable();
+        $("#newQuestionForm").hide();
+        // $("#newQuestion")[0].reset();
 
         var vPlayer = videojs('videoPlayer');
         // vPlayer.src({ "type": "video/youtube", "src": "https://www.youtube.com/watch?v=xjS6SftYQaQ"});
@@ -86,14 +89,16 @@
             var pauseTime = vPlayer.currentTime()
             console.log(pauseTime)
             $("#resumetime").val(pauseTime)
-
+            $("#newQuestionForm").show();
           })
         $("#buttonVideoResume").click(function(){
             vPlayer.currentTime( parseFloat($("#resumetime").val()))
             vPlayer.play()
+            $("#newQuestionForm").hide();
         })
 
         $("#buttonPlayVideo").click(function(){
+          $("#newQuestionForm").hide();
           var videoID = '{{videoID}}'
             $.ajax({            
             // retrieve the corresponding URL by 
@@ -126,7 +131,7 @@
     </script>
 
   
-  <head></head>
+  
   <body>
     <!-- V I D E O -->
     <br>
@@ -163,14 +168,17 @@
       </tbody>
     </table>
 
-    <h3>Add a new question</h3>
 
-    <div class="ui input">
-      <input type="text" placeholder="Question" id="newQuestion">
+    <div id='newQuestionForm'>
+      <h3>Add a new question</h3>
+
+      <div class="ui input">
+        <input type="text" placeholder="Question" id="newQuestion">
+      </div>
+      <button class="ui button" id="buttonAddQuestion">
+        Add new question
+      </button>
     </div>
-    <button class="ui button" id="buttonAddQuestion">
-      Add new question
-    </button>
 
   </body>
 
