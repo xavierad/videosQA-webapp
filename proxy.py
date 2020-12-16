@@ -13,7 +13,6 @@ Dúvidas:
 ( ) - login: token and takes too much time
 ( ) - 
 ( ) - 
-( ) - 
 
 
 A fazer:
@@ -115,7 +114,7 @@ elif fenix_id=='xavier':
 else:
     sys.exit()
 
-
+user = {}
 app.register_blueprint(fenix_blueprint)
 app.register_blueprint(construct_admin_bp(fenix_blueprint), url_prefix="/admin")
 app.register_blueprint(construct_regular_bp(fenix_blueprint), url_prefix="/regular")
@@ -153,10 +152,10 @@ def home_page():
     #if the user is authenticated then a request to FENIX is made
     resp = fenix_blueprint.session.get("/api/fenix/v1/person/")
     #res contains the responde made to /api/fenix/vi/person (information about current user)
-    data = resp.json() 
+    user = resp.json() 
     print(resp.json())
            
-    return render_template("appPage.html", loggedIn = fenix_blueprint.session.authorized, userID=data['username'], userName=data['name'])
+    return render_template("appPage.html", loggedIn = fenix_blueprint.session.authorized, userID=user['username'], userName=user['name'])
 
 @app.route('/logout')
 def logout():
@@ -230,9 +229,46 @@ def newView(id):
 #-----------------------------------------------------------------------------
 # Related to questions
 
+# get a list of questions
+@app.route("/API/questions/", methods=['GET'])
+def returnsQuestionsJSON():
+    url = QUESTIONS_URL + 'questions/'
+    resp = rq.get(url).json()
+    
+    # datetime object containing current date and time and converting it to a string
+    now = datetime.now()    
+    write_to_log(mode="a",timestamp=now.strftime("%d/%m/%Y %H:%M:%S"),
+        event='Questions dictionary returned ' + str(resp['questions'][:]))        
+
+    return resp
+
+# create a new question
+@app.route("/API/questions/", methods=['POST'])
+def createNewQuestion():
+    url = QUESTIONS_URL+'questions/'
+    j = request.get_json()
+    print(j)
+    try:
+        print(j["question"])
+        ret = rq.post(url, json=j).json()
+    except:
+        abort(400)
+        #the arguments were incorrect
+    if ret:
+        now = datetime.now()    
+        write_to_log(mode="a",timestamp=now.strftime("%d/%m/%Y %H:%M:%S"),
+            event='Created new question with id ' + str(ret))  
+        print(ret)
+        return {"id": ret}
+    else:
+        abort(409)
+    #if there is an erro return ERROR 409
+
 # Related to questions
 #-----------------------------------------------------------------------------
 # Related to answers
+
+
 
 # Related to answers
 #-----------------------------------------------------------------------------
@@ -294,42 +330,8 @@ def createNewUser():
 # Related to users
 #-----------------------------------------------------------------------------
 
-#-----------------------------------------------------------------------------
-# Related to Questions
 
-# get a list of questions
-@app.route("/API/questions/", methods=['GET'])
-def returnsQuestionsJSON():
-    url = QUESTIONS_URL + 'questions/'
-    resp = rq.get(url).json()
-    
-    # datetime object containing current date and time and converting it to a string
-    now = datetime.now()    
-    write_to_log(mode="a",timestamp=now.strftime("%d/%m/%Y %H:%M:%S"),
-        event='Questions dictionary returned ' + str(resp['questions'][:]))        
 
-    return resp
-
-@app.route("/API/questions/", methods=['POST'])
-def createNewQuestion():
-    url = QUESTIONS_URL+'questions/'
-    j = request.get_json()
-    print(j)
-    try:
-        print(j["question"])
-        ret = rq.post(url, json=j).json()
-    except:
-        abort(400)
-        #the arguments were incorrect
-    if ret:
-        now = datetime.now()    
-        write_to_log(mode="a",timestamp=now.strftime("%d/%m/%Y %H:%M:%S"),
-            event='Created new question with id ' + str(ret))  
-        print(ret)
-        return {"id": ret}
-    else:
-        abort(409)
-    #if there is an erro return ERROR 409
 
 if __name__ == "__main__":
    app.run(debug=True) # by default it will run in 127.0.0.1:5000

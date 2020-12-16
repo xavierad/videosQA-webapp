@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -10,6 +13,8 @@
     <link href="https://vjs.zencdn.net/7.8.4/video-js.css" rel="stylesheet" />
     <script src="http://vjs.zencdn.net/7.8.4/video.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-youtube/2.6.1/Youtube.min.js"></script>
+    
+    
 
     <script>
             
@@ -26,7 +31,36 @@
             div.innerHTML += description_header
           }
         })
-      }      
+      }  
+      
+      function getVideo(vPlayer){
+        var videoID = '{{videoID}}'
+        $.ajax({            
+          // retrieve the corresponding URL by 
+          // calling the /videos/<id>/ REST endpoint)
+          url: '/API/videos/'+videoID+'/',
+          type: "GET",
+          dataType: "json",
+          success: function (data) {
+            console.log(data)
+            url = data['url']
+            console.log(url)
+            //TODO 8 - update the player with the url retrieved
+            vPlayer.src({ "type": "video/youtube", "src": url});
+            vPlayer.play()
+            
+            $.ajax({
+              //TODO 9 - increase the number of views
+              url: '/API/videos/'+videoID+'/views',
+              type: "PUT",
+              dataType: "json",
+              success: function (data) {
+                console.log(data)
+              }
+            })                          
+          }
+        });
+      }
 
       function updateQuestionstable(){
         $.ajax({
@@ -60,25 +94,42 @@
             }
         });        
       }
-        
+      
       $(document).ready(function(){
         
         var vPlayer = videojs('videoPlayer');    
-        var notPlayedyet;
-
+        console.log('hereee')
         printVideoDescription(); // print video header
         updateQuestionstable(); // update questions table 
+        getVideo(vPlayer); // get the video and play it
        
         $("#newQuestionForm").hide();    // by default the page hides the new question form       
 
-        // to show new question form
+        // when the video is paused
         vPlayer.on("pause", function () {
+          // to show new question form
           $("#newQuestionForm")[0].reset(); // reset previous values
           $("#newQuestionForm").show(); 
+
+          // to play the video with button with id buttonPlayVideo
+          $("#buttonPlayVideo").click(function(){        
+            vPlayer.currentTime( parseFloat($("#resumetime").val()))
+            vPlayer.play()
+          })
         });
-        // to hide new question form
+
+        // when the video is playing  
         vPlayer.on("play", function () {
+          // to hide new question form
           $("#newQuestionForm").hide(); 
+
+          // to pause the video with the button with id buttonVideoPause
+          $("#buttonVideoPause").click(function(){
+            vPlayer.pause()
+            var pauseTime = vPlayer.currentTime()
+            console.log(pauseTime)
+            $("#resumetime").val(pauseTime)        
+          })
         });
 
         // when a new question was added
@@ -100,53 +151,13 @@
           $("#resumetime").val(pauseTime)        
         })
 
-        // to play the video with button with id buttonPlayVideo
-        $("#buttonPlayVideo").click(function(){
 
-          // Playing for the first time when the page is accessed and also incrementing the number of views
-          if (notPlayedyet != 1) {
-            var videoID = '{{videoID}}'
-            $.ajax({            
-              // retrieve the corresponding URL by 
-              // calling the /videos/<id>/ REST endpoint)
-              url: '/API/videos/'+videoID+'/',
-              type: "GET",
-              dataType: "json",
-              success: function (data) {
-                console.log(data)
-                url = data['url']
-                console.log(url)
-                //TODO 8 - update the player with the url retrieved
-                vPlayer.src({ "type": "video/youtube", "src": url});
-                vPlayer.play()
-                
-                $.ajax({
-                  //TODO 9 - increase the number of views
-                  url: '/API/videos/'+videoID+'/views',
-                  type: "PUT",
-                  dataType: "json",
-                  success: function (data) {
-                    console.log(data)
-                  }
-                })                          
-              }
-            });
-            notPlayedyet = 1;
-          }       
-          // to resume the video
-          else {            
-            vPlayer.currentTime( parseFloat($("#resumetime").val()))
-            vPlayer.play()
-          }
-
-          console.log(notPlayedyet)
-        })
       });
 
     </script>
 
   
-  </head>
+  
   <body>
     <!-- V I D E O -->
     <br>
@@ -180,6 +191,7 @@
       </tbody>
     </table>
 
+
     <form id='newQuestionForm'>
       <h3>Add a new question</h3>
 
@@ -189,19 +201,6 @@
       <!-- Note that type of button was added in order to prevent the page to reload -->
       <button class="ui button" id="buttonAddQuestion" type="button">
         Add new question
-      </button>
-      
-    </form>
-
-    <form id='newAnswerForm'>
-      <h3>Add a new answer</h3>
-
-      <div class="ui input">
-        <input type="text" placeholder="Answer" id="newQuestion">
-      </div>
-      <!-- Note that type of button was added in order to prevent the page to reload -->
-      <button class="ui button" id="buttonAddAnswer" type="button">
-        Add new answer
       </button>
     </form>
 
