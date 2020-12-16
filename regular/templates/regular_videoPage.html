@@ -39,14 +39,14 @@
                 data["questions"].forEach(q => {
                   console.log(q["time"]+" "+q["question"])
                     $('#questionsTable > tbody:last-child').
-                        append('<tr><td>'+ q["time"]+'</td><td>' +q["question"] + '</td></tr>');
+                        append('<tr><td>'+ q["time"]+'</td><td>' +q["question"] + '</td> <td><button class="ui button" id="buttonQDetails">Details</button></td></tr>');
                 });
             }
         });
       }
 
-      function addNewQuestion(question, time){
-        let requestData={"question": question, "time": time}
+      function addNewQuestion(question, user, time){
+        let requestData={"question": question, "user": user, "time": time}
         $.ajax({
             url: '/API/questions/',
             type: "POST",
@@ -95,7 +95,8 @@
         $("#buttonAddQuestion").click(function(){
           newQuestion = $("#newQuestion").val()
           newTime = $("#resumetime").val()
-          addNewQuestion(newQuestion, newTime)
+          user = '{{username}}' // only goes ist id!
+          addNewQuestion(newQuestion, user, newTime)
           
           // automatically resumes the video
           vPlayer.currentTime( parseFloat($("#resumetime").val()))
@@ -151,12 +152,17 @@
 
           console.log(notPlayedyet)
         })
+
+        // get the details about the question
+        $("#buttonQDetails").click(function() {
+
+        })
+
       });
 
-    </script>
-
-  
+    </script>  
   </head>
+
   <body>
     <!-- V I D E O -->
     <br>
@@ -180,18 +186,20 @@
 
     <!-- Q U E S T I O N S  &  A N S W E R S -->
     <h3>List of questions</h3>
-    <table class="ui celled table selectable" id="questionsTable" >
+    <table class="ui celled table" id="questionsTable" >
       <thead>
         <tr>
-          <th>Time</th>  <th>Question</th>
+          <th>Time</th><th>Question</th><th></th>
         </tr>
       </thead>
       <tbody>
       </tbody>      
-    </table>
+    </table> 
 
     <button class="ui button" id="buttonNewQuestion">New Question</button>
-    <form id='newQuestionForm'>
+
+    User {{username}} {{name}}
+    <form id='newQuestionForm'>      
       <h3>Add a new question</h3>
 
       <div class="ui input">

@@ -21,13 +21,13 @@ class Question(Base):
     id = Column(Integer, primary_key=True)
     question = Column(String)
     time = Column(String)
-    #user = Column(String)
+    user = Column(String)
 
     def __repr__(self):
-        return "<Question (id=%d Question=%s Time=%s)>" % (self.id, self.question, self.time)
+        return "<Question (id=%d Question=%s User=%s Time=%s)>" % (self.id, self.question, self.user, self.time)
 
     def to_dictionary(self):
-        return {"question_id": self.id, "question": self.question, "time": self.time}
+        return {"question_id": self.id, "question": self.question, "user": self.user, "time": self.time}
 
 
 
@@ -58,8 +58,8 @@ def getQuestionDICT(id):
     return getQuestion(id).to_dictionary()
 
 
-def newQuestion(question, time):
-    q = Question(question = question, time = time)
+def newQuestion(question, user, time):
+    q = Question(question=question, user=user, time=time)
     try:
         sql_session.add(q)
         sql_session.commit()

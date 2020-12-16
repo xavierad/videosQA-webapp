@@ -26,7 +26,7 @@ def createNewQuestion():
     ret = False
     try:
         print(j["question"])
-        ret = newQuestion(j["question"], j["time"])
+        ret = newQuestion(j["question"], j["user"], j["time"])
     except:
         abort(400)
         #the arguments were incorrect
