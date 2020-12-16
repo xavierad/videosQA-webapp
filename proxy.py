@@ -11,7 +11,7 @@ Dúvidas:
 (X) - confirm extensibility logic of video_app
 ( ) - index.html porquÊ no static e não no template?
 ( ) - login: token and takes too much time
-( ) - 
+( ) - when an user wants to add new question he must click on New Question and video should be paused. Can we make it otherwise (pause to be able que add new question)?
 ( ) - 
 
 
