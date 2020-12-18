@@ -269,8 +269,8 @@ def createNewQuestion():
 # Related to answers
 
 # get a list of answers regarding a question
-@app.route("/API/questions/<int:question_id>", methods=['GET'])
-def returnsQuestionsJSON(question_id):
+@app.route("/API/questions/<int:question_id>/", methods=['GET'])
+def returnsAnswersJSON(question_id):
     url = QUESTIONS_URL + 'questions/'+str(question_id)
     resp = rq.get(url).json()
     
@@ -281,9 +281,9 @@ def returnsQuestionsJSON(question_id):
 
     return resp
 
-# create a new question
-@app.route("/API/questions/<int:question_id>", methods=['POST'])
-def createNewQuestion(question_id):
+# create a new answer
+@app.route("/API/questions/<int:question_id>/", methods=['POST'])
+def createNewAnswer(question_id):
     url = QUESTIONS_URL+'questions/'+str(question_id)
     j = request.get_json()
     print(j)

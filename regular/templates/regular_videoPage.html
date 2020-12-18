@@ -29,6 +29,7 @@
       }      
 
       function updateQuestionstable(){
+        
         $.ajax({
             url: '/API/questions/',
             type: "GET",
@@ -82,7 +83,7 @@
           $("#newQuestionForm").hide(); 
         });
 
-        // when a new question was added
+        // when the user wants to add a new question
         $("#buttonNewQuestion").click(function(){       
           // automatically pauses the video
           vPlayer.pause()
@@ -95,7 +96,7 @@
           $("#newQuestionForm").show(); 
         })  
 
-        // when a new question was added
+        // when a new question is added
         $("#buttonAddQuestion").click(function(){
           newQuestion = $("#newQuestion").val()
           newTime = $("#resumetime").val()
@@ -159,6 +160,7 @@
 
         // get the details about the question
         $("#buttonQDetails").click(function() {
+          consoloe.log('hereee')
           $.ajax({            
               // retrieve the corresponding URL by 
               // calling the /questions/<question_id>/ REST endpoint)
