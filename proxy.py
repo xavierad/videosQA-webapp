@@ -268,7 +268,40 @@ def createNewQuestion():
 #-----------------------------------------------------------------------------
 # Related to answers
 
+# get a list of answers regarding a question
+@app.route("/API/questions/<int:question_id>", methods=['GET'])
+def returnsQuestionsJSON(question_id):
+    url = QUESTIONS_URL + 'questions/'+str(question_id)
+    resp = rq.get(url).json()
+    
+    # datetime object containing current date and time and converting it to a string
+    now = datetime.now()    
+    write_to_log(mode="a",timestamp=now.strftime("%d/%m/%Y %H:%M:%S"),
+        event='Answer(s) dictionary returned ' + str(resp['answers'][:]))        
 
+    return resp
+
+# create a new question
+@app.route("/API/questions/<int:question_id>", methods=['POST'])
+def createNewQuestion(question_id):
+    url = QUESTIONS_URL+'questions/'+str(question_id)
+    j = request.get_json()
+    print(j)
+    try:
+        print(f'Question {j["question"]} | Answer {j["answer"]}')
+        ret = rq.post(url, json=j).json()
+    except:
+        abort(400)
+        #the arguments were incorrect
+    if ret:
+        now = datetime.now()    
+        write_to_log(mode="a",timestamp=now.strftime("%d/%m/%Y %H:%M:%S"),
+            event='Created new answer with id ' + str(ret))  
+        print(ret)
+        return {"id": ret}
+    else:
+        abort(409)
+    #if there is an erro return ERROR 409
 
 # Related to answers
 #-----------------------------------------------------------------------------

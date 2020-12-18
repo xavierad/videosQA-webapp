@@ -1,10 +1,2 @@
 TIMESTAMP            : EVENT
 
-16/12/2020 20:29:51  : Created new question with id {'id': 1}
-
-16/12/2020 20:29:51  : Questions dictionary returned [{'question': 'is this a question?', 'question_id': 1, 'time': '0.7618619523162842', 'user': 'ist187136'}]
-
-16/12/2020 20:30:18  : Created new question with id {'id': 2}
-
-16/12/2020 20:30:18  : Questions dictionary returned [{'question': 'is this a question?', 'question_id': 1, 'time': '0.7618619523162842', 'user': 'ist187136'}, {'question': 'und diese?', 'question_id': 2, 'time': '22.23228493133545', 'user': 'ist187136'}]
-

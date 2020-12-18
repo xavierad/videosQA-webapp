@@ -72,23 +72,27 @@
         $("#newQuestionForm").hide();    // by default the page hides the new question form       
 
         // to show new question form
-        vPlayer.on("pause", function () {
-          $("#newQuestionForm")[0].reset(); // reset previous values
-          $("#newQuestionForm").show(); 
-        });
+        // vPlayer.on("pause", function () {
+        //   $("#newQuestionForm")[0].reset(); // reset previous values
+        //   $("#newQuestionForm").show(); 
+        // });
+
         // to hide new question form
         vPlayer.on("play", function () {
           $("#newQuestionForm").hide(); 
         });
 
         // when a new question was added
-        $("#buttonNewQuestion").click(function(){         
-          
+        $("#buttonNewQuestion").click(function(){       
           // automatically pauses the video
           vPlayer.pause()
           var pauseTime = vPlayer.currentTime()
           console.log(pauseTime)
           $("#resumetime").val(pauseTime)  
+          
+          // to show new question form
+          $("#newQuestionForm")[0].reset(); // reset previous values
+          $("#newQuestionForm").show(); 
         })  
 
         // when a new question was added
@@ -155,7 +159,31 @@
 
         // get the details about the question
         $("#buttonQDetails").click(function() {
-
+          $.ajax({            
+              // retrieve the corresponding URL by 
+              // calling the /questions/<question_id>/ REST endpoint)
+              url: '/API/questions/'+question_id+'/',
+              type: "GET",
+              dataType: "json",
+              success: function (data) {
+                console.log(data)
+                url = data['url']
+                console.log(url)
+                //TODO 8 - update the player with the url retrieved
+                vPlayer.src({ "type": "video/youtube", "src": url});
+                vPlayer.play()
+                
+                $.ajax({
+                  //TODO 9 - increase the number of views
+                  url: '/API/videos/'+videoID+'/views',
+                  type: "PUT",
+                  dataType: "json",
+                  success: function (data) {
+                    console.log(data)
+                  }
+                })                          
+              }
+            });
         })
 
       });

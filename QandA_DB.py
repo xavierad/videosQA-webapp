@@ -30,12 +30,24 @@ class Question(Base):
         return {"question_id": self.id, "question": self.question, "user": self.user, "time": self.time}
 
 
+class Answer(Base):
+    __tablename__ = 'Answer'
+    id = Column(Integer, primary_key=True)
+    question_id = Column(Integer)    
+    answer = Column(String)
+
+    def __repr__(self):
+        return "<Answer (id=%d Question_id=%s Answer=%s)>" % (self.id, self.question_id, self.answer)
+
+    def to_dictionary(self):
+        return {"answer_id":self.id, "question_id":self.question_id, "answer":self.answer}
+
 
 Base.metadata.create_all(engine)
 Session = sessionmaker(bind=engine)
 sql_session = scoped_session(Session)
 
-
+# Regarding Questions
 def listQuestions():
     return sql_session.query(Question).all()
     sql_session.close()
@@ -57,7 +69,6 @@ def getQuestion(id):
 def getQuestionDICT(id):
     return getQuestion(id).to_dictionary()
 
-
 def newQuestion(question, user, time):
     q = Question(question=question, user=user, time=time)
     try:
@@ -70,7 +81,33 @@ def newQuestion(question, user, time):
         print(e)
         return None
 
+# Regarding Answers
+# to get a list of answers (if any) for a question
+def listAnswers(question_id):
+    return sql_session.query(Answer).filter(Answer.question_id==question_id).all()
+    sql_session.close()
+
+def listAnswersDICT(question_id):
+    ret_list = []
+    la = listAnswers(question_id)
+    print(la)
+    for ans in la:
+        ans_dict = ans.to_dictionary()
+        ret_list.append(ans_dict)
+    return ret_list
+
+def newAnswer(answer, question_id):
+    ans = Answer(question_id=question_id, answer=answer)
+    try:
+        sql_session.add(ans)
+        sql_session.commit()
+        print(ans.id)
+        sql_session.close()
+        return ans.id
+    except Exception as e:
+        print(e)
+        return None
 
 
 if __name__ == "__main__":
-     pass
+    pass
