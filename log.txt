@@ -1,30 +1,146 @@
 TIMESTAMP            : EVENT
 
-18/12/2020 19:25:15  : Questions dictionary returned [{'question': 'Hello?', 'question_id': 1, 'time': '4.407585', 'user': 'ist187136'}]
+19/12/2020 14:58:45  : Videos dictionary returned [{'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'video_id': 1}]
 
-18/12/2020 19:25:15  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 79}
+19/12/2020 14:58:45  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 80}
 
-18/12/2020 19:32:34  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 79}
+19/12/2020 14:58:49  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 80}
 
-18/12/2020 19:32:57  : Questions dictionary returned [{'question': 'Hello?', 'question_id': 1, 'time': '4.407585', 'user': 'ist187136'}]
+19/12/2020 14:58:49  : Questions dictionary returned [{'question': 'Hello?', 'question_id': 1, 'time': '4.407585', 'user': 'ist187136'}]
 
-18/12/2020 19:32:57  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 79}
+19/12/2020 14:59:09  : Questions dictionary returned [{'question': 'Hello?', 'question_id': 1, 'time': '4.407585', 'user': 'ist187136'}]
 
-18/12/2020 19:33:19  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 79}
+19/12/2020 14:59:09  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 80}
 
-18/12/2020 19:34:03  : Questions dictionary returned [{'question': 'Hello?', 'question_id': 1, 'time': '4.407585', 'user': 'ist187136'}]
+19/12/2020 14:59:15  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 80}
 
-18/12/2020 19:34:03  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 80}
+19/12/2020 14:59:35  : Questions dictionary returned [{'question': 'Hello?', 'question_id': 1, 'time': '4.407585', 'user': 'ist187136'}]
 
-18/12/2020 19:39:30  : Questions dictionary returned [{'question': 'Hello?', 'question_id': 1, 'time': '4.407585', 'user': 'ist187136'}]
+19/12/2020 14:59:35  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 81}
 
-18/12/2020 19:39:30  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 80}
+19/12/2020 14:59:56  : Questions dictionary returned [{'question': 'Hello?', 'question_id': 1, 'time': '4.407585', 'user': 'ist187136'}]
 
-18/12/2020 19:39:37  : Questions dictionary returned [{'question': 'Hello?', 'question_id': 1, 'time': '4.407585', 'user': 'ist187136'}]
+19/12/2020 14:59:56  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 81}
 
-18/12/2020 19:39:37  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 80}
+19/12/2020 15:00:01  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 81}
 
-18/12/2020 19:40:49  : Questions dictionary returned [{'question': 'Hello?', 'question_id': 1, 'time': '4.407585', 'user': 'ist187136'}]
+19/12/2020 15:01:54  : Questions dictionary returned [{'question': 'Hello?', 'question_id': 1, 'time': '4.407585', 'user': 'ist187136'}]
 
-18/12/2020 19:40:49  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 80}
+19/12/2020 15:01:54  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 82}
+
+19/12/2020 15:04:50  : Questions dictionary returned [{'question': 'Hello?', 'question_id': 1, 'time': '4.407585', 'user': 'ist187136'}]
+
+19/12/2020 15:04:50  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 82}
+
+19/12/2020 15:05:38  : Questions dictionary returned [{'question': 'Hello?', 'question_id': 1, 'time': '4.407585', 'user': 'ist187136'}]
+
+19/12/2020 15:05:38  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 82}
+
+19/12/2020 15:08:35  : Questions dictionary returned [{'question': 'Hello?', 'question_id': 1, 'time': '4.407585', 'user': 'ist187136'}]
+
+19/12/2020 15:08:35  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 82}
+
+19/12/2020 15:09:30  : Questions dictionary returned [{'question': 'Hello?', 'question_id': 1, 'time': '4.407585', 'user': 'ist187136'}]
+
+19/12/2020 15:09:30  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 82}
+
+19/12/2020 15:12:07  : Questions dictionary returned [{'question': 'Hello?', 'question_id': 1, 'time': '4.407585', 'user': 'ist187136'}]
+
+19/12/2020 15:12:07  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 82}
+
+19/12/2020 15:12:34  : Created new question with id {'id': 2}
+
+19/12/2020 15:12:34  : Questions dictionary returned [{'question': 'Hello?', 'question_id': 1, 'time': '4.407585', 'user': 'ist187136'}, {'question': 'Hello? Are you there?', 'question_id': 2, 'time': '0', 'user': 'ist187136'}]
+
+19/12/2020 15:12:44  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 82}
+
+19/12/2020 15:13:26  : Questions dictionary returned [{'question': 'Hello?', 'question_id': 1, 'time': '4.407585', 'user': 'ist187136'}, {'question': 'Hello? Are you there?', 'question_id': 2, 'time': '0', 'user': 'ist187136'}]
+
+19/12/2020 15:13:26  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 83}
+
+19/12/2020 15:13:49  : Questions dictionary returned [{'question': 'Hello?', 'question_id': 1, 'time': '4.407585', 'user': 'ist187136'}, {'question': 'Hello? Are you there?', 'question_id': 2, 'time': '0', 'user': 'ist187136'}]
+
+19/12/2020 15:13:49  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 83}
+
+19/12/2020 15:15:10  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 83}
+
+19/12/2020 15:15:35  : Questions dictionary returned [{'question': 'Hello?', 'question_id': 1, 'time': '4.407585', 'user': 'ist187136'}, {'question': 'Hello? Are you there?', 'question_id': 2, 'time': '0', 'user': 'ist187136'}]
+
+19/12/2020 15:15:35  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 83}
+
+19/12/2020 15:22:04  : Questions dictionary returned [{'question': 'Hello?', 'question_id': 1, 'time': '4.407585', 'user': 'ist187136'}, {'question': 'Hello? Are you there?', 'question_id': 2, 'time': '0', 'user': 'ist187136'}]
+
+19/12/2020 15:22:04  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 83}
+
+19/12/2020 15:25:20  : Questions dictionary returned [{'question': 'Hello?', 'question_id': 1, 'time': '4.407585', 'user': 'ist187136'}, {'question': 'Hello? Are you there?', 'question_id': 2, 'time': '0', 'user': 'ist187136'}]
+
+19/12/2020 15:25:20  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 83}
+
+19/12/2020 15:26:32  : Questions dictionary returned [{'question': 'Hello?', 'question_id': 1, 'time': '4.407585', 'user': 'ist187136'}, {'question': 'Hello? Are you there?', 'question_id': 2, 'time': '0', 'user': 'ist187136'}]
+
+19/12/2020 15:26:32  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 83}
+
+19/12/2020 15:27:01  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 83}
+
+19/12/2020 15:27:18  : Questions dictionary returned [{'question': 'Hello?', 'question_id': 1, 'time': '4.407585', 'user': 'ist187136'}, {'question': 'Hello? Are you there?', 'question_id': 2, 'time': '0', 'user': 'ist187136'}]
+
+19/12/2020 15:27:18  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 83}
+
+19/12/2020 15:27:29  : Questions dictionary returned [{'question': 'Hello?', 'question_id': 1, 'time': '4.407585', 'user': 'ist187136'}, {'question': 'Hello? Are you there?', 'question_id': 2, 'time': '0', 'user': 'ist187136'}]
+
+19/12/2020 15:27:29  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 83}
+
+19/12/2020 15:27:46  : Questions dictionary returned [{'question': 'Hello?', 'question_id': 1, 'time': '4.407585', 'user': 'ist187136'}, {'question': 'Hello? Are you there?', 'question_id': 2, 'time': '0', 'user': 'ist187136'}]
+
+iews': 83}
+
+19/12/2020 15:42:48  : Questions dictionary returned [{'question': 'Hello?', 'question_id': 1, 'time': '4.407585', 'user': 'ist187136'}, {'question': 'Hello? Are you there?', 'question_id': 2, 'time': '0', 'user': 'ist187136'}]
+
+19/12/2020 15:42:48  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 83}
+
+19/12/2020 15:43:28  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 83}
+
+19/12/2020 15:43:28  : Questions dictionary returned [{'question': 'Hello?', 'question_id': 1, 'time': '4.407585', 'user': 'ist187136'}, {'question': 'Hello? Are you there?', 'question_id': 2, 'time': '0', 'user': 'ist187136'}]
+
+19/12/2020 15:43:39  : Questions dictionary returned [{'question': 'Hello?', 'question_id': 1, 'time': '4.407585', 'user': 'ist187136'}, {'question': 'Hello? Are you there?', 'question_id': 2, 'time': '0', 'user': 'ist187136'}]
+
+19/12/2020 15:43:39  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 83}
+
+19/12/2020 15:43:43  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 83}
+
+19/12/2020 15:44:13  : Questions dictionary returned [{'question': 'Hello?', 'question_id': 1, 'time': '4.407585', 'user': 'ist187136'}, {'question': 'Hello? Are you there?', 'question_id': 2, 'time': '0', 'user': 'ist187136'}]
+
+19/12/2020 15:44:13  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 83}
+
+19/12/2020 15:44:46  : Questions dictionary returned [{'question': 'Hello?', 'question_id': 1, 'time': '4.407585', 'user': 'ist187136'}, {'question': 'Hello? Are you there?', 'question_id': 2, 'time': '0', 'user': 'ist187136'}]
+
+iews': 83}
+
+19/12/2020 15:44:58  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 83}
+
+19/12/2020 15:44:58  : Questions dictionary returned [{'question': 'Hello?', 'question_id': 1, 'time': '4.407585', 'user': 'ist187136'}, {'question': 'Hello? Are you there?', 'question_id': 2, 'time': '0', 'user': 'ist187136'}]
+
+19/12/2020 15:48:11  : Questions dictionary returned [{'question': 'Hello?', 'question_id': 1, 'time': '4.407585', 'user': 'ist187136'}, {'question': 'Hello? Are you there?', 'question_id': 2, 'time': '0', 'user': 'ist187136'}]
+
+19/12/2020 15:48:11  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 83}
+
+19/12/2020 15:48:30  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 83}
+
+19/12/2020 15:49:43  : Questions dictionary returned [{'question': 'Hello?', 'question_id': 1, 'time': '4.407585', 'user': 'ist187136'}, {'question': 'Hello? Are you there?', 'question_id': 2, 'time': '0', 'user': 'ist187136'}]
+
+19/12/2020 15:49:43  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 83}
+
+19/12/2020 15:50:18  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 83}
+
+19/12/2020 15:50:18  : Questions dictionary returned [{'question': 'Hello?', 'question_id': 1, 'time': '4.407585', 'user': 'ist187136'}, {'question': 'Hello? Are you there?', 'question_id': 2, 'time': '0', 'user': 'ist187136'}]
+
+19/12/2020 15:50:19  : Answer(s) dictionary returned [{'answer': 'asd', 'answer_id': 1, 'question_id': 1}, {'answer': 'asd', 'answer_id': 2, 'question_id': 1}, {'answer': 'asd', 'answer_id': 3, 'question_id': 1}, {'answer': 'asd', 'answer_id': 4, 'question_id': 1}, {'answer': 'asd', 'answer_id': 5, 'question_id': 1}]
+
+19/12/2020 15:50:30  : Answer(s) dictionary returned []
+
+19/12/2020 15:58:36  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 83}
+
+19/12/2020 15:58:39  : Answer(s) dictionary returned [{'answer': 'asd', 'answer_id': 1, 'question_id': 1}, {'answer': 'asd', 'answer_id': 2, 'question_id': 1}, {'answer': 'asd', 'answer_id': 3, 'question_id': 1}, {'answer': 'asd', 'answer_id': 4, 'question_id': 1}, {'answer': 'asd', 'answer_id': 5, 'question_id': 1}]
+
+19/12/2020 15:58:41  : Answer(s) dictionary returned []
 
