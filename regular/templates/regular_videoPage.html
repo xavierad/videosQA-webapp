@@ -49,6 +49,24 @@
         }); 
       }
 
+      // a function to get all answers and to update the table containing all answers about the question
+      function updateAnswerstable(question_id){        
+        $.ajax({
+          url: '/API/questions/'+question_id+'/',
+          type: "GET",
+          dataType: "json",
+          success: function (data) {
+            console.log(data)
+            answers = data['answers']
+            $('#answersTable > tbody:last-child').empty()
+            answers.forEach(a => {
+              $('#answersTable > tbody:last-child').
+                  append('<tr><td>'+ a["user_id"]+'</td><td>'+ a["user_name"]+'</td><td>'+ a["answer"]+'</td></tr>');
+            });  
+          }
+        }); 
+      }
+
       //to add a new question
       function addNewQuestion(question, user, time){
         let requestData={"question": question, "user": user, "time": time}
@@ -65,6 +83,23 @@
           }
         });        
       }
+
+      //to add a new answer
+      function addNewAnswer(answer, user_id, user_name, question_id){
+        let requestData={"answer": answer, "user_id": user_id, "user_name": user_name, "question_id": question_id}
+        $.ajax({
+          url: '/API/questions/'+question_id+'/',
+          type: "POST",
+          dataType: "json",
+          contentType: 'application/json',
+          data: JSON.stringify(requestData),
+          success: function(data){
+            console.log("response for answer creation"+data)
+            console.log(data)
+            updateAnswerstable(question_id)
+          }
+        });        
+      }
         
       // to get question when button Details is pressed
       function getQuestion(question){
@@ -73,22 +108,7 @@
         $("#newAnswerForm").show();
         console.log(question['question'])
         question_id = question['question_id']
-        $.ajax({            
-          // retrieve the corresponding URL by 
-          // calling the /questions/<question_id>/ REST endpoint)
-          url: '/API/questions/'+question_id+'/',
-          type: "GET",
-          dataType: "json",
-          success: function (data) {
-            console.log(data)   
-            answers = data['answers']
-            $('#answersTable > tbody:last-child').empty()
-            answers.forEach(a => {
-              $('#answersTable > tbody:last-child').
-                  append('<tr><td>'+ a["answer"]+'</td></tr>');
-            });                               
-          }
-        });
+        updateAnswerstable(question_id);
       }
 
       $(document).ready(function(){
@@ -99,6 +119,7 @@
         printVideoDescription(); // print video header
         updateQuestionstable(); // update questions table 
        
+        $("#buttonNewQuestion").hide();
         $("#newQuestionForm").hide(); // by default the page hides the new question form  
         $("#listAnswersTitle").hide(); // by default the page hides the list of answrs title  
         $("#answersTable").hide(); // by default the page hides the list of answers
@@ -112,10 +133,11 @@
 
         // to hide new question form
         vPlayer.on("play", function () {
+          $("#buttonNewQuestion").show();
           $("#newQuestionForm").hide(); 
           $("#listAnswersTitle").hide(); 
           $("#answersTable").hide();
-          $("#newAnswerForm").hide();           
+          $("#newAnswerForm").hide();     
         });
 
         // when the user wants to add a new question
@@ -141,14 +163,23 @@
           // automatically resumes the video
           vPlayer.currentTime( parseFloat($("#resumetime").val()))
           vPlayer.play()
-        })      
+        })
+
+        // when a new answer is added
+        $("#buttonAddAnswer").click(function(){
+          newAnswer = $("#newAnswer").val()
+          user_id = '{{username}}'
+          user_name = '{{name}}'
+          addNewAnswer(newAnswer, user_id, user_name, question_id)
+          $("#newAnswerForm")[0].reset();
+        })
 
         // to pause the video with the button with id buttonVideoPause
         $("#buttonVideoPause").click(function(){
           vPlayer.pause()
           var pauseTime = vPlayer.currentTime()
           console.log(pauseTime)
-          $("#resumetime").val(pauseTime)        
+          $("#resumetime").val(pauseTime)       
         })
 
         // to play the video with button with id buttonPlayVideo
@@ -218,6 +249,7 @@
   </head>
 
   <body>
+    <a href="{{ url_for("logout") }}"> <p style="font-family:helvetica">Logout</p></a>
     <!-- V I D E O -->
     <br>
     <div id=description_hd></div>
@@ -271,7 +303,7 @@
     <table class="ui celled table" id="answersTable" >
       <thead>
         <tr>
-          <th>Answer</th>
+          <th>User</th><th>Name</th><th>Answer</th>
         </tr>
       </thead>
       <tbody>

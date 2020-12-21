@@ -33,10 +33,10 @@ class Question(Base):
 class Answer(Base):
     __tablename__ = 'Answer'
     id = Column(Integer, primary_key=True)
-    question_id = Column(Integer)
     answer = Column(String)
     user_id = Column(String)
     user_name = Column(String)
+    question_id = Column(Integer)
 
     def __repr__(self):
         return "<Answer (id=%d Question_id=%s Answer=%s User_id=%s User_Name=%s)>" % (self.id, self.question_id, self.answer, self.user_id, self.user_name)
@@ -98,7 +98,7 @@ def listAnswersDICT(question_id):
         ret_list.append(ans_dict)
     return ret_list
 
-def newAnswer(answer, question_id, user_id, user_name):
+def newAnswer(answer, user_id, user_name, question_id):
     ans = Answer(question_id=question_id, answer=answer, user_id=user_id, user_name=user_name)
     try:
         sql_session.add(ans)

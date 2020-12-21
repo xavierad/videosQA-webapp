@@ -288,7 +288,7 @@ def createNewAnswer(question_id):
     j = request.get_json()
     print(j)
     try:
-        print(f'Question {j["question"]} | Answer {j["answer"]}')
+        print(j["answer"])
         ret = rq.post(url, json=j).json()
     except:
         abort(400)

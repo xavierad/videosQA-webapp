@@ -46,8 +46,8 @@ def createNewAnswer(question_id):
     print (type(j))
     ret = False
     try:
-        print(f'Question {j["question"]} | Answer {j["answer"]}')
-        ret = newAnswer(j["answer"], question_id, j["user_id"], j["user_name"])
+        print(j["answer"])
+        ret = newAnswer(j["answer"], j["user_id"], j["user_name"], j["question_id"])
     except:
         abort(400)
         #the arguments were incorrect
