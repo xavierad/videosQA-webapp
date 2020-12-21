@@ -39,10 +39,10 @@ class Answer(Base):
     user_name = Column(String)
 
     def __repr__(self):
-        return "<Answer (id=%d Question_id=%s Answer=%s)>" % (self.id, self.question_id, self.answer)
+        return "<Answer (id=%d Question_id=%s Answer=%s User_id=%s User_Name=%s)>" % (self.id, self.question_id, self.answer, self.user_id, self.user_name)
 
     def to_dictionary(self):
-        return {"answer_id":self.id, "question_id":self.question_id, "answer":self.answer}
+        return {"answer_id":self.id, "question_id":self.question_id, "answer":self.answer, "user_id":self.user_id, "user_name":self.user_name}
 
 
 Base.metadata.create_all(engine)
@@ -98,8 +98,8 @@ def listAnswersDICT(question_id):
         ret_list.append(ans_dict)
     return ret_list
 
-def newAnswer(answer, question_id):
-    ans = Answer(question_id=question_id, answer=answer)
+def newAnswer(answer, question_id, user_id, user_name):
+    ans = Answer(question_id=question_id, answer=answer, user_id=user_id, user_name=user_name)
     try:
         sql_session.add(ans)
         sql_session.commit()

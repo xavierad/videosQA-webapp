@@ -68,6 +68,9 @@
         
       // to get question when button Details is pressed
       function getQuestion(question){
+        $("#listAnswersTitle").show(); 
+        $("#answersTable").show(); 
+        $("#newAnswerForm").show();
         console.log(question['question'])
         question_id = question['question_id']
         $.ajax({            
@@ -96,7 +99,10 @@
         printVideoDescription(); // print video header
         updateQuestionstable(); // update questions table 
        
-        $("#newQuestionForm").hide(); // by default the page hides the new question form       
+        $("#newQuestionForm").hide(); // by default the page hides the new question form  
+        $("#listAnswersTitle").hide(); // by default the page hides the list of answrs title  
+        $("#answersTable").hide(); // by default the page hides the list of answers
+        $("#newAnswerForm").hide(); // by default the page hides the new answer form            
 
         // to show new question form
         // vPlayer.on("pause", function () {
@@ -107,6 +113,9 @@
         // to hide new question form
         vPlayer.on("play", function () {
           $("#newQuestionForm").hide(); 
+          $("#listAnswersTitle").hide(); 
+          $("#answersTable").hide();
+          $("#newAnswerForm").hide();           
         });
 
         // when the user wants to add a new question
@@ -257,7 +266,8 @@
       
     </form>
     
-    <h3>List of answers</h3>
+    
+    <h3 id="listAnswersTitle">List of answers</h3>
     <table class="ui celled table" id="answersTable" >
       <thead>
         <tr>
@@ -267,6 +277,14 @@
       <tbody>
       </tbody>      
     </table>
-  </body>
 
-</html>
+    <form id='newAnswerForm'>      
+      <h3>Add a new answer</h3>
+
+      <div class="ui input">
+        <input type="text" placeholder="Answer" id="newAnswer">
+      </div>
+      <!-- Note that type of button was added in order to prevent the page to reload -->
+      <button class="ui button" id="buttonAddAnswer" type="button">
+        Add new answer
+      </button>

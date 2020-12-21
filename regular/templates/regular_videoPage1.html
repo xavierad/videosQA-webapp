@@ -1,6 +1,3 @@
-
-
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -13,11 +10,11 @@
     <link href="https://vjs.zencdn.net/7.8.4/video-js.css" rel="stylesheet" />
     <script src="http://vjs.zencdn.net/7.8.4/video.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-youtube/2.6.1/Youtube.min.js"></script>
-    
-    
 
     <script>
-            
+      
+
+      // a simple function only to print the video description in the header of the page
       function printVideoDescription(){          
         var videoID = '{{videoID}}'
         $.ajax({
@@ -31,117 +28,143 @@
             div.innerHTML += description_header
           }
         })
-      }  
-      
-      function getVideo(vPlayer){
-        var videoID = '{{videoID}}'
-        $.ajax({            
-          // retrieve the corresponding URL by 
-          // calling the /videos/<id>/ REST endpoint)
-          url: '/API/videos/'+videoID+'/',
+      }      
+
+      // a function to get all questions and to update the table containing all questions about the video
+      function updateQuestionstable(){        
+        $.ajax({
+          url: '/API/questions/',
           type: "GET",
           dataType: "json",
           success: function (data) {
+            console.log(data);                
+            questions = data['questions']
+            $('#questionsTable > tbody:last-child').empty()
+            questions.forEach(q => {
+              console.log(q["time"]+" "+q["question"])
+              question = q['question_id']
+              $('#questionsTable > tbody:last-child').
+                  append('<tr><td>'+ q["time"]+'</td><td>' +q["question"] + '</td> <td><button class="ui button" id="buttonQDetails" onclick="getQuestion(questions[this.parentNode.parentNode.rowIndex-1])">Details</button></td></tr>');
+            });
+          }
+        }); 
+      }
+
+      //to add a new question
+      function addNewQuestion(question, user, time){
+        let requestData={"question": question, "user": user, "time": time}
+        $.ajax({
+          url: '/API/questions/',
+          type: "POST",
+          dataType: "json",
+          contentType: 'application/json',
+          data: JSON.stringify(requestData),
+          success: function(data){
+            console.log("response for question creation"+data)
             console.log(data)
-            url = data['url']
-            console.log(url)
-            //TODO 8 - update the player with the url retrieved
-            vPlayer.src({ "type": "video/youtube", "src": url});
-            vPlayer.play()
-            
-            $.ajax({
-              //TODO 9 - increase the number of views
-              url: '/API/videos/'+videoID+'/views',
-              type: "PUT",
-              dataType: "json",
-              success: function (data) {
-                console.log(data)
-              }
-            })                          
+          }
+        });        
+      }
+        
+      // to get question when button Details is pressed
+      function getQuestion(question){
+        $("#listAnswers").show(); 
+        $("#newAnswerForm").show();
+        // console.log(question['question'])
+        question_id = question['question_id']
+        $.ajax({            
+          // retrieve the corresponding URL by 
+          // calling the /questions/<question_id>/ REST endpoint)
+          url: '/API/questions/'+question_id+'/',
+          type: "GET",
+          dataType: "json",
+          success: function (data) {
+            console.log(data)   
+            answers = data['answers']
+            $('#answersTable > tbody:last-child').empty()
+            answers.forEach(a => {
+              $('#answersTable > tbody:last-child').
+                  append('<tr><td>'+ a["answer"]+'</td></tr>');
+            });                               
           }
         });
       }
 
-      function updateQuestionstable(){
+      //to add a new answer
+      function addNewAnswer(answer, userID, username){
+        let requestData={"answer": answer, "userID": userID, "username": username}
         $.ajax({
-            url: '/API/questions/',
-            type: "GET",
-            dataType: "json",
-            success: function (data) {
-                console.log(data);
-                $('#questionsTable > tbody:last-child').empty()
-                data["questions"].forEach(q => {
-                  console.log(q["time"]+" "+q["question"])
-                    $('#questionsTable > tbody:last-child').
-                        append('<tr><td>'+ q["time"]+'</td><td>' +q["question"] + '</td></tr>');
-                });
-            }
-        });
-      }
-
-      function addNewQuestion(question, time){
-        let requestData={"question": question, "time": time}
-        $.ajax({
-            url: '/API/questions/',
-            type: "POST",
-            dataType: "json",
-            contentType: 'application/json',
-            data: JSON.stringify(requestData),
-            success: function(data){
-              console.log("response for question creation"+data)
-              console.log(data)
-              updateQuestionstable()
-            }
+          url: '/API/questions/',
+          type: "POST",
+          dataType: "json",
+          contentType: 'application/json',
+          data: JSON.stringify(requestData),
+          success: function(data){
+            console.log("response for question creation"+data)
+            console.log(data)
+            updateQuestionstable()
+          }
         });        
       }
-      
+
       $(document).ready(function(){
         
         var vPlayer = videojs('videoPlayer');    
-        console.log('hereee')
+        var notPlayedyet;
+        
+        // console.log(question_id)
+
         printVideoDescription(); // print video header
         updateQuestionstable(); // update questions table 
-        getVideo(vPlayer); // get the video and play it
        
-        $("#newQuestionForm").hide();    // by default the page hides the new question form       
+        $("#newQuestionForm").hide(); // by default the page hides the new question form
+        $("#listAnswers").hide(); // by default the page hides the list of answers
+        $("#newAnswerForm").hide(); // by default the page hides the new answer form            
+            
 
-        // when the video is paused
-        vPlayer.on("pause", function () {
+        // to show new question form
+        // vPlayer.on("pause", function () {
+        //   $("#newQuestionForm")[0].reset(); // reset previous values
+        //   $("#newQuestionForm").show(); 
+        // });
+
+        // to hide new question form
+        vPlayer.on("play", function () {
+          $("#newQuestionForm").hide(); 
+        });
+
+        // when the user wants to add a new question
+        $("#buttonNewQuestion").click(function(){       
+          // automatically pauses the video
+          vPlayer.pause()
+          var pauseTime = vPlayer.currentTime()
+          console.log(pauseTime)
+          $("#resumetime").val(pauseTime)  
+          
           // to show new question form
           $("#newQuestionForm")[0].reset(); // reset previous values
           $("#newQuestionForm").show(); 
+        })  
 
-          // to play the video with button with id buttonPlayVideo
-          $("#buttonPlayVideo").click(function(){        
-            vPlayer.currentTime( parseFloat($("#resumetime").val()))
-            vPlayer.play()
-          })
-        });
-
-        // when the video is playing  
-        vPlayer.on("play", function () {
-          // to hide new question form
-          $("#newQuestionForm").hide(); 
-
-          // to pause the video with the button with id buttonVideoPause
-          $("#buttonVideoPause").click(function(){
-            vPlayer.pause()
-            var pauseTime = vPlayer.currentTime()
-            console.log(pauseTime)
-            $("#resumetime").val(pauseTime)        
-          })
-        });
-
-        // when a new question was added
+        // when a new question is added
         $("#buttonAddQuestion").click(function(){
           newQuestion = $("#newQuestion").val()
           newTime = $("#resumetime").val()
-          addNewQuestion(newQuestion, newTime)
+          user = '{{username}}' // only goes ist id!
+          addNewQuestion(newQuestion, user, newTime)
           
           // automatically resumes the video
           vPlayer.currentTime( parseFloat($("#resumetime").val()))
           vPlayer.play()
         })      
+
+        // when a new Answer is needed
+        $("#buttonAddAnswer").click(function(){
+          newAnswer = $("#newAnswer").val()
+          userID = '{{username}}'
+          userName = '{{name}}'
+          addNewAnswer(newAnswer, userID, username)
+        })
 
         // to pause the video with the button with id buttonVideoPause
         $("#buttonVideoPause").click(function(){
@@ -151,13 +174,72 @@
           $("#resumetime").val(pauseTime)        
         })
 
+        // to play the video with button with id buttonPlayVideo
+        $("#buttonPlayVideo").click(function(){
+
+          // Playing for the first time when the page is accessed and also incrementing the number of views
+          if (notPlayedyet != 1) {
+            var videoID = '{{videoID}}'
+            $.ajax({            
+              // retrieve the corresponding URL by 
+              // calling the /videos/<id>/ REST endpoint)
+              url: '/API/videos/'+videoID+'/',
+              type: "GET",
+              dataType: "json",
+              success: function (data) {
+                console.log(data)
+                url = data['url']
+                console.log(url)
+                //TODO 8 - update the player with the url retrieved
+                vPlayer.src({ "type": "video/youtube", "src": url});
+                vPlayer.play()
+                
+                $.ajax({
+                  //TODO 9 - increase the number of views
+                  url: '/API/videos/'+videoID+'/views',
+                  type: "PUT",
+                  dataType: "json",
+                  success: function (data) {
+                    console.log(data)
+                  }
+                })                          
+              }
+            });
+            notPlayedyet = 1;
+          }       
+          // to resume the video
+          else {            
+            vPlayer.currentTime( parseFloat($("#resumetime").val()))
+            vPlayer.play()
+          }
+
+          console.log(notPlayedyet)
+        })
+
+        // dúvida: por que é que esta função não funciona quando se quer carregar no botão? (tive que adicionar onclick="getQuestion()")
+        // get the details about the question
+        // $("#buttonQDetails").click(function() {
+        //   console.log('hereee')
+        //   $.ajax({            
+        //     // retrieve the corresponding URL by 
+        //     // calling the /questions/<question_id>/ REST endpoint)
+        //     url: '/API/questions/'+question_id+'/',
+        //     type: "GET",
+        //     dataType: "json",
+        //     success: function (data) {
+        //       console.log(data)
+        //       url = data['url']
+        //       console.log(url)
+                                      
+        //     }
+        //   });
+        // })
 
       });
 
-    </script>
+    </script>  
+  </head>
 
-  
-  
   <body>
     <!-- V I D E O -->
     <br>
@@ -181,18 +263,20 @@
 
     <!-- Q U E S T I O N S  &  A N S W E R S -->
     <h3>List of questions</h3>
-    <table class="ui celled table selectable" id="questionsTable" >
+    <table class="ui celled table" id="questionsTable" >
       <thead>
         <tr>
-          <th>Time</th>  <th>Question</th>
+          <th>Time</th><th>Question</th><th></th>
         </tr>
       </thead>
       <tbody>
-      </tbody>
-    </table>
+      </tbody>      
+    </table> 
 
+    <button class="ui button" id="buttonNewQuestion">New Question</button>
 
-    <form id='newQuestionForm'>
+    User {{username}} {{name}}
+    <form id='newQuestionForm'>      
       <h3>Add a new question</h3>
 
       <div class="ui input">
@@ -202,8 +286,33 @@
       <button class="ui button" id="buttonAddQuestion" type="button">
         Add new question
       </button>
+      
     </form>
+    <div id="listAnswers">
+    <h3>List of answers</h3>
+    <table class="ui celled table" id="answersTable" >
+      <thead>
+        <tr>
+          <th>Answer</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>      
+    </table>
+  </div>
 
+    <form id='newAnswerForm'>      
+      <h3>Add a new answer</h3>
+
+      <div class="ui input">
+        <input type="text" placeholder="Answer" id="newAnswer">
+      </div>
+      <!-- Note that type of button was added in order to prevent the page to reload -->
+      <button class="ui button" id="buttonAddAnswer" type="button">
+        Add new answer
+      </button>
+      
+    </form>
   </body>
 
 </html>

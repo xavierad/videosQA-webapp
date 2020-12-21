@@ -47,7 +47,7 @@ def createNewAnswer(question_id):
     ret = False
     try:
         print(f'Question {j["question"]} | Answer {j["answer"]}')
-        ret = newAnswer(j["answer"], question_id)
+        ret = newAnswer(j["answer"], question_id, j["user_id"], j["user_name"])
     except:
         abort(400)
         #the arguments were incorrect
