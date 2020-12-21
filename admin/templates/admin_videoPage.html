@@ -10,50 +10,187 @@
     <link href="https://vjs.zencdn.net/7.8.4/video-js.css" rel="stylesheet" />
     <script src="http://vjs.zencdn.net/7.8.4/video.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-youtube/2.6.1/Youtube.min.js"></script>
-    
-    
 
     <script>
+      
+      // a simple function only to print the video description in the header of the page
+      function printVideoDescription(){          
+        var videoID = '{{videoID}}'
+        $.ajax({
+          url: '/API/videos/'+videoID+'/',
+          type: "GET",
+          dataType: "json",
+          success: function (data) {
+            console.log(data);
+            var div = document.getElementById('description_hd');              
+            description_header = "<h1>"+data['description']+"</h1>"
+            div.innerHTML += description_header
+          }
+        })
+      }      
+
+      // a function to get all questions and to update the table containing all questions about the video
+      function updateQuestionstable(){        
+        $.ajax({
+          url: '/API/questions/',
+          type: "GET",
+          dataType: "json",
+          success: function (data) {
+            console.log(data);                
+            questions = data['questions']
+            $('#questionsTable > tbody:last-child').empty()
+            questions.forEach(q => {
+              console.log(q["time"]+" "+q["question"])
+              question = q['question_id']
+              $('#questionsTable > tbody:last-child').
+                  append('<tr><td>'+ q["time"]+'</td><td>' +q["question"] + '</td> <td><button class="ui button" id="buttonQDetails" onclick="getQuestion(questions[this.parentNode.parentNode.rowIndex-1])">Details</button></td></tr>');
+            });
+          }
+        }); 
+      }
+
+      // a function to get all answers and to update the table containing all answers about the question
+      function updateAnswerstable(question_id){        
+        $.ajax({
+          url: '/API/questions/'+question_id+'/',
+          type: "GET",
+          dataType: "json",
+          success: function (data) {
+            console.log(data)
+            answers = data['answers']
+            $('#answersTable > tbody:last-child').empty()
+            answers.forEach(a => {
+              $('#answersTable > tbody:last-child').
+                  append('<tr><td>'+ a["user_id"]+'</td><td>'+ a["user_name"]+'</td><td>'+ a["answer"]+'</td></tr>');
+            });  
+          }
+        }); 
+      }
+
+      //to add a new question
+      function addNewQuestion(question, user, time){
+        let requestData={"question": question, "user": user, "time": time}
+        $.ajax({
+          url: '/API/questions/',
+          type: "POST",
+          dataType: "json",
+          contentType: 'application/json',
+          data: JSON.stringify(requestData),
+          success: function(data){
+            console.log("response for question creation"+data)
+            console.log(data)
+            updateQuestionstable()
+          }
+        });        
+      }
+
+      //to add a new answer
+      function addNewAnswer(answer, user_id, user_name, question_id){
+        let requestData={"answer": answer, "user_id": user_id, "user_name": user_name, "question_id": question_id}
+        $.ajax({
+          url: '/API/questions/'+question_id+'/',
+          type: "POST",
+          dataType: "json",
+          contentType: 'application/json',
+          data: JSON.stringify(requestData),
+          success: function(data){
+            console.log("response for answer creation"+data)
+            console.log(data)
+            updateAnswerstable(question_id)
+          }
+        });        
+      }
+        
+      // to get question when button Details is pressed
+      function getQuestion(question){
+        $("#listAnswersTitle").show(); 
+        $("#answersTable").show(); 
+        $("#newAnswerForm").show();
+        console.log(question['question'])
+        question_id = question['question_id']
+        updateAnswerstable(question_id);
+      }
+
       $(document).ready(function(){
+        
+        var vPlayer = videojs('videoPlayer');    
+        var notPlayedyet;
 
-        printVideoDescription();
+        printVideoDescription(); // print video header
+        updateQuestionstable(); // update questions table 
+       
+        $("#buttonNewQuestion").hide();
+        $("#newQuestionForm").hide(); // by default the page hides the new question form  
+        $("#listAnswersTitle").hide(); // by default the page hides the list of answrs title  
+        $("#answersTable").hide(); // by default the page hides the list of answers
+        $("#newAnswerForm").hide(); // by default the page hides the new answer form            
 
-        var vPlayer = videojs('videoPlayer');
-        // vPlayer.src({ "type": "video/youtube", "src": "https://www.youtube.com/watch?v=xjS6SftYQaQ"});
-        // vPlayer.play()
+        // to show new question form
+        // vPlayer.on("pause", function () {
+        //   $("#newQuestionForm")[0].reset(); // reset previous values
+        //   $("#newQuestionForm").show(); 
+        // });
 
-        function printVideoDescription(){          
-          var videoID = '{{videoID}}'
-          $.ajax({
-            url: '/API/videos/'+videoID+'/',
-            type: "GET",
-            dataType: "json",
-            success: function (data) {
-              console.log(data);
-              var div = document.getElementById('description_hd');              
-              description_header = "<h1>"+data['description']+"</h1>"
-              div.innerHTML += description_header
-            }
-          })
-        }        
+        // to hide new question form
+        vPlayer.on("play", function () {
+          $("#buttonNewQuestion").show();
+          $("#newQuestionForm").hide(); 
+          $("#listAnswersTitle").hide(); 
+          $("#answersTable").hide();
+          $("#newAnswerForm").hide();     
+        });
 
-        $("#buttonVideoPause").click(function(){
-            vPlayer.pause()
-            var pauseTime = vPlayer.currentTime()
-            console.log(pauseTime)
-            $("#resumetime").val(pauseTime)
+        // when the user wants to add a new question
+        $("#buttonNewQuestion").click(function(){       
+          // automatically pauses the video
+          vPlayer.pause()
+          var pauseTime = vPlayer.currentTime()
+          console.log(pauseTime)
+          $("#resumetime").val(pauseTime)  
+          
+          // to show new question form
+          $("#newQuestionForm")[0].reset(); // reset previous values
+          $("#newQuestionForm").show(); 
+        })  
 
-          })
-        $("#buttonVideoResume").click(function(){
-            vPlayer.currentTime( parseFloat($("#resumetime").val()))
-            vPlayer.play()
+        // when a new question is added
+        $("#buttonAddQuestion").click(function(){
+          newQuestion = $("#newQuestion").val()
+          newTime = $("#resumetime").val()
+          user = '{{username}}' // only goes ist id!
+          addNewQuestion(newQuestion, user, newTime)
+          
+          // automatically resumes the video
+          vPlayer.currentTime( parseFloat($("#resumetime").val()))
+          vPlayer.play()
         })
 
+        // when a new answer is added
+        $("#buttonAddAnswer").click(function(){
+          newAnswer = $("#newAnswer").val()
+          user_id = '{{username}}'
+          user_name = '{{name}}'
+          addNewAnswer(newAnswer, user_id, user_name, question_id)
+          $("#newAnswerForm")[0].reset();
+        })
+
+        // to pause the video with the button with id buttonVideoPause
+        $("#buttonVideoPause").click(function(){
+          vPlayer.pause()
+          var pauseTime = vPlayer.currentTime()
+          console.log(pauseTime)
+          $("#resumetime").val(pauseTime)       
+        })
+
+        // to play the video with button with id buttonPlayVideo
         $("#buttonPlayVideo").click(function(){
-          var videoID = '{{videoID}}'
+
+          // Playing for the first time when the page is accessed and also incrementing the number of views
+          if (notPlayedyet != 1) {
+            var videoID = '{{videoID}}'
             $.ajax({            
-            // retrieve the corresponding URL by 
-            // calling the /videos/<id>/ REST endpoint)
+              // retrieve the corresponding URL by 
+              // calling the /videos/<id>/ REST endpoint)
               url: '/API/videos/'+videoID+'/',
               type: "GET",
               dataType: "json",
@@ -64,7 +201,7 @@
                 //TODO 8 - update the player with the url retrieved
                 vPlayer.src({ "type": "video/youtube", "src": url});
                 vPlayer.play()
-
+                
                 $.ajax({
                   //TODO 9 - increase the number of views
                   url: '/API/videos/'+videoID+'/views',
@@ -73,17 +210,47 @@
                   success: function (data) {
                     console.log(data)
                   }
-                })
+                })                          
               }
             });
+            notPlayedyet = 1;
+          }       
+          // to resume the video
+          else {            
+            vPlayer.currentTime( parseFloat($("#resumetime").val()))
+            vPlayer.play()
+          }
+
+          console.log(notPlayedyet)
         })
+
+        // dúvida: por que é que esta função não funciona quando se quer carregar no botão? (tive que adicionar onclick="getQuestion()")
+        // get the details about the question
+        // $("#buttonQDetails").click(function() {
+        //   console.log('hereee')
+        //   $.ajax({            
+        //     // retrieve the corresponding URL by 
+        //     // calling the /questions/<question_id>/ REST endpoint)
+        //     url: '/API/questions/'+question_id+'/',
+        //     type: "GET",
+        //     dataType: "json",
+        //     success: function (data) {
+        //       console.log(data)
+        //       url = data['url']
+        //       console.log(url)
+                                      
+        //     }
+        //   });
+        // })
+
       });
 
-    </script>
+    </script>  
+  </head>
 
-  
-  <head></head>
   <body>
+    <a href="{{ url_for("logout") }}"> <p style="font-family:helvetica">Logout</p></a>
+    <!-- V I D E O -->
     <br>
     <div id=description_hd></div>
     <br>
@@ -102,10 +269,56 @@
     <div class="ui input focus" >
       <input type="text" id="resumetime">
     </div>
-    <button class="ui button" id="buttonVideoResume">
-      Resume
-    </button>
 
+    <!-- Q U E S T I O N S  &  A N S W E R S -->
+    <h3>List of questions</h3>
+    <table class="ui celled table" id="questionsTable" >
+      <thead>
+        <tr>
+          <th>Time</th><th>Question</th><th></th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>      
+    </table> 
+
+    <button class="ui button" id="buttonNewQuestion">New Question</button>
+
+    User {{username}} {{name}}
+    <form id='newQuestionForm'>      
+      <h3>Add a new question</h3>
+
+      <div class="ui input">
+        <input type="text" placeholder="Question" id="newQuestion">
+      </div>
+      <!-- Note that type of button was added in order to prevent the page to reload -->
+      <button class="ui button" id="buttonAddQuestion" type="button">
+        Add new question
+      </button>
+      
+    </form>
+    
+    
+    <h3 id="listAnswersTitle">List of answers</h3>
+    <table class="ui celled table" id="answersTable" >
+      <thead>
+        <tr>
+          <th>User</th><th>Name</th><th>Answer</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>      
+    </table>
+
+    <form id='newAnswerForm'>      
+      <h3>Add a new answer</h3>
+
+      <div class="ui input">
+        <input type="text" placeholder="Answer" id="newAnswer">
+      </div>
+      <!-- Note that type of button was added in order to prevent the page to reload -->
+      <button class="ui button" id="buttonAddAnswer" type="button">
+        Add new answer
+      </button>
   </body>
-
 </html>

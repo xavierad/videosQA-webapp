@@ -18,6 +18,12 @@
                     addNewUser()   
                 }
 
+                $("#admin_option").hide(); 
+
+                if (['ist187094', 'ist187136', 'ist14021'].includes('{{userID}}')){ //List of Admin Users
+                    $("#admin_option").show();
+                }
+
                 function addNewUser(){            
                     var newUserID = '{{userID}}'
                     var newUserNAME = '{{userName}}'
@@ -45,7 +51,7 @@
         <p style="font-family:helvetica">User {{userID}} logged in</p>
         <br>
         <p style="font-family:helvetica">Select an option:</p>
-        <a href="{{ url_for("admin.admin_page") }}"> <p style="font-family:helvetica">Private part of the site (needs auth)</p></a>
+        <a id="admin_option" href="{{ url_for("admin.admin_page") }}"> <p style="font-family:helvetica">Private part of the site (needs auth)</p></a>
         <a href="{{ url_for("regular.regular_page") }}"> <p style="font-family:helvetica">List of Videos</p></a>
         <br>
         <a href="{{ url_for("logout") }}"> <p style="font-family:helvetica">Logout</p></a>
