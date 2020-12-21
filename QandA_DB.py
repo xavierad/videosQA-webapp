@@ -33,8 +33,10 @@ class Question(Base):
 class Answer(Base):
     __tablename__ = 'Answer'
     id = Column(Integer, primary_key=True)
-    question_id = Column(Integer)    
+    question_id = Column(Integer)
     answer = Column(String)
+    user_id = Column(String)
+    user_name = Column(String)
 
     def __repr__(self):
         return "<Answer (id=%d Question_id=%s Answer=%s)>" % (self.id, self.question_id, self.answer)
