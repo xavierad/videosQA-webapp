@@ -39,7 +39,7 @@ class Answer(Base):
     question_id = Column(Integer)
 
     def __repr__(self):
-        return "<Answer (id=%d Question_id=%s Answer=%s User_id=%s User_Name=%s)>" % (self.id, self.question_id, self.answer, self.user_id, self.user_name)
+        return "<Answer (id=%d Question_id=%d Answer=%s User_id=%s User_Name=%s)>" % (self.id, self.question_id, self.answer, self.user_id, self.user_name)
 
     def to_dictionary(self):
         return {"answer_id":self.id, "question_id":self.question_id, "answer":self.answer, "user_id":self.user_id, "user_name":self.user_name}
