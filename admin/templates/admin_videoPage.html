@@ -31,8 +31,9 @@
 
       // a function to get all questions and to update the table containing all questions about the video
       function updateQuestionstable(){        
+        var videoID = '{{videoID}}'
         $.ajax({
-          url: '/API/questions/',
+          url: '/API/questions/'+videoID+'/',
           type: "GET",
           dataType: "json",
           success: function (data) {
@@ -50,9 +51,10 @@
       }
 
       // a function to get all answers and to update the table containing all answers about the question
-      function updateAnswerstable(question_id){        
+      function updateAnswerstable(question_id){      
+        var videoID = '{{videoID}}'  
         $.ajax({
-          url: '/API/questions/'+question_id+'/',
+          url: '/API/questions/'+videoID+'/'+question_id+'/',
           type: "GET",
           dataType: "json",
           success: function (data) {
@@ -68,10 +70,10 @@
       }
 
       //to add a new question
-      function addNewQuestion(question, user, time){
-        let requestData={"question": question, "user": user, "time": time}
+      function addNewQuestion(question, user, time, video_id){
+        let requestData={"question": question, "user": user, "time": time, "video_id": video_id}
         $.ajax({
-          url: '/API/questions/',
+          url: '/API/questions/'+video_id+'/',
           type: "POST",
           dataType: "json",
           contentType: 'application/json',
@@ -86,9 +88,10 @@
 
       //to add a new answer
       function addNewAnswer(answer, user_id, user_name, question_id){
+        var videoID = '{{videoID}}'  
         let requestData={"answer": answer, "user_id": user_id, "user_name": user_name, "question_id": question_id}
         $.ajax({
-          url: '/API/questions/'+question_id+'/',
+          url: '/API/questions/'+videoID+'/'+question_id+'/',
           type: "POST",
           dataType: "json",
           contentType: 'application/json',
@@ -158,7 +161,8 @@
           newQuestion = $("#newQuestion").val()
           newTime = $("#resumetime").val()
           user = '{{username}}' // only goes ist id!
-          addNewQuestion(newQuestion, user, newTime)
+          videoID = '{{videoID}}'
+          addNewQuestion(newQuestion, user, newTime, videoID)
           
           // automatically resumes the video
           vPlayer.currentTime( parseFloat($("#resumetime").val()))

@@ -22,12 +22,13 @@ class Question(Base):
     question = Column(String)
     time = Column(String)
     user = Column(String)
+    video_id = Column(Integer)
 
     def __repr__(self):
-        return "<Question (id=%d Question=%s User=%s Time=%s)>" % (self.id, self.question, self.user, self.time)
+        return "<Question (id=%d Question=%s User=%s Time=%s VideoID=%d)>" % (self.id, self.question, self.user, self.time, self.video_id)
 
     def to_dictionary(self):
-        return {"question_id": self.id, "question": self.question, "user": self.user, "time": self.time}
+        return {"question_id": self.id, "question": self.question, "user": self.user, "time": self.time, "video_id": self.video_id}
 
 
 class Answer(Base):
@@ -50,13 +51,13 @@ Session = sessionmaker(bind=engine)
 sql_session = scoped_session(Session)
 
 # Regarding Questions
-def listQuestions():
-    return sql_session.query(Question).all()
+def listQuestions(video_id):
+    return sql_session.query(Question).filter(Question.video_id==video_id).all()
     sql_session.close()
 
-def listQuestionsDICT():
+def listQuestionsDICT(video_id):
     ret_list = []
-    lq = listQuestions()
+    lq = listQuestions(video_id)
     print(lq)
     for q in lq:
         quest = q.to_dictionary()
@@ -71,8 +72,8 @@ def getQuestion(id):
 def getQuestionDICT(id):
     return getQuestion(id).to_dictionary()
 
-def newQuestion(question, user, time):
-    q = Question(question=question, user=user, time=time)
+def newQuestion(question, user, time, video_id):
+    q = Question(question=question, user=user, time=time, video_id=video_id)
     try:
         sql_session.add(q)
         sql_session.commit()

@@ -24,6 +24,21 @@
           },
         })
       }
+
+      function getVideoQandas(videoID){
+        $.ajax({
+          url: '/API/questions/'+videoID+'/',
+          type: "GET",
+          dataType: "json",
+          success: function (data) {
+            console.log(Object.keys(data['questions']).length)
+            console.log(data['questions'])
+            $("#nqandas"+videoID).html(Object.keys(data['questions']).length)
+            console.log("update the number of qandas on the table for"+videoID)
+          },
+        })
+      }
+
       function updateVideostable(){
         $.ajax({
           url: '/API/videos/',
@@ -38,8 +53,8 @@
                 var my_url = "{{ url_for('admin.video_page') }}/#id#".replace('#id#', my_id)
                 $('#videosTable > tbody:last-child').
                     append('<tr> <td class="selectable"><a href="#url#"'.
-                      replace("#url#", my_url)+'>'+ v["video_id"]+'</a></td><td>' +v["description"] + '</td><td id="nviews'+v["video_id"]+'">xxx</td></tr>');
-                  getVideoViews(v["video_id"])
+                      replace("#url#", my_url)+'>'+ v["video_id"]+'</a></td><td>' +v["description"] + '</td><td id="nqandas'+v["video_id"]+'">xxx</td></tr>');
+                  getVideoQandas(v["video_id"])
             });
           }
         });
@@ -69,11 +84,11 @@
           }
         )            
         
-          $("#buttonAddVideo").click(function(){
-            newVideoURl = $("#newVideoURL").val()
-            newVideoDESC = $("#newVideoDescription").val()
-            addNewVideo(newVideoURl, newVideoDESC)
-          })
+        $("#buttonAddVideo").click(function(){
+          newVideoURl = $("#newVideoURL").val()
+          newVideoDESC = $("#newVideoDescription").val()
+          addNewVideo(newVideoURl, newVideoDESC)
+        })
 
       });
   </script>
@@ -84,7 +99,7 @@
     <table class="ui celled table selectable" id="videosTable" >
       <thead>
         <tr>
-          <th>ID</th>  <th>Description</th>   <th>Views</th>
+          <th>ID</th>  <th>Description</th>   <th>Q&As</th>
         </tr>
       </thead>
       <tbody>
@@ -104,8 +119,6 @@
     <button class="ui button" id="buttonAddVideo">
       Add new Video
     </button>
-
-
   </body>
 
   <title>{% block title %}{% endblock %} - Flask</title>

@@ -230,9 +230,9 @@ def newView(id):
 # Related to questions
 
 # get a list of questions
-@app.route("/API/questions/", methods=['GET'])
-def returnsQuestionsJSON():
-    url = QUESTIONS_URL + 'questions/'
+@app.route("/API/questions/<int:video_id>/", methods=['GET'])
+def returnsQuestionsJSON(video_id):
+    url = QUESTIONS_URL + 'questions/'+str(video_id)+'/'
     resp = rq.get(url).json()
     
     # datetime object containing current date and time and converting it to a string
@@ -243,9 +243,9 @@ def returnsQuestionsJSON():
     return resp
 
 # create a new question
-@app.route("/API/questions/", methods=['POST'])
-def createNewQuestion():
-    url = QUESTIONS_URL+'questions/'
+@app.route("/API/questions/<int:video_id>/", methods=['POST'])
+def createNewQuestion(video_id):
+    url = QUESTIONS_URL+'questions/'+str(video_id)+'/'
     j = request.get_json()
     print(j)
     try:
@@ -269,9 +269,9 @@ def createNewQuestion():
 # Related to answers
 
 # get a list of answers regarding a question
-@app.route("/API/questions/<int:question_id>/", methods=['GET'])
-def returnsAnswersJSON(question_id):
-    url = QUESTIONS_URL + 'questions/'+str(question_id)
+@app.route("/API/questions/<int:video_id>/<int:question_id>/", methods=['GET'])
+def returnsAnswersJSON(video_id, question_id):
+    url = QUESTIONS_URL + 'questions/'+str(video_id)+'/'+str(question_id)+'/'
     resp = rq.get(url).json()
     
     # datetime object containing current date and time and converting it to a string
@@ -282,9 +282,9 @@ def returnsAnswersJSON(question_id):
     return resp
 
 # create a new answer
-@app.route("/API/questions/<int:question_id>/", methods=['POST'])
-def createNewAnswer(question_id):
-    url = QUESTIONS_URL+'questions/'+str(question_id)
+@app.route("/API/questions/<int:video_id>/<int:question_id>/", methods=['POST'])
+def createNewAnswer(video_id, question_id):
+    url = QUESTIONS_URL+'questions/'+str(video_id)+'/'+str(question_id)+'/'
     j = request.get_json()
     print(j)
     try:
