@@ -1,28 +1,2 @@
 TIMESTAMP            : EVENT
 
-23/12/2020 15:24:50  : Videos dictionary returned [{'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'video_id': 1}, {'description': 'Jamie Oliver - Keep Cooking at Christmas (S01E02) 2020', 'video_id': 2}]
-
-23/12/2020 15:24:50  : Questions dictionary returned [{'question': 'Question?', 'question_id': 3, 'time': '0.960205', 'user': 'ist187094', 'video_id': 1}]
-
-23/12/2020 15:24:50  : Questions dictionary returned [{'question': 'pergunta', 'question_id': 1, 'time': '1.126365', 'user': 'ist187094', 'video_id': 2}, {'question': 'Who am I?', 'question_id': 2, 'time': '1.298296', 'user': 'ist187094', 'video_id': 2}]
-
-23/12/2020 15:24:53  : Questions dictionary returned [{'question': 'Question?', 'question_id': 3, 'time': '0.960205', 'user': 'ist187094', 'video_id': 1}]
-
-23/12/2020 15:24:53  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 101}
-
-23/12/2020 15:24:54  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 101}
-
-23/12/2020 15:25:02  : Answer(s) dictionary returned []
-
-23/12/2020 15:26:12  : Videos dictionary returned [{'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'video_id': 1}, {'description': 'Jamie Oliver - Keep Cooking at Christmas (S01E02) 2020', 'video_id': 2}]
-
-23/12/2020 15:26:12  : Questions dictionary returned [{'question': 'pergunta', 'question_id': 1, 'time': '1.126365', 'user': 'ist187094', 'video_id': 2}, {'question': 'Who am I?', 'question_id': 2, 'time': '1.298296', 'user': 'ist187094', 'video_id': 2}]
-
-23/12/2020 15:26:12  : Questions dictionary returned [{'question': 'Question?', 'question_id': 3, 'time': '0.960205', 'user': 'ist187094', 'video_id': 1}]
-
-23/12/2020 15:26:54  : Videos dictionary returned [{'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'video_id': 1}, {'description': 'Jamie Oliver - Keep Cooking at Christmas (S01E02) 2020', 'video_id': 2}]
-
-23/12/2020 15:26:54  : Questions dictionary returned [{'question': 'Question?', 'question_id': 3, 'time': '0.960205', 'user': 'ist187094', 'video_id': 1}]
-
-23/12/2020 15:26:54  : Questions dictionary returned [{'question': 'pergunta', 'question_id': 1, 'time': '1.126365', 'user': 'ist187094', 'video_id': 2}, {'question': 'Who am I?', 'question_id': 2, 'time': '1.298296', 'user': 'ist187094', 'video_id': 2}]
-

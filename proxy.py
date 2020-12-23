@@ -84,6 +84,7 @@ import sys
 fenix_id = ''
 if len(sys.argv) > 1 :
     fenix_id = sys.argv[1]
+    print(fenix_id)
 if fenix_id == '' or fenix_id == 'pedro':
     # Pedro
     print(fenix_id)
@@ -99,7 +100,7 @@ if fenix_id == '' or fenix_id == 'pedro':
         authorization_url="https://fenix.tecnico.ulisboa.pt/oauth/userdialog",
     )
 elif fenix_id=='xavier':
-    print(fenix_id)
+    print('hereee',fenix_id)
     fenix_blueprint = OAuth2ConsumerBlueprint(
         "fenix-example", __name__,
         # this value should be retrived from the FENIX OAuth page
@@ -149,13 +150,18 @@ def home_page():
         #if not logged in browser is redirected to login page (in this case FENIX handled the login)
         return render_template("appPage.html", loggedIn = fenix_blueprint.session.authorized)
 
-    #if the user is authenticated then a request to FENIX is made
-    resp = fenix_blueprint.session.get("/api/fenix/v1/person/")
-    #res contains the responde made to /api/fenix/vi/person (information about current user)
-    user = resp.json() 
-    print(resp.json())
-           
-    return render_template("appPage.html", loggedIn = fenix_blueprint.session.authorized, userID=user['username'], userName=user['name'])
+    try:
+        #if the user is authenticated then a request to FENIX is made
+        resp = fenix_blueprint.session.get("/api/fenix/v1/person/")
+        #res contains the responde made to /api/fenix/vi/person (information about current user)
+        user = resp.json() 
+        print(resp.json())    
+        return render_template("appPage.html", loggedIn = fenix_blueprint.session.authorized, userID=user['username'], userName=user['name'])
+
+    except (OAuth2ConsumerBlueprint.InvalidGrantError, OAuth2ConsumerBlueprint.TokenExpiredError) as e:  # or maybe any OAuth2Error
+        #if not logged in browser is redirected to login page (in this case FENIX handled the login)
+        return render_template("appPage.html", loggedIn = fenix_blueprint.session.authorized)
+
 
 @app.route('/logout')
 def logout():

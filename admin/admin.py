@@ -7,7 +7,6 @@ def construct_admin_bp(fenix_blueprint):
     @admin.route("/")
     def admin_page():
         #this page can only be accessed by a authenticated user
-
         # verification of the user is  logged in
         if fenix_blueprint.session.authorized == False:
             #if not logged in browser is redirected to login page (in this case FENIX handled the login)

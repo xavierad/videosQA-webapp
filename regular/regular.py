@@ -1,6 +1,5 @@
 from flask import Flask, render_template, Blueprint, redirect, url_for
 
-
 def construct_regular_bp(fenix_blueprint):
     regular = Blueprint("regular", __name__, static_folder="static", template_folder="templates")
     
@@ -33,6 +32,5 @@ def construct_regular_bp(fenix_blueprint):
             user = resp.json() 
             print(resp.json())
         return render_template("regular_videoPage.html", videoID=id, username=user['username'], name=user['name'])  
-
 
     return regular 
