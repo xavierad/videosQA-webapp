@@ -51,17 +51,17 @@
       }
 
       // a function to get all answers and to update the table containing all answers about the question
-      function updateAnswerstable(question){      
+      function updateAnswerstable(question_id){      
         var videoID = '{{videoID}}'  
         $.ajax({
-          url: '/API/questions/'+videoID+'/'+question['question_id']+'/',
+          url: '/API/questions/'+videoID+'/'+question_id+'/',
           type: "GET",
           dataType: "json",
           success: function (data) {
             console.log(data)
             answers = data['answers']
-            $('#listAnswersTitle').empty()
-            $('#listAnswersTitle').append('<h4>Question: '+question['question']+'<br>Time: '+question['time']+'<br>User: '+question['user']+'</h4>')
+            // $('#listAnswersTitle').empty()
+            // $('#listAnswersTitle').append('<h4>Question: '+question['question']+'<br>Time: '+question['time']+'<br>User: '+question['user']+'</h4>')
             $('#answersTable > tbody:last-child').empty()
             answers.forEach(a => {
               $('#answersTable > tbody:last-child').
@@ -113,7 +113,7 @@
         $("#newAnswerForm").show();
         console.log(question['question'])
         question_id = question['question_id']
-        updateAnswerstable(question);
+        updateAnswerstable(question_id);
       }
 
       $(document).ready(function(){
