@@ -1,80 +1,90 @@
 TIMESTAMP            : EVENT
 
-24/12/2020 00:09:41  : Questions dictionary returned [{'question': 'Question?', 'question_id': 3, 'time': '0.960205', 'user': 'ist187094', 'video_id': 1}]
+24/12/2020 01:54:44  : Videos dictionary returned [{'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'video_id': 1}, {'description': 'Jamie Oliver - Keep Cooking at Christmas (S01E02) 2020', 'video_id': 2}]
 
-24/12/2020 00:09:41  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 102}
+24/12/2020 01:54:44  : Questions dictionary returned [{'question': 'Question?', 'question_id': 3, 'time': '0.960205', 'user': 'ist187094', 'video_id': 1}]
 
-24/12/2020 00:09:44  : Answer(s) dictionary returned []
+24/12/2020 01:54:44  : Questions dictionary returned [{'question': 'pergunta', 'question_id': 1, 'time': '1.126365', 'user': 'ist187094', 'video_id': 2}, {'question': 'Who am I?', 'question_id': 2, 'time': '1.298296', 'user': 'ist187094', 'video_id': 2}, {'question': 'is this a question?', 'question_id': 4, 'time': '3.054765108718872', 'user': 'ist187136', 'video_id': 2}]
 
-24/12/2020 00:10:15  : Questions dictionary returned [{'question': 'Question?', 'question_id': 3, 'time': '0.960205', 'user': 'ist187094', 'video_id': 1}]
+24/12/2020 01:55:28  : Videos dictionary returned [{'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'video_id': 1}, {'description': 'Jamie Oliver - Keep Cooking at Christmas (S01E02) 2020', 'video_id': 2}]
 
-24/12/2020 00:10:15  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 102}
+24/12/2020 01:55:28  : Questions dictionary returned [{'question': 'Question?', 'question_id': 3, 'time': '0.960205', 'user': 'ist187094', 'video_id': 1}]
 
-24/12/2020 00:10:20  : Answer(s) dictionary returned []
+24/12/2020 01:55:28  : Questions dictionary returned [{'question': 'pergunta', 'question_id': 1, 'time': '1.126365', 'user': 'ist187094', 'video_id': 2}, {'question': 'Who am I?', 'question_id': 2, 'time': '1.298296', 'user': 'ist187094', 'video_id': 2}, {'question': 'is this a question?', 'question_id': 4, 'time': '3.054765108718872', 'user': 'ist187136', 'video_id': 2}]
 
-24/12/2020 00:10:38  : Questions dictionary returned [{'question': 'Question?', 'question_id': 3, 'time': '0.960205', 'user': 'ist187094', 'video_id': 1}]
+24/12/2020 01:56:05  : Questions dictionary returned [{'question': 'pergunta', 'question_id': 1, 'time': '1.126365', 'user': 'ist187094', 'video_id': 2}, {'question': 'Who am I?', 'question_id': 2, 'time': '1.298296', 'user': 'ist187094', 'video_id': 2}, {'question': 'is this a question?', 'question_id': 4, 'time': '3.054765108718872', 'user': 'ist187136', 'video_id': 2}]
 
-24/12/2020 00:10:38  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 102}
+24/12/2020 01:56:05  : Single video dictionary returned {'description': 'Jamie Oliver - Keep Cooking at Christmas (S01E02) 2020', 'url': 'https://www.youtube.com/watch?v=yVu7FVQKrXQ', 'video_id': 2, 'views': 5}
 
-24/12/2020 00:10:40  : Answer(s) dictionary returned []
+24/12/2020 01:56:17  : Answer(s) dictionary returned []
 
-24/12/2020 00:11:13  : Questions dictionary returned [{'question': 'Question?', 'question_id': 3, 'time': '0.960205', 'user': 'ist187094', 'video_id': 1}]
+24/12/2020 01:56:28  : Answer(s) dictionary returned []
 
-24/12/2020 00:11:13  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 102}
+24/12/2020 01:56:31  : Answer(s) dictionary returned []
 
-24/12/2020 00:11:15  : Answer(s) dictionary returned []
+24/12/2020 01:56:35  : Answer(s) dictionary returned []
 
-24/12/2020 00:11:26  : Questions dictionary returned [{'question': 'Question?', 'question_id': 3, 'time': '0.960205', 'user': 'ist187094', 'video_id': 1}]
+24/12/2020 01:56:36  : Answer(s) dictionary returned [{'answer': 'resposta', 'answer_id': 1, 'question_id': 1, 'user_id': 'ist187094', 'user_name': 'Pedro Guedes de Campos Martin'}]
 
-24/12/2020 00:11:26  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 102}
+24/12/2020 01:58:08  : Questions dictionary returned [{'question': 'pergunta', 'question_id': 1, 'time': '1.126365', 'user': 'ist187094', 'video_id': 2}, {'question': 'Who am I?', 'question_id': 2, 'time': '1.298296', 'user': 'ist187094', 'video_id': 2}, {'question': 'is this a question?', 'question_id': 4, 'time': '3.054765108718872', 'user': 'ist187136', 'video_id': 2}]
 
-24/12/2020 00:11:28  : Answer(s) dictionary returned []
+24/12/2020 01:58:08  : Single video dictionary returned {'description': 'Jamie Oliver - Keep Cooking at Christmas (S01E02) 2020', 'url': 'https://www.youtube.com/watch?v=yVu7FVQKrXQ', 'video_id': 2, 'views': 5}
 
-24/12/2020 00:11:34  : Questions dictionary returned [{'question': 'Question?', 'question_id': 3, 'time': '0.960205', 'user': 'ist187094', 'video_id': 1}]
+24/12/2020 01:58:11  : Answer(s) dictionary returned [{'answer': 'resposta', 'answer_id': 1, 'question_id': 1, 'user_id': 'ist187094', 'user_name': 'Pedro Guedes de Campos Martin'}]
 
-24/12/2020 00:11:34  : Questions dictionary returned [{'question': 'pergunta', 'question_id': 1, 'time': '1.126365', 'user': 'ist187094', 'video_id': 2}, {'question': 'Who am I?', 'question_id': 2, 'time': '1.298296', 'user': 'ist187094', 'video_id': 2}]
+24/12/2020 01:58:36  : Questions dictionary returned [{'question': 'pergunta', 'question_id': 1, 'time': '1.126365', 'user': 'ist187094', 'video_id': 2}, {'question': 'Who am I?', 'question_id': 2, 'time': '1.298296', 'user': 'ist187094', 'video_id': 2}, {'question': 'is this a question?', 'question_id': 4, 'time': '3.054765108718872', 'user': 'ist187136', 'video_id': 2}]
 
-24/12/2020 00:11:37  : Questions dictionary returned [{'question': 'pergunta', 'question_id': 1, 'time': '1.126365', 'user': 'ist187094', 'video_id': 2}, {'question': 'Who am I?', 'question_id': 2, 'time': '1.298296', 'user': 'ist187094', 'video_id': 2}]
+24/12/2020 01:58:36  : Single video dictionary returned {'description': 'Jamie Oliver - Keep Cooking at Christmas (S01E02) 2020', 'url': 'https://www.youtube.com/watch?v=yVu7FVQKrXQ', 'video_id': 2, 'views': 5}
 
-24/12/2020 00:11:37  : Single video dictionary returned {'description': 'Jamie Oliver - Keep Cooking at Christmas (S01E02) 2020', 'url': 'https://www.youtube.com/watch?v=yVu7FVQKrXQ', 'video_id': 2, 'views': 4}
+24/12/2020 01:58:39  : Answer(s) dictionary returned [{'answer': 'resposta', 'answer_id': 1, 'question_id': 1, 'user_id': 'ist187094', 'user_name': 'Pedro Guedes de Campos Martin'}]
 
-24/12/2020 00:11:39  : Answer(s) dictionary returned [{'answer': 'resposta', 'answer_id': 1, 'question_id': 1, 'user_id': 'ist187094', 'user_name': 'Pedro Guedes de Campos Martin'}]
+24/12/2020 01:58:56  : Single video dictionary returned {'description': 'Jamie Oliver - Keep Cooking at Christmas (S01E02) 2020', 'url': 'https://www.youtube.com/watch?v=yVu7FVQKrXQ', 'video_id': 2, 'views': 5}
 
-24/12/2020 00:11:50  : Answer(s) dictionary returned []
+24/12/2020 01:59:12  : Questions dictionary returned [{'question': 'pergunta', 'question_id': 1, 'time': '1.126365', 'user': 'ist187094', 'video_id': 2}, {'question': 'Who am I?', 'question_id': 2, 'time': '1.298296', 'user': 'ist187094', 'video_id': 2}, {'question': 'is this a question?', 'question_id': 4, 'time': '3.054765108718872', 'user': 'ist187136', 'video_id': 2}]
 
-24/12/2020 00:12:09  : Questions dictionary returned [{'question': 'pergunta', 'question_id': 1, 'time': '1.126365', 'user': 'ist187094', 'video_id': 2}, {'question': 'Who am I?', 'question_id': 2, 'time': '1.298296', 'user': 'ist187094', 'video_id': 2}]
+24/12/2020 01:59:12  : Single video dictionary returned {'description': 'Jamie Oliver - Keep Cooking at Christmas (S01E02) 2020', 'url': 'https://www.youtube.com/watch?v=yVu7FVQKrXQ', 'video_id': 2, 'views': 6}
 
-24/12/2020 00:12:09  : Single video dictionary returned {'description': 'Jamie Oliver - Keep Cooking at Christmas (S01E02) 2020', 'url': 'https://www.youtube.com/watch?v=yVu7FVQKrXQ', 'video_id': 2, 'views': 4}
+24/12/2020 01:59:14  : Single video dictionary returned {'description': 'Jamie Oliver - Keep Cooking at Christmas (S01E02) 2020', 'url': 'https://www.youtube.com/watch?v=yVu7FVQKrXQ', 'video_id': 2, 'views': 6}
 
-24/12/2020 00:12:11  : Answer(s) dictionary returned [{'answer': 'resposta', 'answer_id': 1, 'question_id': 1, 'user_id': 'ist187094', 'user_name': 'Pedro Guedes de Campos Martin'}]
+24/12/2020 02:00:08  : Questions dictionary returned [{'question': 'pergunta', 'question_id': 1, 'time': '1.126365', 'user': 'ist187094', 'video_id': 2}, {'question': 'Who am I?', 'question_id': 2, 'time': '1.298296', 'user': 'ist187094', 'video_id': 2}, {'question': 'is this a question?', 'question_id': 4, 'time': '3.054765108718872', 'user': 'ist187136', 'video_id': 2}]
 
-24/12/2020 00:12:13  : Answer(s) dictionary returned []
+24/12/2020 02:00:08  : Single video dictionary returned {'description': 'Jamie Oliver - Keep Cooking at Christmas (S01E02) 2020', 'url': 'https://www.youtube.com/watch?v=yVu7FVQKrXQ', 'video_id': 2, 'views': 7}
 
-24/12/2020 00:12:14  : Answer(s) dictionary returned []
+24/12/2020 02:00:10  : Single video dictionary returned {'description': 'Jamie Oliver - Keep Cooking at Christmas (S01E02) 2020', 'url': 'https://www.youtube.com/watch?v=yVu7FVQKrXQ', 'video_id': 2, 'views': 7}
 
-24/12/2020 00:12:14  : Answer(s) dictionary returned []
+24/12/2020 02:00:37  : Questions dictionary returned [{'question': 'pergunta', 'question_id': 1, 'time': '1.126365', 'user': 'ist187094', 'video_id': 2}, {'question': 'Who am I?', 'question_id': 2, 'time': '1.298296', 'user': 'ist187094', 'video_id': 2}, {'question': 'is this a question?', 'question_id': 4, 'time': '3.054765108718872', 'user': 'ist187136', 'video_id': 2}]
 
-24/12/2020 00:12:23  : Questions dictionary returned [{'question': 'pergunta', 'question_id': 1, 'time': '1.126365', 'user': 'ist187094', 'video_id': 2}, {'question': 'Who am I?', 'question_id': 2, 'time': '1.298296', 'user': 'ist187094', 'video_id': 2}]
+24/12/2020 02:00:37  : Single video dictionary returned {'description': 'Jamie Oliver - Keep Cooking at Christmas (S01E02) 2020', 'url': 'https://www.youtube.com/watch?v=yVu7FVQKrXQ', 'video_id': 2, 'views': 8}
 
-24/12/2020 00:12:23  : Single video dictionary returned {'description': 'Jamie Oliver - Keep Cooking at Christmas (S01E02) 2020', 'url': 'https://www.youtube.com/watch?v=yVu7FVQKrXQ', 'video_id': 2, 'views': 4}
+24/12/2020 02:00:39  : Single video dictionary returned {'description': 'Jamie Oliver - Keep Cooking at Christmas (S01E02) 2020', 'url': 'https://www.youtube.com/watch?v=yVu7FVQKrXQ', 'video_id': 2, 'views': 8}
 
-24/12/2020 00:12:24  : Answer(s) dictionary returned [{'answer': 'resposta', 'answer_id': 1, 'question_id': 1, 'user_id': 'ist187094', 'user_name': 'Pedro Guedes de Campos Martin'}]
+24/12/2020 02:01:01  : Questions dictionary returned [{'question': 'pergunta', 'question_id': 1, 'time': '1.126365', 'user': 'ist187094', 'video_id': 2}, {'question': 'Who am I?', 'question_id': 2, 'time': '1.298296', 'user': 'ist187094', 'video_id': 2}, {'question': 'is this a question?', 'question_id': 4, 'time': '3.054765108718872', 'user': 'ist187136', 'video_id': 2}]
 
-24/12/2020 00:12:26  : Answer(s) dictionary returned []
+24/12/2020 02:01:01  : Single video dictionary returned {'description': 'Jamie Oliver - Keep Cooking at Christmas (S01E02) 2020', 'url': 'https://www.youtube.com/watch?v=yVu7FVQKrXQ', 'video_id': 2, 'views': 9}
 
-24/12/2020 00:12:28  : Answer(s) dictionary returned []
+24/12/2020 02:01:03  : Single video dictionary returned {'description': 'Jamie Oliver - Keep Cooking at Christmas (S01E02) 2020', 'url': 'https://www.youtube.com/watch?v=yVu7FVQKrXQ', 'video_id': 2, 'views': 9}
 
-24/12/2020 00:12:29  : Answer(s) dictionary returned [{'answer': 'resposta', 'answer_id': 1, 'question_id': 1, 'user_id': 'ist187094', 'user_name': 'Pedro Guedes de Campos Martin'}]
+24/12/2020 02:01:44  : Created new question with id {'id': 5}
 
-24/12/2020 00:12:33  : Answer(s) dictionary returned []
+24/12/2020 02:01:44  : Questions dictionary returned [{'question': 'pergunta', 'question_id': 1, 'time': '1.126365', 'user': 'ist187094', 'video_id': 2}, {'question': 'Who am I?', 'question_id': 2, 'time': '1.298296', 'user': 'ist187094', 'video_id': 2}, {'question': 'is this a question?', 'question_id': 4, 'time': '3.054765108718872', 'user': 'ist187136', 'video_id': 2}, {'question': 'To be or not to be. That is the question...', 'question_id': 5, 'time': '1.9972300553131104', 'user': 'ist187094', 'video_id': 2}]
 
-24/12/2020 00:12:35  : Answer(s) dictionary returned [{'answer': 'resposta', 'answer_id': 1, 'question_id': 1, 'user_id': 'ist187094', 'user_name': 'Pedro Guedes de Campos Martin'}]
+24/12/2020 02:01:48  : Answer(s) dictionary returned []
 
-24/12/2020 00:12:39  : Single video dictionary returned {'description': 'Jamie Oliver - Keep Cooking at Christmas (S01E02) 2020', 'url': 'https://www.youtube.com/watch?v=yVu7FVQKrXQ', 'video_id': 2, 'views': 4}
+24/12/2020 02:02:01  : Created new answer with id {'id': 2}
 
-24/12/2020 00:12:52  : Created new question with id {'id': 4}
+24/12/2020 02:02:25  : Questions dictionary returned [{'question': 'pergunta', 'question_id': 1, 'time': '1.126365', 'user': 'ist187094', 'video_id': 2}, {'question': 'Who am I?', 'question_id': 2, 'time': '1.298296', 'user': 'ist187094', 'video_id': 2}, {'question': 'is this a question?', 'question_id': 4, 'time': '3.054765108718872', 'user': 'ist187136', 'video_id': 2}, {'question': 'To be or not to be. That is the question...', 'question_id': 5, 'time': '1.9972300553131104', 'user': 'ist187094', 'video_id': 2}]
 
-24/12/2020 00:12:52  : Questions dictionary returned [{'question': 'pergunta', 'question_id': 1, 'time': '1.126365', 'user': 'ist187094', 'video_id': 2}, {'question': 'Who am I?', 'question_id': 2, 'time': '1.298296', 'user': 'ist187094', 'video_id': 2}, {'question': 'is this a question?', 'question_id': 4, 'time': '3.054765108718872', 'user': 'ist187136', 'video_id': 2}]
+24/12/2020 02:02:25  : Single video dictionary returned {'description': 'Jamie Oliver - Keep Cooking at Christmas (S01E02) 2020', 'url': 'https://www.youtube.com/watch?v=yVu7FVQKrXQ', 'video_id': 2, 'views': 10}
 
-24/12/2020 00:12:54  : Answer(s) dictionary returned []
+24/12/2020 02:02:27  : Answer(s) dictionary returned [{'answer': 'Is it really?', 'answer_id': 2, 'question_id': 5, 'user_id': 'ist187094', 'user_name': 'Pedro Guedes de Campos Martin'}]
+
+24/12/2020 02:02:45  : Created new answer with id {'id': 3}
+
+24/12/2020 02:11:16  : Questions dictionary returned [{'question': 'pergunta', 'question_id': 1, 'time': '1.126365', 'user': 'ist187094', 'video_id': 2}, {'question': 'Who am I?', 'question_id': 2, 'time': '1.298296', 'user': 'ist187094', 'video_id': 2}, {'question': 'is this a question?', 'question_id': 4, 'time': '3.054765108718872', 'user': 'ist187136', 'video_id': 2}, {'question': 'To be or not to be. That is the question...', 'question_id': 5, 'time': '1.9972300553131104', 'user': 'ist187094', 'video_id': 2}]
+
+24/12/2020 02:11:16  : Single video dictionary returned {'description': 'Jamie Oliver - Keep Cooking at Christmas (S01E02) 2020', 'url': 'https://www.youtube.com/watch?v=yVu7FVQKrXQ', 'video_id': 2, 'views': 10}
+
+24/12/2020 02:11:20  : Answer(s) dictionary returned [{'answer': 'Is it really?', 'answer_id': 2, 'question_id': 5, 'user_id': 'ist187094', 'user_name': 'Pedro Guedes de Campos Martin'}, {'answer': "I don't think so...", 'answer_id': 3, 'question_id': 5, 'user_id': 'ist187094', 'user_name': 'Pedro Guedes de Campos Martin'}]
+
+24/12/2020 02:11:27  : Created new answer with id {'id': 4}
 
