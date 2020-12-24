@@ -1,2 +1,130 @@
 TIMESTAMP            : EVENT
 
+24/12/2020 15:27:23  : Questions dictionary returned [{'question': 'Question?', 'question_id': 3, 'time': '0.960205', 'user': 'ist187094', 'video_id': 1}]
+
+24/12/2020 15:27:23  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 102}
+
+24/12/2020 15:27:25  : Answer(s) dictionary returned [{'answer': 'asd', 'answer_id': 5, 'question_id': 3, 'user_id': 'ist187136', 'user_name': 'Xavier Abreu Dias'}, {'answer': 'yes it is', 'answer_id': 6, 'question_id': 3, 'user_id': 'ist187136', 'user_name': 'Xavier Abreu Dias'}]
+
+24/12/2020 15:27:25  : Questions dictionary returned [{'question': 'Question?', 'question_id': 3, 'time': '0.960205', 'user': 'ist187094', 'video_id': 1}]
+
+24/12/2020 15:27:47  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 102}
+
+24/12/2020 15:28:01  : Created new question with id {'id': 6}
+
+24/12/2020 15:28:01  : Questions dictionary returned [{'question': 'Question?', 'question_id': 3, 'time': '0.960205', 'user': 'ist187094', 'video_id': 1}, {'question': 'Hello?', 'question_id': 6, 'time': '2.7595870076293947', 'user': 'ist187136', 'video_id': 1}]
+
+24/12/2020 15:28:09  : Questions dictionary returned [{'question': 'Question?', 'question_id': 3, 'time': '0.960205', 'user': 'ist187094', 'video_id': 1}, {'question': 'Hello?', 'question_id': 6, 'time': '2.7595870076293947', 'user': 'ist187136', 'video_id': 1}]
+
+24/12/2020 15:28:09  : Answer(s) dictionary returned []
+
+24/12/2020 15:28:56  : Questions dictionary returned [{'question': 'Question?', 'question_id': 3, 'time': '0.960205', 'user': 'ist187094', 'video_id': 1}, {'question': 'Hello?', 'question_id': 6, 'time': '2.7595870076293947', 'user': 'ist187136', 'video_id': 1}]
+
+24/12/2020 15:28:56  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 103}
+
+24/12/2020 15:28:58  : Questions dictionary returned [{'question': 'Question?', 'question_id': 3, 'time': '0.960205', 'user': 'ist187094', 'video_id': 1}, {'question': 'Hello?', 'question_id': 6, 'time': '2.7595870076293947', 'user': 'ist187136', 'video_id': 1}]
+
+24/12/2020 15:28:58  : Answer(s) dictionary returned []
+
+24/12/2020 15:29:01  : Questions dictionary returned [{'question': 'Question?', 'question_id': 3, 'time': '0.960205', 'user': 'ist187094', 'video_id': 1}, {'question': 'Hello?', 'question_id': 6, 'time': '2.7595870076293947', 'user': 'ist187136', 'video_id': 1}]
+
+24/12/2020 15:29:01  : Answer(s) dictionary returned [{'answer': 'asd', 'answer_id': 5, 'question_id': 3, 'user_id': 'ist187136', 'user_name': 'Xavier Abreu Dias'}, {'answer': 'yes it is', 'answer_id': 6, 'question_id': 3, 'user_id': 'ist187136', 'user_name': 'Xavier Abreu Dias'}]
+
+24/12/2020 15:32:33  : Questions dictionary returned [{'question': 'Question?', 'question_id': 3, 'time': '0.960205', 'user': 'ist187094', 'video_id': 1}, {'question': 'Hello?', 'question_id': 6, 'time': '2.7595870076293947', 'user': 'ist187136', 'video_id': 1}]
+
+24/12/2020 15:32:33  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 103}
+
+24/12/2020 15:32:35  : Questions dictionary returned [{'question': 'Question?', 'question_id': 3, 'time': '0.960205', 'user': 'ist187094', 'video_id': 1}, {'question': 'Hello?', 'question_id': 6, 'time': '2.7595870076293947', 'user': 'ist187136', 'video_id': 1}]
+
+24/12/2020 15:32:35  : Answer(s) dictionary returned []
+
+24/12/2020 15:33:00  : Questions dictionary returned [{'question': 'Question?', 'question_id': 3, 'time': '0.960205', 'user': 'ist187094', 'video_id': 1}, {'question': 'Hello?', 'question_id': 6, 'time': '2.7595870076293947', 'user': 'ist187136', 'video_id': 1}]
+
+24/12/2020 15:33:00  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 103}
+
+24/12/2020 15:33:02  : Questions dictionary returned [{'question': 'Question?', 'question_id': 3, 'time': '0.960205', 'user': 'ist187094', 'video_id': 1}, {'question': 'Hello?', 'question_id': 6, 'time': '2.7595870076293947', 'user': 'ist187136', 'video_id': 1}]
+
+24/12/2020 15:33:02  : Answer(s) dictionary returned []
+
+24/12/2020 15:33:37  : Questions dictionary returned [{'question': 'Question?', 'question_id': 3, 'time': '0.960205', 'user': 'ist187094', 'video_id': 1}, {'question': 'Hello?', 'question_id': 6, 'time': '2.7595870076293947', 'user': 'ist187136', 'video_id': 1}]
+
+24/12/2020 15:33:37  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 103}
+
+24/12/2020 15:33:38  : Questions dictionary returned [{'question': 'Question?', 'question_id': 3, 'time': '0.960205', 'user': 'ist187094', 'video_id': 1}, {'question': 'Hello?', 'question_id': 6, 'time': '2.7595870076293947', 'user': 'ist187136', 'video_id': 1}]
+
+24/12/2020 15:33:38  : Answer(s) dictionary returned [{'answer': 'asd', 'answer_id': 5, 'question_id': 3, 'user_id': 'ist187136', 'user_name': 'Xavier Abreu Dias'}, {'answer': 'yes it is', 'answer_id': 6, 'question_id': 3, 'user_id': 'ist187136', 'user_name': 'Xavier Abreu Dias'}]
+
+24/12/2020 15:33:51  : Questions dictionary returned [{'question': 'Question?', 'question_id': 3, 'time': '0.960205', 'user': 'ist187094', 'video_id': 1}, {'question': 'Hello?', 'question_id': 6, 'time': '2.7595870076293947', 'user': 'ist187136', 'video_id': 1}]
+
+24/12/2020 15:33:52  : Questions dictionary returned [{'question': 'Question?', 'question_id': 3, 'time': '0.960205', 'user': 'ist187094', 'video_id': 1}, {'question': 'Hello?', 'question_id': 6, 'time': '2.7595870076293947', 'user': 'ist187136', 'video_id': 1}]
+
+24/12/2020 15:33:52  : Answer(s) dictionary returned [{'answer': 'asd', 'answer_id': 5, 'question_id': 3, 'user_id': 'ist187136', 'user_name': 'Xavier Abreu Dias'}, {'answer': 'yes it is', 'answer_id': 6, 'question_id': 3, 'user_id': 'ist187136', 'user_name': 'Xavier Abreu Dias'}]
+
+24/12/2020 15:34:27  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 103}
+
+ 'video_id': 1}]
+
+24/12/2020 15:34:29  : Questions dictionary returned [{'question': 'Question?', 'question_id': 3, 'time': '0.960205', 'user': 'ist187094', 'video_id': 1}, {'question': 'Hello?', 'question_id': 6, 'time': '2.7595870076293947', 'user': 'ist187136', 'video_id': 1}]
+
+24/12/2020 15:34:29  : Answer(s) dictionary returned [{'answer': 'asd', 'answer_id': 5, 'question_id': 3, 'user_id': 'ist187136', 'user_name': 'Xavier Abreu Dias'}, {'answer': 'yes it is', 'answer_id': 6, 'question_id': 3, 'user_id': 'ist187136', 'user_name': 'Xavier Abreu Dias'}]
+
+24/12/2020 15:34:40  : Questions dictionary returned [{'question': 'Question?', 'question_id': 3, 'time': '0.960205', 'user': 'ist187094', 'video_id': 1}, {'question': 'Hello?', 'question_id': 6, 'time': '2.7595870076293947', 'user': 'ist187136', 'video_id': 1}]
+
+24/12/2020 15:34:40  : Answer(s) dictionary returned []
+
+24/12/2020 15:35:26  : Questions dictionary returned [{'question': 'Question?', 'question_id': 3, 'time': '0.960205', 'user': 'ist187094', 'video_id': 1}, {'question': 'Hello?', 'question_id': 6, 'time': '2.7595870076293947', 'user': 'ist187136', 'video_id': 1}]
+
+24/12/2020 15:35:26  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 103}
+
+24/12/2020 15:35:28  : Questions dictionary returned [{'question': 'Question?', 'question_id': 3, 'time': '0.960205', 'user': 'ist187094', 'video_id': 1}, {'question': 'Hello?', 'question_id': 6, 'time': '2.7595870076293947', 'user': 'ist187136', 'video_id': 1}]
+
+24/12/2020 15:35:28  : Answer(s) dictionary returned [{'answer': 'asd', 'answer_id': 5, 'question_id': 3, 'user_id': 'ist187136', 'user_name': 'Xavier Abreu Dias'}, {'answer': 'yes it is', 'answer_id': 6, 'question_id': 3, 'user_id': 'ist187136', 'user_name': 'Xavier Abreu Dias'}]
+
+24/12/2020 15:35:59  : Questions dictionary returned [{'question': 'Question?', 'question_id': 3, 'time': '0.960205', 'user': 'ist187094', 'video_id': 1}, {'question': 'Hello?', 'question_id': 6, 'time': '2.7595870076293947', 'user': 'ist187136', 'video_id': 1}]
+
+24/12/2020 15:35:59  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 103}
+
+24/12/2020 15:36:00  : Questions dictionary returned [{'question': 'Question?', 'question_id': 3, 'time': '0.960205', 'user': 'ist187094', 'video_id': 1}, {'question': 'Hello?', 'question_id': 6, 'time': '2.7595870076293947', 'user': 'ist187136', 'video_id': 1}]
+
+24/12/2020 15:36:00  : Answer(s) dictionary returned [{'answer': 'asd', 'answer_id': 5, 'question_id': 3, 'user_id': 'ist187136', 'user_name': 'Xavier Abreu Dias'}, {'answer': 'yes it is', 'answer_id': 6, 'question_id': 3, 'user_id': 'ist187136', 'user_name': 'Xavier Abreu Dias'}]
+
+24/12/2020 15:36:42  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 103}
+
+ 'video_id': 1}]
+
+24/12/2020 15:36:43  : Questions dictionary returned [{'question': 'Question?', 'question_id': 3, 'time': '0.960205', 'user': 'ist187094', 'video_id': 1}, {'question': 'Hello?', 'question_id': 6, 'time': '2.7595870076293947', 'user': 'ist187136', 'video_id': 1}]
+
+24/12/2020 15:36:43  : Answer(s) dictionary returned [{'answer': 'asd', 'answer_id': 5, 'question_id': 3, 'user_id': 'ist187136', 'user_name': 'Xavier Abreu Dias'}, {'answer': 'yes it is', 'answer_id': 6, 'question_id': 3, 'user_id': 'ist187136', 'user_name': 'Xavier Abreu Dias'}]
+
+24/12/2020 15:36:49  : Questions dictionary returned [{'question': 'Question?', 'question_id': 3, 'time': '0.960205', 'user': 'ist187094', 'video_id': 1}, {'question': 'Hello?', 'question_id': 6, 'time': '2.7595870076293947', 'user': 'ist187136', 'video_id': 1}]
+
+24/12/2020 15:36:49  : Answer(s) dictionary returned []
+
+24/12/2020 15:37:10  : Questions dictionary returned [{'question': 'Question?', 'question_id': 3, 'time': '0.960205', 'user': 'ist187094', 'video_id': 1}, {'question': 'Hello?', 'question_id': 6, 'time': '2.7595870076293947', 'user': 'ist187136', 'video_id': 1}]
+
+24/12/2020 15:37:10  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 103}
+
+24/12/2020 15:37:11  : Questions dictionary returned [{'question': 'Question?', 'question_id': 3, 'time': '0.960205', 'user': 'ist187094', 'video_id': 1}, {'question': 'Hello?', 'question_id': 6, 'time': '2.7595870076293947', 'user': 'ist187136', 'video_id': 1}]
+
+24/12/2020 15:37:11  : Answer(s) dictionary returned [{'answer': 'asd', 'answer_id': 5, 'question_id': 3, 'user_id': 'ist187136', 'user_name': 'Xavier Abreu Dias'}, {'answer': 'yes it is', 'answer_id': 6, 'question_id': 3, 'user_id': 'ist187136', 'user_name': 'Xavier Abreu Dias'}]
+
+24/12/2020 15:37:13  : Questions dictionary returned [{'question': 'Question?', 'question_id': 3, 'time': '0.960205', 'user': 'ist187094', 'video_id': 1}, {'question': 'Hello?', 'question_id': 6, 'time': '2.7595870076293947', 'user': 'ist187136', 'video_id': 1}]
+
+24/12/2020 15:37:13  : Answer(s) dictionary returned []
+
+24/12/2020 15:37:27  : Questions dictionary returned [{'question': 'Question?', 'question_id': 3, 'time': '0.960205', 'user': 'ist187094', 'video_id': 1}, {'question': 'Hello?', 'question_id': 6, 'time': '2.7595870076293947', 'user': 'ist187136', 'video_id': 1}]
+
+24/12/2020 15:37:27  : Answer(s) dictionary returned []
+
+24/12/2020 15:38:05  : Questions dictionary returned [{'question': 'Question?', 'question_id': 3, 'time': '0.960205', 'user': 'ist187094', 'video_id': 1}, {'question': 'Hello?', 'question_id': 6, 'time': '2.7595870076293947', 'user': 'ist187136', 'video_id': 1}]
+
+24/12/2020 15:38:05  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 103}
+
+24/12/2020 15:38:07  : Answer(s) dictionary returned [{'answer': 'asd', 'answer_id': 5, 'question_id': 3, 'user_id': 'ist187136', 'user_name': 'Xavier Abreu Dias'}, {'answer': 'yes it is', 'answer_id': 6, 'question_id': 3, 'user_id': 'ist187136', 'user_name': 'Xavier Abreu Dias'}]
+
+24/12/2020 15:38:14  : Created new answer with id {'id': 7}
+
+24/12/2020 15:38:14  : Questions dictionary returned [{'question': 'Question?', 'question_id': 3, 'time': '0.960205', 'user': 'ist187094', 'video_id': 1}, {'question': 'Hello?', 'question_id': 6, 'time': '2.7595870076293947', 'user': 'ist187136', 'video_id': 1}]
+
+24/12/2020 15:38:14  : Answer(s) dictionary returned [{'answer': 'asd', 'answer_id': 5, 'question_id': 3, 'user_id': 'ist187136', 'user_name': 'Xavier Abreu Dias'}, {'answer': 'yes it is', 'answer_id': 6, 'question_id': 3, 'user_id': 'ist187136', 'user_name': 'Xavier Abreu Dias'}, {'answer': 'is', 'answer_id': 7, 'question_id': 3, 'user_id': 'ist187136', 'user_name': 'Xavier Abreu Dias'}]
+

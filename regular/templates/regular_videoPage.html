@@ -53,6 +53,28 @@
       // a function to get all answers and to update the table containing all answers about the question
       function updateAnswerstable(question_id){      
         var videoID = '{{videoID}}'  
+        console.log('On update answers table, the focused question id: '+question_id)
+        $.ajax({
+          url: '/API/questions/'+videoID+'/',
+          type: "GET",
+          dataType: "json",
+          success: function (data) {
+            let questions = data['questions']
+            console.log(questions)
+            
+            for (var q in questions) {
+              console.log(q)
+              if(questions[q]['question_id'] == question_id) {
+                break;
+              }
+            }
+            var question = questions[q]
+            console.log('And the corresponding question: '+question['question'])
+            
+            $('#listAnswersTitle').empty()
+            $('#listAnswersTitle').append('<h4>Question: '+question['question']+'<br>Time: '+question['time']+'<br>User: '+question['user']+'</h4>')
+          }
+        }); 
         $.ajax({
           url: '/API/questions/'+videoID+'/'+question_id+'/',
           type: "GET",
