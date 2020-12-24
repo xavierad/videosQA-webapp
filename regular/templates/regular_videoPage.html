@@ -51,15 +51,17 @@
       }
 
       // a function to get all answers and to update the table containing all answers about the question
-      function updateAnswerstable(question_id){      
+      function updateAnswerstable(question){      
         var videoID = '{{videoID}}'  
         $.ajax({
-          url: '/API/questions/'+videoID+'/'+question_id+'/',
+          url: '/API/questions/'+videoID+'/'+question['question_id']+'/',
           type: "GET",
           dataType: "json",
           success: function (data) {
             console.log(data)
             answers = data['answers']
+            $('#listAnswersTitle').empty()
+            $('#listAnswersTitle').append('<h4>Question: '+question['question']+'<br>Time: '+question['time']+'<br>User: '+question['user']+'</h4>')
             $('#answersTable > tbody:last-child').empty()
             answers.forEach(a => {
               $('#answersTable > tbody:last-child').
@@ -111,7 +113,7 @@
         $("#newAnswerForm").show();
         console.log(question['question'])
         question_id = question['question_id']
-        updateAnswerstable(question_id);
+        updateAnswerstable(question);
       }
 
       $(document).ready(function(){
@@ -253,76 +255,79 @@
   </head>
 
   <body>
-    <a href="{{ url_for("logout") }}"> <p style="font-family:helvetica">Logout</p></a>
-    <!-- V I D E O -->
-    <br>
-    <div id=description_hd></div>
-    <br>
-    <video  id="videoPlayer" controls 
-            class="video-js vjs-default-skin"
-            width="640"
-            data-setup='{ "autoplay": true, "preload": "auto", "techOrder": ["youtube"], "sources": [{ "type": "video/youtube" }'
-    ></video>
-    <br>
-    <button class="ui button" id="buttonPlayVideo">
-      Play
-    </button>
-    <button class="ui button" id="buttonVideoPause">
-     Pause
-    </button> 
-    <div class="ui input focus" >
-      <input type="text" id="resumetime">
-    </div>
-
-    <!-- Q U E S T I O N S  &  A N S W E R S -->
-    <h3>List of questions</h3>
-    <table class="ui celled table" id="questionsTable" >
-      <thead>
-        <tr>
-          <th>Time</th><th>Question</th><th></th>
-        </tr>
-      </thead>
-      <tbody>
-      </tbody>      
-    </table> 
-
-    <button class="ui button" id="buttonNewQuestion">New Question</button>
-
-    User {{username}} {{name}}
-    <form id='newQuestionForm'>      
-      <h3>Add a new question</h3>
-
-      <div class="ui input">
-        <input type="text" placeholder="Question" id="newQuestion">
-      </div>
-      <!-- Note that type of button was added in order to prevent the page to reload -->
-      <button class="ui button" id="buttonAddQuestion" type="button">
-        Add new question
+    <div class="ui container">
+      User {{username}} {{name}}
+      <a href="{{ url_for("logout") }}"> <p style="font-family:helvetica">Logout</p></a>
+      <!-- V I D E O -->
+      <br>
+      <div id=description_hd></div>
+      <br>
+      <video  id="videoPlayer" controls 
+              class="video-js vjs-default-skin"
+              width="640"
+              data-setup='{ "autoplay": true, "preload": "auto", "techOrder": ["youtube"], "sources": [{ "type": "video/youtube" }'
+      ></video>
+      <br>
+      <button class="ui button" id="buttonPlayVideo">
+        Play
       </button>
+      <button class="ui button" id="buttonVideoPause">
+      Pause
+      </button> 
+      <div class="ui input focus" >
+        <input type="text" id="resumetime">
+      </div>
+
+      <!-- Q U E S T I O N S  &  A N S W E R S -->
+      <h3>List of questions</h3>
+      <table class="ui celled table" id="questionsTable" style="width:50%">
+        <thead>
+          <tr>
+            <th>Time</th><th>Question</th><th></th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>      
+      </table> 
+
+      <button class="ui button" id="buttonNewQuestion">New Question</button>
+
+     
+      <form id='newQuestionForm'>      
+        <h3>Add a new question</h3>
+
+        <div class="ui input">
+          <input type="text" placeholder="Question" id="newQuestion">
+        </div>
+        <!-- Note that type of button was added in order to prevent the page to reload -->
+        <button class="ui button" id="buttonAddQuestion" type="button">
+          Add new question
+        </button>
+      </form>
       
-    </form>
-    
-    
-    <h3 id="listAnswersTitle">List of answers</h3>
-    <table class="ui celled table" id="answersTable" >
-      <thead>
-        <tr>
-          <th>User</th><th>Name</th><th>Answer</th>
-        </tr>
-      </thead>
-      <tbody>
-      </tbody>      
-    </table>
+      
+      <h3 id="listAnswersTitle">List of answers</h3>
+      <table class="ui celled table" id="answersTable" style="width:50%">
+        <thead>
+          <tr>
+            <th>User</th><th>Name</th><th>Answer</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>      
+      </table>
 
-    <form id='newAnswerForm'>      
-      <h3>Add a new answer</h3>
+      <form id='newAnswerForm'>      
+        <h3>Add a new answer</h3>
 
-      <div class="ui input">
-        <input type="text" placeholder="Answer" id="newAnswer">
-      </div>
-      <!-- Note that type of button was added in order to prevent the page to reload -->
-      <button class="ui button" id="buttonAddAnswer" type="button">
-        Add new answer
-      </button>
+        <div class="ui input">
+          <input type="text" placeholder="Answer" id="newAnswer">
+        </div>
+        <!-- Note that type of button was added in order to prevent the page to reload -->
+        <button class="ui button" id="buttonAddAnswer" type="button">
+          Add new answer
+        </button>
+      </form>
+    </div>
   </body>
 </html>

@@ -1,8 +1,10 @@
 <!doctype html>
 <title>REGULAR PAGE</title>
 <body>
-  username - {{ username }} {{name}}
-  <p><a href="{{ url_for("logout") }}"> Logout</a></p> 
+  <div class="ui container">
+    username - {{ username }} {{name}}
+    <p><a href="{{ url_for("logout") }}"> Logout</a></p> 
 
-  {% include 'regular_videoListPage.html' %}
-  </body>
+    {% include 'regular_videoListPage.html' %}
+  </div>
+</body>

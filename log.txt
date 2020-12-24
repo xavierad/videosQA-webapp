@@ -1,2 +1,80 @@
 TIMESTAMP            : EVENT
 
+24/12/2020 00:09:41  : Questions dictionary returned [{'question': 'Question?', 'question_id': 3, 'time': '0.960205', 'user': 'ist187094', 'video_id': 1}]
+
+24/12/2020 00:09:41  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 102}
+
+24/12/2020 00:09:44  : Answer(s) dictionary returned []
+
+24/12/2020 00:10:15  : Questions dictionary returned [{'question': 'Question?', 'question_id': 3, 'time': '0.960205', 'user': 'ist187094', 'video_id': 1}]
+
+24/12/2020 00:10:15  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 102}
+
+24/12/2020 00:10:20  : Answer(s) dictionary returned []
+
+24/12/2020 00:10:38  : Questions dictionary returned [{'question': 'Question?', 'question_id': 3, 'time': '0.960205', 'user': 'ist187094', 'video_id': 1}]
+
+24/12/2020 00:10:38  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 102}
+
+24/12/2020 00:10:40  : Answer(s) dictionary returned []
+
+24/12/2020 00:11:13  : Questions dictionary returned [{'question': 'Question?', 'question_id': 3, 'time': '0.960205', 'user': 'ist187094', 'video_id': 1}]
+
+24/12/2020 00:11:13  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 102}
+
+24/12/2020 00:11:15  : Answer(s) dictionary returned []
+
+24/12/2020 00:11:26  : Questions dictionary returned [{'question': 'Question?', 'question_id': 3, 'time': '0.960205', 'user': 'ist187094', 'video_id': 1}]
+
+24/12/2020 00:11:26  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 102}
+
+24/12/2020 00:11:28  : Answer(s) dictionary returned []
+
+24/12/2020 00:11:34  : Questions dictionary returned [{'question': 'Question?', 'question_id': 3, 'time': '0.960205', 'user': 'ist187094', 'video_id': 1}]
+
+24/12/2020 00:11:34  : Questions dictionary returned [{'question': 'pergunta', 'question_id': 1, 'time': '1.126365', 'user': 'ist187094', 'video_id': 2}, {'question': 'Who am I?', 'question_id': 2, 'time': '1.298296', 'user': 'ist187094', 'video_id': 2}]
+
+24/12/2020 00:11:37  : Questions dictionary returned [{'question': 'pergunta', 'question_id': 1, 'time': '1.126365', 'user': 'ist187094', 'video_id': 2}, {'question': 'Who am I?', 'question_id': 2, 'time': '1.298296', 'user': 'ist187094', 'video_id': 2}]
+
+24/12/2020 00:11:37  : Single video dictionary returned {'description': 'Jamie Oliver - Keep Cooking at Christmas (S01E02) 2020', 'url': 'https://www.youtube.com/watch?v=yVu7FVQKrXQ', 'video_id': 2, 'views': 4}
+
+24/12/2020 00:11:39  : Answer(s) dictionary returned [{'answer': 'resposta', 'answer_id': 1, 'question_id': 1, 'user_id': 'ist187094', 'user_name': 'Pedro Guedes de Campos Martin'}]
+
+24/12/2020 00:11:50  : Answer(s) dictionary returned []
+
+24/12/2020 00:12:09  : Questions dictionary returned [{'question': 'pergunta', 'question_id': 1, 'time': '1.126365', 'user': 'ist187094', 'video_id': 2}, {'question': 'Who am I?', 'question_id': 2, 'time': '1.298296', 'user': 'ist187094', 'video_id': 2}]
+
+24/12/2020 00:12:09  : Single video dictionary returned {'description': 'Jamie Oliver - Keep Cooking at Christmas (S01E02) 2020', 'url': 'https://www.youtube.com/watch?v=yVu7FVQKrXQ', 'video_id': 2, 'views': 4}
+
+24/12/2020 00:12:11  : Answer(s) dictionary returned [{'answer': 'resposta', 'answer_id': 1, 'question_id': 1, 'user_id': 'ist187094', 'user_name': 'Pedro Guedes de Campos Martin'}]
+
+24/12/2020 00:12:13  : Answer(s) dictionary returned []
+
+24/12/2020 00:12:14  : Answer(s) dictionary returned []
+
+24/12/2020 00:12:14  : Answer(s) dictionary returned []
+
+24/12/2020 00:12:23  : Questions dictionary returned [{'question': 'pergunta', 'question_id': 1, 'time': '1.126365', 'user': 'ist187094', 'video_id': 2}, {'question': 'Who am I?', 'question_id': 2, 'time': '1.298296', 'user': 'ist187094', 'video_id': 2}]
+
+24/12/2020 00:12:23  : Single video dictionary returned {'description': 'Jamie Oliver - Keep Cooking at Christmas (S01E02) 2020', 'url': 'https://www.youtube.com/watch?v=yVu7FVQKrXQ', 'video_id': 2, 'views': 4}
+
+24/12/2020 00:12:24  : Answer(s) dictionary returned [{'answer': 'resposta', 'answer_id': 1, 'question_id': 1, 'user_id': 'ist187094', 'user_name': 'Pedro Guedes de Campos Martin'}]
+
+24/12/2020 00:12:26  : Answer(s) dictionary returned []
+
+24/12/2020 00:12:28  : Answer(s) dictionary returned []
+
+24/12/2020 00:12:29  : Answer(s) dictionary returned [{'answer': 'resposta', 'answer_id': 1, 'question_id': 1, 'user_id': 'ist187094', 'user_name': 'Pedro Guedes de Campos Martin'}]
+
+24/12/2020 00:12:33  : Answer(s) dictionary returned []
+
+24/12/2020 00:12:35  : Answer(s) dictionary returned [{'answer': 'resposta', 'answer_id': 1, 'question_id': 1, 'user_id': 'ist187094', 'user_name': 'Pedro Guedes de Campos Martin'}]
+
+24/12/2020 00:12:39  : Single video dictionary returned {'description': 'Jamie Oliver - Keep Cooking at Christmas (S01E02) 2020', 'url': 'https://www.youtube.com/watch?v=yVu7FVQKrXQ', 'video_id': 2, 'views': 4}
+
+24/12/2020 00:12:52  : Created new question with id {'id': 4}
+
+24/12/2020 00:12:52  : Questions dictionary returned [{'question': 'pergunta', 'question_id': 1, 'time': '1.126365', 'user': 'ist187094', 'video_id': 2}, {'question': 'Who am I?', 'question_id': 2, 'time': '1.298296', 'user': 'ist187094', 'video_id': 2}, {'question': 'is this a question?', 'question_id': 4, 'time': '3.054765108718872', 'user': 'ist187136', 'video_id': 2}]
+
+24/12/2020 00:12:54  : Answer(s) dictionary returned []
+
