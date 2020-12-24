@@ -50,7 +50,8 @@
                 var my_url = "{{ url_for('regular.video_page') }}/#id#".replace('#id#', my_id)
                 $('#videosTable > tbody:last-child').
                     append('<tr> <td class="selectable"><a href="#url#"'.
-                      replace("#url#", my_url)+'>'+ v["video_id"]+'</a></td><td>' +v["description"] + '</td><td id="nqandas'+v["video_id"]+'">xxx</td></tr>');
+                      replace("#url#", my_url)+'>'+ v["video_id"]+'</a></td><td class="selectable"><a href="#url#"'.
+                      replace("#url#", my_url)+'>'+ v["description"]+'</a></td><td id="nqandas'+v["video_id"]+'">xxx</td></tr>');
                   getVideoQandas(v["video_id"])
             });
           }
