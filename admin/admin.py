@@ -11,13 +11,15 @@ def construct_admin_bp(fenix_blueprint):
         if fenix_blueprint.session.authorized == False:
             #if not logged in browser is redirected to login page (in this case FENIX handled the login)
             return redirect(url_for("fenix-example.login"))
-        else:
+        try:
             #if the user is authenticated then a request to FENIX is made
             resp = fenix_blueprint.session.get("/api/fenix/v1/person/")
             #res contains the responde made to /api/fenix/vi/person (information about current user)
             data = resp.json() 
             print(resp.json())
             return render_template("adminPage.html", username=data['username'], name=data['name'])
+        except:
+            return redirect(url_for("fenix-example.login"))
 
     @admin.route('/video_page')
     @admin.route('/video_page/<string:id>')
@@ -26,12 +28,14 @@ def construct_admin_bp(fenix_blueprint):
         if fenix_blueprint.session.authorized == False:
             #if not logged in browser is redirected to login page (in this case FENIX handled the login)
             return redirect(url_for("fenix-example.login"))
-        else:
+        try:
             #if the user is authenticated then a request to FENIX is made
             resp = fenix_blueprint.session.get("/api/fenix/v1/person/")
             #resp contains the response made to /api/fenix/vi/person (information about current user)
             user = resp.json() 
             print(resp.json())
-        return render_template("admin_videoPage.html", videoID=id, username=user['username'], name=user['name'])
+            return render_template("admin_videoPage.html", videoID=id, username=user['username'], name=user['name'])
+        except:
+            return redirect(url_for("fenix-example.login"))
 
     return admin 

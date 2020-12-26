@@ -40,22 +40,36 @@
         </script>
 
         
-        <title>{% block title %}{% endblock %} - Flask</title>
-        <div class="ui container">
+        <title>{% block title %}{% endblock %} Video APP</title>
+        <div class="ui  vertical masthead center aligned segment">
+
             {% if loggedIn %}
-            
+            <div class="ui container">
+                <div class="ui large secondary pointing menu">
+                <a href="{{ url_for("home_page") }}" class="active item">Home</a>
+                <a href="{{ url_for("regular.regular_page") }}" class="item">List of videos</a>
+                <a id="admin_option" href="{{ url_for("admin.admin_page") }}" class="item">Private page of the site (needs auth)</a>
+                <a href="{{ url_for("logout") }}" class="item">Logout</a>
+                </div>
+            </div>
+
             <p style="font-family:helvetica">User {{userID}} logged in</p>
             <br>
-            <p style="font-family:helvetica">Select an option:</p>
-            <a id="admin_option" href="{{ url_for("admin.admin_page") }}"> <p style="font-family:helvetica">Private part of the site (needs auth)</p></a>
-            <a href="{{ url_for("regular.regular_page") }}"> <p style="font-family:helvetica">List of Videos</p></a>
-            <br>
-            <a href="{{ url_for("logout") }}"> <p style="font-family:helvetica">Logout</p></a>
+            <!-- <p style="font-family:helvetica">Select an option:</p> -->
+            <!-- <a id="admin_option" href="{{ url_for("admin.admin_page") }}"> <p style="font-family:helvetica">Private part of the site (needs auth)</p></a> -->
+            <!-- <a href="{{ url_for("regular.regular_page") }}"> <p style="font-family:helvetica">List of Videos</p></a> -->
+            <!-- <br> -->
+            <!-- <a href="{{ url_for("logout") }}"> <p style="font-family:helvetica">Logout</p></a> -->
 
             {% else %}
-            <a href="{{ url_for("fenix-example.login") }}">Login with OAuth</a>
+            <div class="ui text container">
+                <br>
+                <h1 class="ui header">This is our project! (change this later..)</h1>
+                <h2>Architectures and Internet Systems</h2>
+                <a href="{{ url_for("fenix-example.login") }}" class="ui huge primary button"> Login with OAuth<i class="right arrow icon"></i></a>
+            </div>
 
-            {% endif %}
-        </div>
+            {% endif %}    
+        </div>    
     </head>
 </html>
