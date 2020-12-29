@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css"  href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.7/dist/semantic.css">
+    <script  src="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.7/dist/semantic.js">  </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-xmlrpc/0.4.3/jquery.xmlrpc.js"> </script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script>
+      
+      // a function to get the users and render them into a table
+      function getUsersList() {
+        $.ajax({
+          url: '/API/users/',
+          type: "GET",
+          dataType: "json",
+          success: function (data) {
+            console.log(data)
+            var users = data["users"]
+            console.log('Users got: '+ users)
+
+            $('#usersTable > tbody:last-child').empty()
+            users.forEach(usr => {
+              $('#usersTable > tbody:last-child').
+              append('<tr><td>'+ usr["name"]+'</td><td>' +usr["user_id"] + '</td> <td><button class="ui button" id="buttonQDetails" onclick="getUserStatistic(users[this.parentNode.parentNode.rowIndex-1])">Details</button></td></tr>');
+            });
+          },
+        })
+      }
+
+      // to get all information about a single user
+      function getUserStatistic(user){
+        
+      }
+      
+
+      $(document).ready(function(){
+        getUsersList()
+
+        
+      });
+
+    </script>
+
+
+
+
+
+    <title>STATISTICS PAGE</title>
+    <body>
+      username - {{ username }} {{name}}
+      <p><a href="{{ url_for("logout") }}"> Logout</a></p> 
+
+      <br>
+      <h3>Select a User from the table</h3>
+
+      <h3>List of Users</h3>
+    <table class="ui celled table selectable" id="usersTable" >
+      <thead>
+        <tr>
+          <th>User Name</th>  <th>User ID</th><th></th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+
+    </body>
+  </head>
+</html>

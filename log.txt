@@ -1,124 +1,40 @@
 TIMESTAMP            : EVENT
 
-26/12/2020 13:01:10  : Videos dictionary returned [{'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'video_id': 1}, {'description': 'Jamie Oliver - Keep Cooking at Christmas (S01E02) 2020', 'video_id': 2}]
+29/12/2020 16:08:42  : Users dictionary returned [{'name': 'Xavier Abreu Dias', 'user_id': 'ist187136'}, {'name': 'Pedro Guedes de Campos Martin', 'user_id': 'ist187094'}]
 
-26/12/2020 13:01:10  : Questions dictionary returned [{'question': 'Question?', 'question_id': 3, 'time': '0.960205', 'user': 'ist187094', 'video_id': 1}, {'question': 'Hello?', 'question_id': 6, 'time': '2.7595870076293947', 'user': 'ist187136', 'video_id': 1}]
+29/12/2020 16:08:51  : Users dictionary returned [{'name': 'Xavier Abreu Dias', 'user_id': 'ist187136'}, {'name': 'Pedro Guedes de Campos Martin', 'user_id': 'ist187094'}]
 
-26/12/2020 13:01:10  : Questions dictionary returned [{'question': 'pergunta', 'question_id': 1, 'time': '1.126365', 'user': 'ist187094', 'video_id': 2}, {'question': 'Who am I?', 'question_id': 2, 'time': '1.298296', 'user': 'ist187094', 'video_id': 2}, {'question': 'is this a question?', 'question_id': 4, 'time': '3.054765108718872', 'user': 'ist187136', 'video_id': 2}, {'question': 'To be or not to be. That is the question...', 'question_id': 5, 'time': '1.9972300553131104', 'user': 'ist187094', 'video_id': 2}]
+29/12/2020 16:09:17  : Users dictionary returned [{'name': 'Xavier Abreu Dias', 'user_id': 'ist187136'}, {'name': 'Pedro Guedes de Campos Martin', 'user_id': 'ist187094'}]
 
-26/12/2020 13:05:05  : Videos dictionary returned [{'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'video_id': 1}, {'description': 'Jamie Oliver - Keep Cooking at Christmas (S01E02) 2020', 'video_id': 2}]
+29/12/2020 16:22:12  : Users dictionary returned [{'name': 'Xavier Abreu Dias', 'user_id': 'ist187136'}, {'name': 'Pedro Guedes de Campos Martin', 'user_id': 'ist187094'}]
 
-26/12/2020 13:05:05  : Questions dictionary returned [{'question': 'Question?', 'question_id': 3, 'time': '0.960205', 'user': 'ist187094', 'video_id': 1}, {'question': 'Hello?', 'question_id': 6, 'time': '2.7595870076293947', 'user': 'ist187136', 'video_id': 1}]
+29/12/2020 16:22:29  : Users dictionary returned [{'name': 'Xavier Abreu Dias', 'user_id': 'ist187136'}, {'name': 'Pedro Guedes de Campos Martin', 'user_id': 'ist187094'}]
 
-26/12/2020 13:05:05  : Questions dictionary returned [{'question': 'pergunta', 'question_id': 1, 'time': '1.126365', 'user': 'ist187094', 'video_id': 2}, {'question': 'Who am I?', 'question_id': 2, 'time': '1.298296', 'user': 'ist187094', 'video_id': 2}, {'question': 'is this a question?', 'question_id': 4, 'time': '3.054765108718872', 'user': 'ist187136', 'video_id': 2}, {'question': 'To be or not to be. That is the question...', 'question_id': 5, 'time': '1.9972300553131104', 'user': 'ist187094', 'video_id': 2}]
+29/12/2020 16:23:51  : Users dictionary returned [{'name': 'Xavier Abreu Dias', 'user_id': 'ist187136'}, {'name': 'Pedro Guedes de Campos Martin', 'user_id': 'ist187094'}]
 
-26/12/2020 13:05:08  : Videos dictionary returned [{'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'video_id': 1}, {'description': 'Jamie Oliver - Keep Cooking at Christmas (S01E02) 2020', 'video_id': 2}]
+29/12/2020 16:24:17  : Users dictionary returned [{'name': 'Xavier Abreu Dias', 'user_id': 'ist187136'}, {'name': 'Pedro Guedes de Campos Martin', 'user_id': 'ist187094'}]
 
-26/12/2020 13:05:08  : Questions dictionary returned [{'question': 'Question?', 'question_id': 3, 'time': '0.960205', 'user': 'ist187094', 'video_id': 1}, {'question': 'Hello?', 'question_id': 6, 'time': '2.7595870076293947', 'user': 'ist187136', 'video_id': 1}]
+29/12/2020 16:30:59  : Users dictionary returned [{'name': 'Xavier Abreu Dias', 'user_id': 'ist187136'}, {'name': 'Pedro Guedes de Campos Martin', 'user_id': 'ist187094'}]
 
-26/12/2020 13:05:08  : Questions dictionary returned [{'question': 'pergunta', 'question_id': 1, 'time': '1.126365', 'user': 'ist187094', 'video_id': 2}, {'question': 'Who am I?', 'question_id': 2, 'time': '1.298296', 'user': 'ist187094', 'video_id': 2}, {'question': 'is this a question?', 'question_id': 4, 'time': '3.054765108718872', 'user': 'ist187136', 'video_id': 2}, {'question': 'To be or not to be. That is the question...', 'question_id': 5, 'time': '1.9972300553131104', 'user': 'ist187094', 'video_id': 2}]
+29/12/2020 16:31:13  : Users dictionary returned [{'name': 'Xavier Abreu Dias', 'user_id': 'ist187136'}, {'name': 'Pedro Guedes de Campos Martin', 'user_id': 'ist187094'}]
 
-26/12/2020 13:11:22  : Videos dictionary returned [{'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'video_id': 1}, {'description': 'Jamie Oliver - Keep Cooking at Christmas (S01E02) 2020', 'video_id': 2}]
+29/12/2020 16:31:44  : Users dictionary returned [{'name': 'Xavier Abreu Dias', 'user_id': 'ist187136'}, {'name': 'Pedro Guedes de Campos Martin', 'user_id': 'ist187094'}]
 
-26/12/2020 13:11:22  : Questions dictionary returned [{'question': 'pergunta', 'question_id': 1, 'time': '1.126365', 'user': 'ist187094', 'video_id': 2}, {'question': 'Who am I?', 'question_id': 2, 'time': '1.298296', 'user': 'ist187094', 'video_id': 2}, {'question': 'is this a question?', 'question_id': 4, 'time': '3.054765108718872', 'user': 'ist187136', 'video_id': 2}, {'question': 'To be or not to be. That is the question...', 'question_id': 5, 'time': '1.9972300553131104', 'user': 'ist187094', 'video_id': 2}]
+29/12/2020 16:32:29  : Users dictionary returned [{'name': 'Xavier Abreu Dias', 'user_id': 'ist187136'}, {'name': 'Pedro Guedes de Campos Martin', 'user_id': 'ist187094'}]
 
-26/12/2020 13:11:22  : Questions dictionary returned [{'question': 'Question?', 'question_id': 3, 'time': '0.960205', 'user': 'ist187094', 'video_id': 1}, {'question': 'Hello?', 'question_id': 6, 'time': '2.7595870076293947', 'user': 'ist187136', 'video_id': 1}]
+29/12/2020 16:36:45  : Users dictionary returned [{'name': 'Xavier Abreu Dias', 'user_id': 'ist187136'}, {'name': 'Pedro Guedes de Campos Martin', 'user_id': 'ist187094'}]
 
-26/12/2020 13:12:53  : Videos dictionary returned [{'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'video_id': 1}, {'description': 'Jamie Oliver - Keep Cooking at Christmas (S01E02) 2020', 'video_id': 2}]
+29/12/2020 16:38:33  : Users dictionary returned [{'name': 'Xavier Abreu Dias', 'user_id': 'ist187136'}, {'name': 'Pedro Guedes de Campos Martin', 'user_id': 'ist187094'}]
 
-26/12/2020 13:12:53  : Questions dictionary returned [{'question': 'Question?', 'question_id': 3, 'time': '0.960205', 'user': 'ist187094', 'video_id': 1}, {'question': 'Hello?', 'question_id': 6, 'time': '2.7595870076293947', 'user': 'ist187136', 'video_id': 1}]
+29/12/2020 16:38:43  : Users dictionary returned [{'name': 'Xavier Abreu Dias', 'user_id': 'ist187136'}, {'name': 'Pedro Guedes de Campos Martin', 'user_id': 'ist187094'}]
 
-26/12/2020 13:12:53  : Questions dictionary returned [{'question': 'pergunta', 'question_id': 1, 'time': '1.126365', 'user': 'ist187094', 'video_id': 2}, {'question': 'Who am I?', 'question_id': 2, 'time': '1.298296', 'user': 'ist187094', 'video_id': 2}, {'question': 'is this a question?', 'question_id': 4, 'time': '3.054765108718872', 'user': 'ist187136', 'video_id': 2}, {'question': 'To be or not to be. That is the question...', 'question_id': 5, 'time': '1.9972300553131104', 'user': 'ist187094', 'video_id': 2}]
+29/12/2020 16:38:51  : Users dictionary returned [{'name': 'Xavier Abreu Dias', 'user_id': 'ist187136'}, {'name': 'Pedro Guedes de Campos Martin', 'user_id': 'ist187094'}]
 
-26/12/2020 13:13:06  : Videos dictionary returned [{'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'video_id': 1}, {'description': 'Jamie Oliver - Keep Cooking at Christmas (S01E02) 2020', 'video_id': 2}]
+29/12/2020 16:40:53  : Users dictionary returned [{'name': 'Xavier Abreu Dias', 'user_id': 'ist187136'}, {'name': 'Pedro Guedes de Campos Martin', 'user_id': 'ist187094'}]
 
-26/12/2020 13:13:06  : Questions dictionary returned [{'question': 'Question?', 'question_id': 3, 'time': '0.960205', 'user': 'ist187094', 'video_id': 1}, {'question': 'Hello?', 'question_id': 6, 'time': '2.7595870076293947', 'user': 'ist187136', 'video_id': 1}]
+29/12/2020 16:41:08  : Users dictionary returned [{'name': 'Xavier Abreu Dias', 'user_id': 'ist187136'}, {'name': 'Pedro Guedes de Campos Martin', 'user_id': 'ist187094'}]
 
-26/12/2020 13:13:06  : Questions dictionary returned [{'question': 'pergunta', 'question_id': 1, 'time': '1.126365', 'user': 'ist187094', 'video_id': 2}, {'question': 'Who am I?', 'question_id': 2, 'time': '1.298296', 'user': 'ist187094', 'video_id': 2}, {'question': 'is this a question?', 'question_id': 4, 'time': '3.054765108718872', 'user': 'ist187136', 'video_id': 2}, {'question': 'To be or not to be. That is the question...', 'question_id': 5, 'time': '1.9972300553131104', 'user': 'ist187094', 'video_id': 2}]
+29/12/2020 16:41:13  : Users dictionary returned [{'name': 'Xavier Abreu Dias', 'user_id': 'ist187136'}, {'name': 'Pedro Guedes de Campos Martin', 'user_id': 'ist187094'}]
 
-26/12/2020 13:14:31  : Videos dictionary returned [{'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'video_id': 1}, {'description': 'Jamie Oliver - Keep Cooking at Christmas (S01E02) 2020', 'video_id': 2}]
-
-26/12/2020 13:14:31  : Questions dictionary returned [{'question': 'Question?', 'question_id': 3, 'time': '0.960205', 'user': 'ist187094', 'video_id': 1}, {'question': 'Hello?', 'question_id': 6, 'time': '2.7595870076293947', 'user': 'ist187136', 'video_id': 1}]
-
-26/12/2020 13:14:31  : Questions dictionary returned [{'question': 'pergunta', 'question_id': 1, 'time': '1.126365', 'user': 'ist187094', 'video_id': 2}, {'question': 'Who am I?', 'question_id': 2, 'time': '1.298296', 'user': 'ist187094', 'video_id': 2}, {'question': 'is this a question?', 'question_id': 4, 'time': '3.054765108718872', 'user': 'ist187136', 'video_id': 2}, {'question': 'To be or not to be. That is the question...', 'question_id': 5, 'time': '1.9972300553131104', 'user': 'ist187094', 'video_id': 2}]
-
-26/12/2020 13:15:11  : Questions dictionary returned [{'question': 'Question?', 'question_id': 3, 'time': '0.960205', 'user': 'ist187094', 'video_id': 1}, {'question': 'Hello?', 'question_id': 6, 'time': '2.7595870076293947', 'user': 'ist187136', 'video_id': 1}]
-
-26/12/2020 13:15:11  : Questions dictionary returned [{'question': 'pergunta', 'question_id': 1, 'time': '1.126365', 'user': 'ist187094', 'video_id': 2}, {'question': 'Who am I?', 'question_id': 2, 'time': '1.298296', 'user': 'ist187094', 'video_id': 2}, {'question': 'is this a question?', 'question_id': 4, 'time': '3.054765108718872', 'user': 'ist187136', 'video_id': 2}, {'question': 'To be or not to be. That is the question...', 'question_id': 5, 'time': '1.9972300553131104', 'user': 'ist187094', 'video_id': 2}]
-
-26/12/2020 13:15:47  : Videos dictionary returned [{'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'video_id': 1}, {'description': 'Jamie Oliver - Keep Cooking at Christmas (S01E02) 2020', 'video_id': 2}]
-
-26/12/2020 13:15:47  : Questions dictionary returned [{'question': 'Question?', 'question_id': 3, 'time': '0.960205', 'user': 'ist187094', 'video_id': 1}, {'question': 'Hello?', 'question_id': 6, 'time': '2.7595870076293947', 'user': 'ist187136', 'video_id': 1}]
-
-26/12/2020 13:15:47  : Questions dictionary returned [{'question': 'pergunta', 'question_id': 1, 'time': '1.126365', 'user': 'ist187094', 'video_id': 2}, {'question': 'Who am I?', 'question_id': 2, 'time': '1.298296', 'user': 'ist187094', 'video_id': 2}, {'question': 'is this a question?', 'question_id': 4, 'time': '3.054765108718872', 'user': 'ist187136', 'video_id': 2}, {'question': 'To be or not to be. That is the question...', 'question_id': 5, 'time': '1.9972300553131104', 'user': 'ist187094', 'video_id': 2}]
-
-26/12/2020 13:16:45  : Videos dictionary returned [{'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'video_id': 1}, {'description': 'Jamie Oliver - Keep Cooking at Christmas (S01E02) 2020', 'video_id': 2}]
-
-26/12/2020 13:16:45  : Questions dictionary returned [{'question': 'Question?', 'question_id': 3, 'time': '0.960205', 'user': 'ist187094', 'video_id': 1}, {'question': 'Hello?', 'question_id': 6, 'time': '2.7595870076293947', 'user': 'ist187136', 'video_id': 1}]
-
-26/12/2020 13:16:45  : Questions dictionary returned [{'question': 'pergunta', 'question_id': 1, 'time': '1.126365', 'user': 'ist187094', 'video_id': 2}, {'question': 'Who am I?', 'question_id': 2, 'time': '1.298296', 'user': 'ist187094', 'video_id': 2}, {'question': 'is this a question?', 'question_id': 4, 'time': '3.054765108718872', 'user': 'ist187136', 'video_id': 2}, {'question': 'To be or not to be. That is the question...', 'question_id': 5, 'time': '1.9972300553131104', 'user': 'ist187094', 'video_id': 2}]
-
-26/12/2020 13:17:14  : Videos dictionary returned [{'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'video_id': 1}, {'description': 'Jamie Oliver - Keep Cooking at Christmas (S01E02) 2020', 'video_id': 2}]
-
-26/12/2020 13:17:14  : Questions dictionary returned [{'question': 'pergunta', 'question_id': 1, 'time': '1.126365', 'user': 'ist187094', 'video_id': 2}, {'question': 'Who am I?', 'question_id': 2, 'time': '1.298296', 'user': 'ist187094', 'video_id': 2}, {'question': 'is this a question?', 'question_id': 4, 'time': '3.054765108718872', 'user': 'ist187136', 'video_id': 2}, {'question': 'To be or not to be. That is the question...', 'question_id': 5, 'time': '1.9972300553131104', 'user': 'ist187094', 'video_id': 2}]
-
-26/12/2020 13:17:14  : Questions dictionary returned [{'question': 'Question?', 'question_id': 3, 'time': '0.960205', 'user': 'ist187094', 'video_id': 1}, {'question': 'Hello?', 'question_id': 6, 'time': '2.7595870076293947', 'user': 'ist187136', 'video_id': 1}]
-
-26/12/2020 13:19:03  : Videos dictionary returned [{'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'video_id': 1}, {'description': 'Jamie Oliver - Keep Cooking at Christmas (S01E02) 2020', 'video_id': 2}]
-
-26/12/2020 13:19:03  : Questions dictionary returned [{'question': 'Question?', 'question_id': 3, 'time': '0.960205', 'user': 'ist187094', 'video_id': 1}, {'question': 'Hello?', 'question_id': 6, 'time': '2.7595870076293947', 'user': 'ist187136', 'video_id': 1}]
-
-26/12/2020 13:19:03  : Questions dictionary returned [{'question': 'pergunta', 'question_id': 1, 'time': '1.126365', 'user': 'ist187094', 'video_id': 2}, {'question': 'Who am I?', 'question_id': 2, 'time': '1.298296', 'user': 'ist187094', 'video_id': 2}, {'question': 'is this a question?', 'question_id': 4, 'time': '3.054765108718872', 'user': 'ist187136', 'video_id': 2}, {'question': 'To be or not to be. That is the question...', 'question_id': 5, 'time': '1.9972300553131104', 'user': 'ist187094', 'video_id': 2}]
-
-26/12/2020 13:19:06  : Questions dictionary returned [{'question': 'Question?', 'question_id': 3, 'time': '0.960205', 'user': 'ist187094', 'video_id': 1}, {'question': 'Hello?', 'question_id': 6, 'time': '2.7595870076293947', 'user': 'ist187136', 'video_id': 1}]
-
-26/12/2020 13:19:06  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 103}
-
-26/12/2020 13:20:27  : Questions dictionary returned [{'question': 'Question?', 'question_id': 3, 'time': '0.960205', 'user': 'ist187094', 'video_id': 1}, {'question': 'Hello?', 'question_id': 6, 'time': '2.7595870076293947', 'user': 'ist187136', 'video_id': 1}]
-
-26/12/2020 13:20:27  : Single video dictionary returned {'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'url': 'https://www.youtube.com/watch?v=WteIH6J9v64&ab_channel=TechWithTim', 'video_id': 1, 'views': 103}
-
-26/12/2020 13:20:35  : Questions dictionary returned [{'question': 'Question?', 'question_id': 3, 'time': '0.960205', 'user': 'ist187094', 'video_id': 1}, {'question': 'Hello?', 'question_id': 6, 'time': '2.7595870076293947', 'user': 'ist187136', 'video_id': 1}]
-
-26/12/2020 13:20:35  : Questions dictionary returned [{'question': 'pergunta', 'question_id': 1, 'time': '1.126365', 'user': 'ist187094', 'video_id': 2}, {'question': 'Who am I?', 'question_id': 2, 'time': '1.298296', 'user': 'ist187094', 'video_id': 2}, {'question': 'is this a question?', 'question_id': 4, 'time': '3.054765108718872', 'user': 'ist187136', 'video_id': 2}, {'question': 'To be or not to be. That is the question...', 'question_id': 5, 'time': '1.9972300553131104', 'user': 'ist187094', 'video_id': 2}]
-
-26/12/2020 13:23:42  : Questions dictionary returned [{'question': 'Question?', 'question_id': 3, 'time': '0.960205', 'user': 'ist187094', 'video_id': 1}, {'question': 'Hello?', 'question_id': 6, 'time': '2.7595870076293947', 'user': 'ist187136', 'video_id': 1}]
-
-26/12/2020 13:23:42  : Questions dictionary returned [{'question': 'pergunta', 'question_id': 1, 'time': '1.126365', 'user': 'ist187094', 'video_id': 2}, {'question': 'Who am I?', 'question_id': 2, 'time': '1.298296', 'user': 'ist187094', 'video_id': 2}, {'question': 'is this a question?', 'question_id': 4, 'time': '3.054765108718872', 'user': 'ist187136', 'video_id': 2}, {'question': 'To be or not to be. That is the question...', 'question_id': 5, 'time': '1.9972300553131104', 'user': 'ist187094', 'video_id': 2}]
-
-26/12/2020 13:23:51  : Videos dictionary returned [{'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'video_id': 1}, {'description': 'Jamie Oliver - Keep Cooking at Christmas (S01E02) 2020', 'video_id': 2}]
-
-26/12/2020 13:23:51  : Questions dictionary returned [{'question': 'Question?', 'question_id': 3, 'time': '0.960205', 'user': 'ist187094', 'video_id': 1}, {'question': 'Hello?', 'question_id': 6, 'time': '2.7595870076293947', 'user': 'ist187136', 'video_id': 1}]
-
-26/12/2020 13:23:51  : Questions dictionary returned [{'question': 'pergunta', 'question_id': 1, 'time': '1.126365', 'user': 'ist187094', 'video_id': 2}, {'question': 'Who am I?', 'question_id': 2, 'time': '1.298296', 'user': 'ist187094', 'video_id': 2}, {'question': 'is this a question?', 'question_id': 4, 'time': '3.054765108718872', 'user': 'ist187136', 'video_id': 2}, {'question': 'To be or not to be. That is the question...', 'question_id': 5, 'time': '1.9972300553131104', 'user': 'ist187094', 'video_id': 2}]
-
-26/12/2020 13:23:53  : Videos dictionary returned [{'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'video_id': 1}, {'description': 'Jamie Oliver - Keep Cooking at Christmas (S01E02) 2020', 'video_id': 2}]
-
-26/12/2020 13:23:53  : Questions dictionary returned [{'question': 'Question?', 'question_id': 3, 'time': '0.960205', 'user': 'ist187094', 'video_id': 1}, {'question': 'Hello?', 'question_id': 6, 'time': '2.7595870076293947', 'user': 'ist187136', 'video_id': 1}]
-
-26/12/2020 13:23:53  : Questions dictionary returned [{'question': 'pergunta', 'question_id': 1, 'time': '1.126365', 'user': 'ist187094', 'video_id': 2}, {'question': 'Who am I?', 'question_id': 2, 'time': '1.298296', 'user': 'ist187094', 'video_id': 2}, {'question': 'is this a question?', 'question_id': 4, 'time': '3.054765108718872', 'user': 'ist187136', 'video_id': 2}, {'question': 'To be or not to be. That is the question...', 'question_id': 5, 'time': '1.9972300553131104', 'user': 'ist187094', 'video_id': 2}]
-
-26/12/2020 13:23:55  : Questions dictionary returned [{'question': 'Question?', 'question_id': 3, 'time': '0.960205', 'user': 'ist187094', 'video_id': 1}, {'question': 'Hello?', 'question_id': 6, 'time': '2.7595870076293947', 'user': 'ist187136', 'video_id': 1}]
-
-26/12/2020 13:23:55  : Questions dictionary returned [{'question': 'pergunta', 'question_id': 1, 'time': '1.126365', 'user': 'ist187094', 'video_id': 2}, {'question': 'Who am I?', 'question_id': 2, 'time': '1.298296', 'user': 'ist187094', 'video_id': 2}, {'question': 'is this a question?', 'question_id': 4, 'time': '3.054765108718872', 'user': 'ist187136', 'video_id': 2}, {'question': 'To be or not to be. That is the question...', 'question_id': 5, 'time': '1.9972300553131104', 'user': 'ist187094', 'video_id': 2}]
-
-26/12/2020 13:24:09  : Questions dictionary returned [{'question': 'pergunta', 'question_id': 1, 'time': '1.126365', 'user': 'ist187094', 'video_id': 2}, {'question': 'Who am I?', 'question_id': 2, 'time': '1.298296', 'user': 'ist187094', 'video_id': 2}, {'question': 'is this a question?', 'question_id': 4, 'time': '3.054765108718872', 'user': 'ist187136', 'video_id': 2}, {'question': 'To be or not to be. That is the question...', 'question_id': 5, 'time': '1.9972300553131104', 'user': 'ist187094', 'video_id': 2}]
-
-26/12/2020 13:24:09  : Single video dictionary returned {'description': 'Jamie Oliver - Keep Cooking at Christmas (S01E02) 2020', 'url': 'https://www.youtube.com/watch?v=yVu7FVQKrXQ', 'video_id': 2, 'views': 11}
-
-26/12/2020 13:24:14  : Questions dictionary returned [{'question': 'pergunta', 'question_id': 1, 'time': '1.126365', 'user': 'ist187094', 'video_id': 2}, {'question': 'Who am I?', 'question_id': 2, 'time': '1.298296', 'user': 'ist187094', 'video_id': 2}, {'question': 'is this a question?', 'question_id': 4, 'time': '3.054765108718872', 'user': 'ist187136', 'video_id': 2}, {'question': 'To be or not to be. That is the question...', 'question_id': 5, 'time': '1.9972300553131104', 'user': 'ist187094', 'video_id': 2}]
-
-26/12/2020 13:24:14  : Questions dictionary returned [{'question': 'Question?', 'question_id': 3, 'time': '0.960205', 'user': 'ist187094', 'video_id': 1}, {'question': 'Hello?', 'question_id': 6, 'time': '2.7595870076293947', 'user': 'ist187136', 'video_id': 1}]
-
-26/12/2020 13:24:44  : Videos dictionary returned [{'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'video_id': 1}, {'description': 'Jamie Oliver - Keep Cooking at Christmas (S01E02) 2020', 'video_id': 2}]
-
-26/12/2020 13:24:44  : Questions dictionary returned [{'question': 'Question?', 'question_id': 3, 'time': '0.960205', 'user': 'ist187094', 'video_id': 1}, {'question': 'Hello?', 'question_id': 6, 'time': '2.7595870076293947', 'user': 'ist187136', 'video_id': 1}]
-
-26/12/2020 13:24:44  : Questions dictionary returned [{'question': 'pergunta', 'question_id': 1, 'time': '1.126365', 'user': 'ist187094', 'video_id': 2}, {'question': 'Who am I?', 'question_id': 2, 'time': '1.298296', 'user': 'ist187094', 'video_id': 2}, {'question': 'is this a question?', 'question_id': 4, 'time': '3.054765108718872', 'user': 'ist187136', 'video_id': 2}, {'question': 'To be or not to be. That is the question...', 'question_id': 5, 'time': '1.9972300553131104', 'user': 'ist187094', 'video_id': 2}]
-
-26/12/2020 13:24:59  : Videos dictionary returned [{'description': 'Flask Tutorial #10 - Blueprints & Using Multiple Python Files', 'video_id': 1}, {'description': 'Jamie Oliver - Keep Cooking at Christmas (S01E02) 2020', 'video_id': 2}]
-
-26/12/2020 13:24:59  : Questions dictionary returned [{'question': 'Question?', 'question_id': 3, 'time': '0.960205', 'user': 'ist187094', 'video_id': 1}, {'question': 'Hello?', 'question_id': 6, 'time': '2.7595870076293947', 'user': 'ist187136', 'video_id': 1}]
-
-26/12/2020 13:24:59  : Questions dictionary returned [{'question': 'pergunta', 'question_id': 1, 'time': '1.126365', 'user': 'ist187094', 'video_id': 2}, {'question': 'Who am I?', 'question_id': 2, 'time': '1.298296', 'user': 'ist187094', 'video_id': 2}, {'question': 'is this a question?', 'question_id': 4, 'time': '3.054765108718872', 'user': 'ist187136', 'video_id': 2}, {'question': 'To be or not to be. That is the question...', 'question_id': 5, 'time': '1.9972300553131104', 'user': 'ist187094', 'video_id': 2}]
+29/12/2020 16:49:25  : Users dictionary returned [{'name': 'Xavier Abreu Dias', 'user_id': 'ist187136'}, {'name': 'Pedro Guedes de Campos Martin', 'user_id': 'ist187094'}]
 

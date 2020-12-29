@@ -314,9 +314,9 @@ def createNewAnswer(video_id, question_id):
 # Related to users
 
 # get a list of users registered
-@app.route("/API/users", methods=['GET'])
+@app.route("/API/users/", methods=['GET'])
 def returnsUsersJSON():
-    url = USERS_URL + 'users'
+    url = USERS_URL + 'users/'
     resp = rq.get(url).json()
     
     # datetime object containing current date and time and converting it to a string
