@@ -158,7 +158,7 @@ def home_page():
         print(resp.json())    
         return render_template("appPage.html", loggedIn = fenix_blueprint.session.authorized, userID=user['username'], userName=user['name'])
 
-    except (OAuth2ConsumerBlueprint.InvalidGrantError, OAuth2ConsumerBlueprint.TokenExpiredError) as e:  # or maybe any OAuth2Error
+    except:  # or maybe any OAuth2Error
         #if not logged in browser is redirected to login page (in this case FENIX handled the login)
         return render_template("appPage.html", loggedIn = fenix_blueprint.session.authorized)
 
@@ -327,9 +327,9 @@ def returnsUsersJSON():
     return resp
 
 # get a single user
-@app.route("/API/users/<int:id>/")
+@app.route("/API/users/<string:id>/")
 def returnSingleUserJSON(id):
-    url = USERS_URL+'users/'+str(id)
+    url = USERS_URL+'users/'+(id)+'/'
     resp = rq.get(url).json()
 
     # datetime object containing current date and time and converting it to a string
@@ -366,10 +366,28 @@ def createNewUser():
         abort(409)
     #if there is an erro return ERROR 409
 
-# put the number of vizualized videos by an user
+# increment the number of registered videos of an user
 @app.route("/API/users/<string:user_id>/videosRegistred/", methods=['PUT', 'PATCH'])
 def newVideoRegistration(user_id):
     ret = rq.put(USERS_URL+'users/'+user_id+'/videosRegistred/', user_id).json()
+    return ret
+
+# increment the number of videos visualized by an user
+@app.route("/API/users/<string:user_id>/videoViews/", methods=['PUT', 'PATCH'])
+def incrementUserViews(user_id):
+    ret = rq.put(USERS_URL+'users/'+user_id+'/videosViews/', user_id).json()
+    return ret
+
+# increment the number of questions made by an user
+@app.route("/API/users/<string:user_id>/nquestions/", methods=['PUT', 'PATCH'])
+def incrementUserQuestions(user_id):
+    ret = rq.put(USERS_URL+'users/'+user_id+'/nquestions/', user_id).json()
+    return ret
+
+# increment the number of answers made by an user
+@app.route("/API/users/<string:user_id>/nanswers/", methods=['PUT', 'PATCH'])
+def incrementUserAnswers(user_id):
+    ret = rq.put(USERS_URL+'users/'+user_id+'/nanswers/', user_id).json()
     return ret
 
 # Related to users

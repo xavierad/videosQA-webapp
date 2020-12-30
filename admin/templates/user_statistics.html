@@ -32,15 +32,19 @@
       function getUserStatistics(user){
         $("#listStatistics").show(); 
         console.log(user['name'])
+
         $.ajax({
-          url: '/API/questions/'+user['user_id']+'/',
+          url: '/API/users/'+user['user_id']+'/',
           type: "GET",
           dataType: "json",
           success: function (data) {
             console.log(data)
-            number_of_questions = Object.keys(data['questions']).length
             $('#listStatistics').empty()
-            $('#listStatistics').append('<h3 id="listStatistics">User Statistics</h3>'+'<h4>User: '+user['user_id']+'<br>Number of questions: '+number_of_questions+'<br></h4>')
+            $('#listStatistics').append('<h3 id="listStatistics">User Statistics</h3>'+'<h4>User: '+user['user_id']+'<br>'+
+              '<br>Number of video registered: '+data['video_registrations']+
+              '<br>Number of video visualized: '+data['nviews']+
+              '<br>Number of questions made: '+data['nquestions']+
+              '<br>Number of answers made: '+data['nanswers'])
           },
         })
       }

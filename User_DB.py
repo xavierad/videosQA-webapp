@@ -22,14 +22,15 @@ class User(Base):
     id = Column(String, primary_key=True)
     name = Column(String)
     videoRegistrations = Column(Integer, default = 0)
-    # url = Column(String)
-    # views = Column(Integer, default = 0)
+    nviews = Column(Integer, default = 0)
+    nquestions = Column(Integer, default = 0)
+    nanswers = Column(Integer, default = 0)
 
     def __repr__(self):
-        return "<User id=%s Name=%s videoRegistrations=%d>" % (self.id, self.name, self.videoRegistrations)
+        return "<User id=%s Name=%s videoRegistrations=%d number of views=%d number of questions=%d number of answers=%d>" % (self.id, self.name, self.videoRegistrations, self.nviews, self.nquestions, self.nanswers)
 
     def to_dictionary(self):
-        return {"user_id": self.id, "name": self.name, "video_registrations": self.videoRegistrations}
+        return {"user_id": self.id, "name": self.name, "video_registrations": self.videoRegistrations, "nviews":self.nviews, "nquestions":self.nquestions, "nanswers":self.nanswers}
 
 
 Base.metadata.create_all(engine) #Create tables for the data models
@@ -37,14 +38,6 @@ Base.metadata.create_all(engine) #Create tables for the data models
 Session = sessionmaker(bind=engine)
 sql_session = scoped_session(Session)
 # session = Session()
-
-def newVideoRegist(user_id):
-    b = sql_session.query(User).filter(User.id==user_id).first()
-    b.videoRegistrations += 1
-    n = b.videoRegistrations
-    sql_session.commit()
-    sql_session.close()
-    return n
 
 def listUsers():
     return sql_session.query(User).all()
@@ -69,6 +62,38 @@ def getUser(id):
 def getUserDICT(id):
     return getUser(id).to_dictionary()
 
+def newVideoRegist(user_id):
+    b = sql_session.query(User).filter(User.id==user_id).first()
+    b.videoRegistrations += 1
+    n = b.videoRegistrations
+    sql_session.commit()
+    sql_session.close()
+    return n
+
+def incrementViews(user_id):
+    b = sql_session.query(User).filter(User.id==user_id).first()
+    b.nviews += 1
+    n = b.nviews
+    sql_session.commit()
+    sql_session.close()
+    return n
+
+def incrementQuestions(user_id):
+    b = sql_session.query(User).filter(User.id==user_id).first()
+    b.nquestions += 1
+    n = b.nquestions
+    sql_session.commit()
+    sql_session.close()
+    return n
+
+def incrementAnswers(user_id):
+    b = sql_session.query(User).filter(User.id==user_id).first()
+    b.nanswers += 1
+    n = b.nanswers
+    sql_session.commit()
+    sql_session.close()
+    return n
+
 def newUser(id, name):
     usr = User(id=id, name=name)
     print(usr.id)
@@ -82,3 +107,4 @@ def newUser(id, name):
         return {}
     except: 
         return None
+        

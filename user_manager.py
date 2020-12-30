@@ -17,18 +17,47 @@ def returnsUsersJSON():
     return {"users": listUsersDICT()}
 
 # get a single user
-@app.route("/API/users/<int:id>/")
+@app.route("/API/users/<string:id>/")
 def returnSingleUserJSON(id):
     try:
         usr = getUserDICT(id)
         return usr
-    except:
+    except Exception as e:
+        print(e)
         abort(404)
 
+# to increment the number of registered videos
 @app.route("/API/users/<string:user_id>/videosRegistred/", methods=['PUT', 'PATCH'])
 def newVideoRegistration(user_id):
     try:
-        return {"user_id":user_id, "videoRegistrations": newVideoRegist(user_id)}
+        return {"user_id":user_id, "nvideo_registrations": newVideoRegist(user_id)}
+    except Exception as e:
+        print(e)
+        abort(404)
+
+# to increment the number of views
+@app.route("/API/users/<string:user_id>/videoViews/", methods=['PUT', 'PATCH'])
+def incrementUserViews(user_id):
+    try:
+        return {"user_id":user_id, "nvideo_views": incrementViews(user_id)}
+    except Exception as e:
+        print(e)
+        abort(404)
+
+# to increment the number of questions
+@app.route("/API/users/<string:user_id>/nquestions/", methods=['PUT', 'PATCH'])
+def incrementUserQuestions(user_id):
+    try:
+        return {"user_id":user_id, "nquestions": incrementQuestions(user_id)}
+    except Exception as e:
+        print(e)
+        abort(404)
+
+# to increment the number of answers
+@app.route("/API/users/<string:user_id>/nanswers/", methods=['PUT', 'PATCH'])
+def incrementUserAnswers(user_id):
+    try:
+        return {"user_id":user_id, "nanswers": incrementAnswers(user_id)}
     except Exception as e:
         print(e)
         abort(404)

@@ -84,6 +84,17 @@
             updateQuestionstable()
           }
         });        
+        $.ajax({  
+          url: '/API/users/'+'{{username}}'+'/nquestions/',
+          type: "PUT",
+          dataType: "json",
+          contentType: 'application/json',
+          data: JSON.stringify(requestData),
+          success: function(data){
+            console.log("response for video creation "+data)
+            console.log(data)
+          }
+        });     
       }
 
       //to add a new answer
@@ -101,7 +112,18 @@
             console.log(data)
             updateAnswerstable(question_id)
           }
-        });        
+        });  
+        $.ajax({  
+          url: '/API/users/'+'{{username}}'+'/nanswers/',
+          type: "PUT",
+          dataType: "json",
+          contentType: 'application/json',
+          data: JSON.stringify(requestData),
+          success: function(data){
+            console.log("response for video creation "+data)
+            console.log(data)
+          }
+        });      
       }
         
       // to get question when button Details is pressed
@@ -214,7 +236,19 @@
                   success: function (data) {
                     console.log(data)
                   }
-                })                          
+                })                        
+              }
+            });
+            
+            $.ajax({  
+              url: '/API/users/'+'{{username}}'+'/videoViews/',
+              type: "PUT",
+              dataType: "json",
+              // contentType: 'application/json',
+              // data: JSON.stringify(requestData),
+              success: function(data){
+                console.log("response for video creation "+data)
+                console.log(data)
               }
             });
             notPlayedyet = 1;
