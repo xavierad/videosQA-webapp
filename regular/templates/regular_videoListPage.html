@@ -60,7 +60,7 @@
       function addNewVideo(url, description){
         // look at the server to understand what data should be sent.
         let requestData={"description": description, 'url': url}
-        $.ajax({
+        $.ajax({  
             url: '/API/videos/',
             type: "POST",
             dataType: "json",
@@ -70,6 +70,18 @@
               console.log("response for video creation "+data)
               console.log(data)
               updateVideostable()
+            }
+        });
+         
+        $.ajax({  
+            url: '/API/users/'+'{{username}}'+'/videosRegistred/',
+            type: "PUT",
+            dataType: "json",
+            contentType: 'application/json',
+            data: JSON.stringify(requestData),
+            success: function(data){
+              console.log("response for video creation "+data)
+              console.log(data)
             }
         });
       }

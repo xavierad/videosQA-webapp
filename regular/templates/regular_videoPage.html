@@ -72,7 +72,7 @@
             console.log('And the corresponding question: '+question['question'])
             
             $('#listAnswersTitle').empty()
-            $('#listAnswersTitle').append('<h4>Question: '+question['question']+'<br>Time: '+question['time']+'<br>User: '+question['user']+'</h4>')
+            $('#listAnswersTitle').append('<h4>Question: '+question['question']+'<br>Time: '+question['time']+'<br>User: '+question['user']+'</h4>'+'<h3>List of Answers</h3>')
           }
         }); 
         $.ajax({
@@ -328,7 +328,7 @@
       </form><br>
       
       
-      <h3 id="listAnswersTitle">List of answers</h3>
+      <div id="listAnswersTitle"></div>
       <table class="ui celled table" id="answersTable" style="width:50%">
         <thead>
           <tr>

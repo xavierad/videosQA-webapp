@@ -16,25 +16,38 @@
           dataType: "json",
           success: function (data) {
             console.log(data)
-            var users = data["users"]
+            users = data["users"]
             console.log('Users got: '+ users)
 
             $('#usersTable > tbody:last-child').empty()
             users.forEach(usr => {
               $('#usersTable > tbody:last-child').
-              append('<tr><td>'+ usr["name"]+'</td><td>' +usr["user_id"] + '</td> <td><button class="ui button" id="buttonQDetails" onclick="getUserStatistic(users[this.parentNode.parentNode.rowIndex-1])">Details</button></td></tr>');
+              append('<tr><td>'+ usr["name"]+'</td><td>' +usr["user_id"] + '</td> <td><button class="ui button" id="buttonQDetails" onclick="getUserStatistics(users[this.parentNode.parentNode.rowIndex-1])">Details</button></td></tr>');
             });
           },
         })
       }
 
       // to get all information about a single user
-      function getUserStatistic(user){
-        
+      function getUserStatistics(user){
+        $("#listStatistics").show(); 
+        console.log(user['name'])
+        $.ajax({
+          url: '/API/questions/'+user['user_id']+'/',
+          type: "GET",
+          dataType: "json",
+          success: function (data) {
+            console.log(data)
+            number_of_questions = Object.keys(data['questions']).length
+            $('#listStatistics').empty()
+            $('#listStatistics').append('<h3 id="listStatistics">User Statistics</h3>'+'<h4>User: '+user['user_id']+'<br>Number of questions: '+number_of_questions+'<br></h4>')
+          },
+        })
       }
       
 
       $(document).ready(function(){
+        $("#listStatistics").hide();
         getUsersList()
 
         
@@ -64,6 +77,10 @@
       <tbody>
       </tbody>
     </table>
+    <div id=listStatistics></div>
+    
+   
+    
 
     </body>
   </head>

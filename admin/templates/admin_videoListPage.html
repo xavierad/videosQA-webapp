@@ -71,6 +71,19 @@
               updateVideostable()
             }
         });
+        
+        console.log('{{username}}')
+        $.ajax({  
+            url: '/API/users/'+'{{username}}'+'/videosRegistred/',
+            type: "PUT",
+            dataType: "json",
+            contentType: 'application/json',
+            data: JSON.stringify(requestData),
+            success: function(data){
+              console.log("response for video creation "+data)
+              console.log(data)
+            }
+        });
       }
       $(document).ready(function(){
         updateVideostable()

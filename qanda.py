@@ -16,7 +16,6 @@ app = Flask(__name__)
 def returnsQuestionsJSON(video_id):
     return {"questions": listQuestionsDICT(video_id)}
 
-
 @app.route("/API/questions/<int:video_id>/", methods=['POST'])
 def createNewQuestion(video_id):
     sleep(0.1)
@@ -56,7 +55,6 @@ def createNewAnswer(video_id, question_id):
     else:
         abort(409)
     #if there is an erro return ERROR 409
-
 
     
 @app.route("/")

@@ -25,6 +25,14 @@ def returnSingleUserJSON(id):
     except:
         abort(404)
 
+@app.route("/API/users/<string:user_id>/videosRegistred/", methods=['PUT', 'PATCH'])
+def newVideoRegistration(user_id):
+    try:
+        return {"user_id":user_id, "videoRegistrations": newVideoRegist(user_id)}
+    except Exception as e:
+        print(e)
+        abort(404)
+
 # create a new user
 @app.route("/API/users/", methods=['POST'])
 def createNewUser():

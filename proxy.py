@@ -366,9 +366,14 @@ def createNewUser():
         abort(409)
     #if there is an erro return ERROR 409
 
+# put the number of vizualized videos by an user
+@app.route("/API/users/<string:user_id>/videosRegistred/", methods=['PUT', 'PATCH'])
+def newVideoRegistration(user_id):
+    ret = rq.put(USERS_URL+'users/'+user_id+'/videosRegistred/', user_id).json()
+    return ret
+
 # Related to users
 #-----------------------------------------------------------------------------
-
 
 
 

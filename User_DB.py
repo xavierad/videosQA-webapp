@@ -21,14 +21,15 @@ class User(Base):
     __tablename__ = 'User'
     id = Column(String, primary_key=True)
     name = Column(String)
+    videoRegistrations = Column(Integer, default = 0)
     # url = Column(String)
     # views = Column(Integer, default = 0)
 
     def __repr__(self):
-        return "<User id=%s Name=%s>" % (self.id, self.name)
+        return "<User id=%s Name=%s videoRegistrations=%d>" % (self.id, self.name, self.videoRegistrations)
 
     def to_dictionary(self):
-        return {"user_id": self.id, "name": self.name}
+        return {"user_id": self.id, "name": self.name, "video_registrations": self.videoRegistrations}
 
 
 Base.metadata.create_all(engine) #Create tables for the data models
@@ -37,6 +38,13 @@ Session = sessionmaker(bind=engine)
 sql_session = scoped_session(Session)
 # session = Session()
 
+def newVideoRegist(user_id):
+    b = sql_session.query(User).filter(User.id==user_id).first()
+    b.videoRegistrations += 1
+    n = b.videoRegistrations
+    sql_session.commit()
+    sql_session.close()
+    return n
 
 def listUsers():
     return sql_session.query(User).all()
@@ -61,16 +69,9 @@ def getUser(id):
 def getUserDICT(id):
     return getUser(id).to_dictionary()
 
-# def newVideoView(id):
-#     b = sql_session.query(User).filter(User.id==id).first()
-#     b.views+=1
-#     n = b.views
-#     sql_session.commit()
-#     sql_session.close()
-#     return n
-
 def newUser(id, name):
     usr = User(id=id, name=name)
+    print(usr.id)
     try:
         sql_session.add(usr)
         sql_session.commit()
