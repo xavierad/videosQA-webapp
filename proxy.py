@@ -375,7 +375,7 @@ def newVideoRegistration(user_id):
 # increment the number of videos visualized by an user
 @app.route("/API/users/<string:user_id>/videoViews/", methods=['PUT', 'PATCH'])
 def incrementUserViews(user_id):
-    ret = rq.put(USERS_URL+'users/'+user_id+'/videosViews/', user_id).json()
+    ret = rq.put(USERS_URL+'users/'+user_id+'/videoViews/', user_id).json()
     return ret
 
 # increment the number of questions made by an user

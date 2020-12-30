@@ -1,2 +1,14 @@
 TIMESTAMP            : EVENT
 
+30/12/2020 19:11:04  : Questions dictionary returned [{'question': 'WHat is this???', 'question_id': 1, 'time': '1.767691849319458', 'user': 'ist187136', 'video_id': 1}]
+
+30/12/2020 19:11:04  : Single video dictionary returned {'description': 'Safa brian', 'url': 'https://www.youtube.com/watch?v=rmH4DxYD_KU&ab_channel=SAFABrian', 'video_id': 1, 'views': 6}
+
+30/12/2020 19:11:06  : Single video dictionary returned {'description': 'Safa brian', 'url': 'https://www.youtube.com/watch?v=rmH4DxYD_KU&ab_channel=SAFABrian', 'video_id': 1, 'views': 6}
+
+30/12/2020 19:11:26  : Questions dictionary returned [{'question': 'WHat is this???', 'question_id': 1, 'time': '1.767691849319458', 'user': 'ist187136', 'video_id': 1}]
+
+30/12/2020 19:11:30  : Users dictionary returned [{'name': 'Xavier Abreu Dias', 'nanswers': 1, 'nquestions': 1, 'nviews': 1, 'user_id': 'ist187136', 'video_registrations': 1}]
+
+30/12/2020 19:11:31  : Single user dictionary returned {'name': 'Xavier Abreu Dias', 'nanswers': 1, 'nquestions': 1, 'nviews': 1, 'user_id': 'ist187136', 'video_registrations': 1}
+
