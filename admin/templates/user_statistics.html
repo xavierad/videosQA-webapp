@@ -7,6 +7,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-xmlrpc/0.4.3/jquery.xmlrpc.js"> </script>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script>
+
+      
       
       // a function to get the users and render them into a table
       function getUsersList() {
@@ -39,31 +41,51 @@
           dataType: "json",
           success: function (data) {
             console.log(data)
-            $('#listStatistics').empty()
-            $('#listStatistics').append('<h3 id="listStatistics">User Statistics</h3>'+'<h4>User: '+user['user_id']+'<br>'+
-              '<br>Number of video registered: '+data['video_registrations']+
-              '<br>Number of video visualized: '+data['nviews']+
-              '<br>Number of questions made: '+data['nquestions']+
-              '<br>Number of answers made: '+data['nanswers'])
+              // empty canvas
+              var canvas = document.getElementById('myCanvas');
+              var ctx = canvas.getContext('2d');
+              ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+              //display chart
+              var canvas = document.getElementById('myCanvas');
+              var ctx = canvas.getContext('2d')
+              ctx.font = '15px helvetica';
+              
+              // VIDEOS REGISTERED
+              ctx.fillStyle = '#004980'; 
+              var h = 50*data['video_registrations'];
+              ctx.fillRect(0,0,h,50);
+              ctx.fillStyle = '#424242';
+              ctx.fillText('Number of video registered ('+data['video_registrations']+')',h+10,30);
+
+              // VIDEOS VISUALIZED
+              ctx.fillStyle = '#004980'; 
+              var h = 50*data['nviews'];
+              ctx.fillRect(0,60,h,50);
+              ctx.fillStyle = '#424242';
+              ctx.fillText('Number of video visualized ('+data['nviews']+')',h+10,90);
+
+              // QUESTIONS ASKED
+              ctx.fillStyle = '#004980'; 
+              var h = 50*data['nquestions'];
+              ctx.fillRect(0,120,h,50);
+              ctx.fillStyle = '#424242';
+              ctx.fillText('Number of questions made ('+data['nquestions']+')',h+10,150);
+
+              // QUESTIONS REPLIED
+              ctx.fillStyle = '#004980'; 
+              var h = 50*data['nanswers'];
+              ctx.fillRect(0,180,h,50);
+              ctx.fillStyle = '#424242';
+              ctx.fillText('Number of answers made ('+data['nanswers']+')',h+10,210);
           },
         })
-      }
-
-      function drawChart(){
-        var data = google.visualization.arrayToDataTable([
-         ['Element', 'Density', { role: 'style' }, { role: 'annotation' } ],
-         ['Copper', 8.94, '#b87333', 'Cu' ],
-         ['Silver', 10.49, 'silver', 'Ag' ],
-         ['Gold', 19.30, 'gold', 'Au' ],
-         ['Platinum', 21.45, 'color: #e5e4e2', 'Pt' ]
-      ]);
       }
       
 
       $(document).ready(function(){
         $("#listStatistics").hide();
         getUsersList()
-        drawChart()
         
       });
 
@@ -94,10 +116,11 @@
     </table>
     <div id=listStatistics></div>
     
-   
-    
+    <br>
+    <br>
+    <canvas id="myCanvas" width="1500" height="400">
+    </canvas>
     </div>
-    
     </body>
   </head>
 </html>
