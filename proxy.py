@@ -7,13 +7,12 @@
 '''
 Dúvidas:
 ( ) - 308 response?
-( ) - can log be only global variable present in proxy? 
+(X) - can log be only global variable present in proxy? 
 (X) - confirm extensibility logic of video_app
-( ) - index.html porquÊ no static e não no template?
-( ) - login: token and takes too much time
-( ) - when an user wants to add new question he must click on New Question and video should be paused. Can we make it otherwise (pause to be able que add new question)?
+(X) - index.html porquÊ no static e não no template?
+(X) - login: token and takes too much time
+(X) - when an user wants to add new question he must click on New Question and video should be paused. Can we make it otherwise (pause to be able que add new question)?
 ( ) - 
-
 
 A fazer:
 (X) - videos request endpoints
@@ -21,17 +20,10 @@ A fazer:
 (X) - video page (watch and count view (not for a user particulary))
 (X) - proxy endpoints related to user manager
 ( ) - TO FIX: when entered on admin page, token is taken again (but it's not necessary)
-( ) - 
-( ) - 
+( ) - verify logs
+( ) - very fault tolerances
 ( ) - 
 
-Notas: 
-- VideoDb cannot be simply imported to proxy and its methods to be called. It would be like we were implementing all in proxy and this does not satisfy extensibility
-Probably we must tranfor videoDb into a flask app in order to interact with proxy through REST.
-- REST API to manipulate resources: 
-videos, video list (endpoint or not?), creation of a video (through REST API form), list of questions and answers, user stats
-What are the endpoints to manipulate those resources (give a name to each resource), define what data is transferred between client/server
-all this in proxy: endpoints, resources and data
 '''
 
 # -------------------------------------------------------------------------------------
@@ -40,27 +32,7 @@ all this in proxy: endpoints, resources and data
 # Developed by Pedro Martin (87094) & Xavier Dias (87136)
 # -------------------------------------------------------------------------------------
 
-# - COMPONENTS OF PROXY:
-# user web pages (admin and regular)
-# authentication
-# API
-# Admin web pages
-#
-# - DEFINITIONS
-# Resources: 
-# 1) video, 
-# 2) question,
-# 3) answer,
-# 4) user manager,
-# 5) logs (is it?)
-#
-# Operations that can be performed: 
-# 1) new video (POST), get a video (POST), get the list of videos (GET),
-# 2) new question (POST), view a question (all info regarding it) (GET), list of questions (GET),
-# 3) new answer (POST), view a answer (is necessary?) (GET), list of answers (GET),
-# 4) 
-#            
-# (URI and Possible Methods, GET,POST,PATCH/PUT)
+
 #ist14021 - João Silva
 
 import os 
