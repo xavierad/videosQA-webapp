@@ -1,10 +1,18 @@
 <!doctype html>
-<title>REGULAR PAGE</title>
-<body>
-  <div class="ui container">
-    username - {{ username }} {{name}}
-    <p><a href="{{ url_for("logout") }}"> Logout</a></p> 
-
-    {% include 'regular_videoListPage.html' %}
+<title>Video APP</title>
+<body>  
+  <div class="ui vertical masthead center aligned">
+    <div class="ui container">
+      <div class="ui large secondary pointing menu">
+        <a href="{{ url_for("home_page") }}" class=" item">Home</a>
+        <a href="{{ url_for("regular.regular_page") }}" class="active item">List of videos</a>
+        <a id="admin_option" href="{{ url_for("admin.admin_page") }}" class="item">Private page of the site</a>
+        <div class="right menu">
+          <p class="item">Welcome {{name.split()[0]}}!</p>
+          <a href="{{ url_for("logout") }}" class="item">Logout</a>
+        </div>           
+      </div>
+    </div>  
   </div>
+  {% include 'regular_videoListPage.html' %}
 </body>
