@@ -50,34 +50,40 @@
               var canvas = document.getElementById('myCanvas');
               var ctx = canvas.getContext('2d')
               ctx.font = '15px helvetica';
+
+              k = 20; // unit length of the bars width
+              delta_x = 60; // distance between bars
+              width = 50; // bar width
+
+
               
               // VIDEOS REGISTERED
               ctx.fillStyle = '#004980'; 
-              var h = 50*data['video_registrations'];
-              ctx.fillRect(0,0,h,50);
+              var h = k*data['video_registrations'];
+              ctx.fillRect(0,0*delta_x,h,width);
               ctx.fillStyle = '#424242';
-              ctx.fillText('Number of video registered ('+data['video_registrations']+')',h+10,30);
+              ctx.fillText('Number of video registered ('+data['video_registrations']+')',h+10,0*delta_x+30);
 
               // VIDEOS VISUALIZED
               ctx.fillStyle = '#004980'; 
-              var h = 50*data['nviews'];
-              ctx.fillRect(0,60,h,50);
+              var h = k*data['nviews'];
+              ctx.fillRect(0,1*delta_x,h,width);
               ctx.fillStyle = '#424242';
-              ctx.fillText('Number of video visualized ('+data['nviews']+')',h+10,90);
+              ctx.fillText('Number of video visualized ('+data['nviews']+')',h+10,1*delta_x+30);
 
               // QUESTIONS ASKED
               ctx.fillStyle = '#004980'; 
-              var h = 50*data['nquestions'];
-              ctx.fillRect(0,120,h,50);
+              var h = k*data['nquestions'];
+              ctx.fillRect(0,2*delta_x,h,width);
               ctx.fillStyle = '#424242';
-              ctx.fillText('Number of questions made ('+data['nquestions']+')',h+10,150);
+              ctx.fillText('Number of questions made ('+data['nquestions']+')',h+10,2*delta_x+30);
 
               // QUESTIONS REPLIED
               ctx.fillStyle = '#004980'; 
-              var h = 50*data['nanswers'];
-              ctx.fillRect(0,180,h,50);
+              var h = k*data['nanswers'];
+              ctx.fillRect(0,3*delta_x,h,width);
               ctx.fillStyle = '#424242';
-              ctx.fillText('Number of answers made ('+data['nanswers']+')',h+10,210);
+              ctx.fillText('Number of answers made ('+data['nanswers']+')',h+10,3*delta_x+30);
           },
         })
       }
