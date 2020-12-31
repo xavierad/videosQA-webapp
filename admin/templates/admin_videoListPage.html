@@ -50,8 +50,9 @@
                 var my_url = "{{ url_for('admin.video_page') }}/#id#".replace('#id#', my_id)
                 $('#videosTable > tbody:last-child').
                     append('<tr> <td class="selectable"><a href="#url#"'.
-                      replace("#url#", my_url)+'>'+ v["video_id"]+'</a></td><td>' +v["description"] + '</td><td id="nqandas'+v["video_id"]+'">xxx</td></tr>');
-                  getVideoQandas(v["video_id"])
+                          replace("#url#", my_url)+'>'+ v["video_id"]+'</a></td><td class="selectable"><a href="#url#"'.
+                          replace("#url#", my_url)+'>'+ v["description"]+'</a></td><td id="nqandas'+v["video_id"]+'">xxx</td></tr>');
+                      getVideoQandas(v["video_id"])
             });
           }
         });
@@ -103,32 +104,32 @@
       });
   </script>
 
-  </head>
-  <body>
-    <h3>List of videos</h3>
-    <table class="ui celled table selectable" id="videosTable" >
-      <thead>
-        <tr>
-          <th>ID</th>  <th>Description</th>   <th>Q&A</th>
-        </tr>
-      </thead>
-      <tbody>
-      </tbody>
-    </table>
-    <button class="ui button" id="buttonUpdateVideotable">
-      Update List
-    </button>
+</head>
+<body>
+  <h3>List of videos</h3>
+  <table class="ui celled table selectable" id="videosTable" style="width:50%">
+    <thead>
+      <tr>
+        <th>ID</th>  <th>Description</th>   <th>Q&A</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+  <button class="ui button" id="buttonUpdateVideotable">
+    Update List
+  </button>
 
-    <h3>Add a new Video</h3>
-    <div class="ui input">
-        <input type="text" placeholder="Video URL" id="newVideoURL" required>
-    </div>
-    <div class="ui input">
-      <input type="text" placeholder="Video Description" id="newVideoDescription">
-    </div>
-    <button class="ui button" id="buttonAddVideo">
-      Add new Video
-    </button>
+  <h3>Add a new Video</h3>
+  <div class="ui input">
+      <input type="text" placeholder="Video URL" id="newVideoURL" required>
+  </div>
+  <div class="ui input">
+    <input type="text" placeholder="Video Description" id="newVideoDescription">
+  </div>
+  <button class="ui button" id="buttonAddVideo">
+    Add new Video
+  </button>
     <br>
     <br>
     <a href="{{ url_for("admin.user_statistics") }}" class="item">User Statistics</a>

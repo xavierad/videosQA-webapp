@@ -1,8 +1,10 @@
 <!doctype html>
 <title>ADMIN PAGE</title>
 <body>
-  username - {{ username }} {{name}}
-  <p><a href="{{ url_for("logout") }}"> Logout</a></p> 
+  <div class="ui container">
+    username - {{ username }} {{name}}
+    <p><a href="{{ url_for("logout") }}"> Logout</a></p> 
 
-  {% include 'admin_videoListPage.html' %}
+    {% include 'admin_videoListPage.html' %}
+  </div>
 </body>
