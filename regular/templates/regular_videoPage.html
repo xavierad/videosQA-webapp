@@ -308,81 +308,99 @@
 
     </script>  
   </head>
-
+  <title>Video APP</title>
   <body>
+    <div class="ui vertical masthead center aligned">
+      <div class="ui container">
+        <div class="ui large secondary pointing menu">
+          <a href="{{ url_for("home_page") }}" class=" item">Home</a>
+          <a href="{{ url_for("regular.regular_page") }}" class="active item">List of videos > video {{videoID}}</a>
+          <a id="admin_option" href="{{ url_for("admin.admin_page") }}" class="item">Private page of the site</a>
+          <div class="right menu">
+            <p class="item">Welcome {{name.split()[0]}}!</p>
+            <a href="{{ url_for("logout") }}" class="item">Logout</a>
+          </div>           
+        </div>
+      </div>  
+    </div>
+
     <div class="ui container">
-      <!-- User {{username}} {{name}} -->
-      <a href="{{ url_for("logout") }}"> <p style="font-family:helvetica">Logout</p></a>
-      <!-- V I D E O -->
-      <br>
-      <div id=description_hd></div>
-      <br>
-      <video  id="videoPlayer" controls 
-              class="video-js vjs-default-skin"
-              width="640"
-              data-setup='{ "autoplay": true, "preload": "auto", "techOrder": ["youtube"], "sources": [{ "type": "video/youtube" }'
-      ></video>
-      <br>
-      <button class="ui button" id="buttonPlayVideo">
-        Play
-      </button>
-      <button class="ui button" id="buttonVideoPause">
-      Pause
-      </button> 
-      <div class="ui input focus" >
-        <input type="text" id="resumetime">
+      <div class="ui vertical stripe segment">
+        <div class="ui equal width stackable internally celled grid">
+          <div class="column">
+            <!-- V I D E O -->
+            <br>
+            <div id=description_hd></div>
+            <br>
+            <video  id="videoPlayer" controls 
+                    class="video-js vjs-default-skin"
+                    width="530"
+                    data-setup='{ "autoplay": true, "preload": "auto", "techOrder": ["youtube"], "sources": [{ "type": "video/youtube" }'
+            ></video>
+            <br>
+            <button class="ui button" id="buttonPlayVideo">Play</button>
+            <button class="ui button" id="buttonVideoPause">Pause</button> 
+            <div class="ui input focus" >
+              <input type="text" id="resumetime">
+            </div>
+          </div>
+          <div class="column">
+            <br>
+            <!-- Q U E S T I O N S  &  A N S W E R S -->
+            <h3>List of questions</h3>
+            <table class="ui celled table" id="questionsTable" >
+              <thead class="full-width">
+                <tr>
+                  <th>Time</th><th>Question</th><th></th>
+                </tr>
+              </thead>
+              <tfoot class="full-width">
+                <tr>
+                  <th colspan="3">                    
+                    <button class="ui small button" id="buttonNewQuestion">New Question</button> 
+                  </th>
+                </tr>
+                <tr>
+                  <th colspan="3">
+                    <form id="newQuestionForm">
+                      <div class="ui input">
+                        <input type="text" placeholder="Question" id="newQuestion" required>     
+                      </div>  
+                      <!-- Note that type of button was added in order to prevent the page to reload -->
+                      <button class="ui right floated small icon button" id="buttonAddQuestion" type="button">Add new question</button>
+                    </form> 
+                  </th>
+                </tr>
+              </tfoot>
+              <tbody>
+              </tbody>      
+            </table>
+            
+            <div id="listAnswersTitle"></div>
+            <table class="ui celled table" id="answersTable" >
+              <thead>
+                <tr>
+                  <th>User</th><th>Name</th><th>Answer</th>
+                </tr>
+              </thead>
+              <tfoot class="full-width">
+                <tr>
+                  <th colspan="3">
+                    <form id="newAnswerForm">
+                      <div class="ui input">
+                        <input type="text" placeholder="Answer" id="newAnswer">
+                      </div>
+                      <button class="ui right floated small icon button" id="buttonAddAnswer" type="button">Add new answer</button>     
+                    </form> 
+                  </th>
+                </tr>
+              </tfoot>
+              <tbody>
+              </tbody>      
+            </table>
+          </div>
+        </div>
       </div>
-
-      <!-- Q U E S T I O N S  &  A N S W E R S -->
-      <h3>List of questions</h3>
-      <table class="ui celled table" id="questionsTable" style="width:50%">
-        <thead>
-          <tr>
-            <th>Time</th><th>Question</th><th></th>
-          </tr>
-        </thead>
-        <tbody>
-        </tbody>      
-      </table> 
-
-      <button class="ui button" id="buttonNewQuestion">New Question</button>
-
-     
-      <form id='newQuestionForm'>      
-        <br><h3>Add a new question</h3>
-
-        <div class="ui input">
-          <input type="text" placeholder="Question" id="newQuestion">
-        </div>
-        <!-- Note that type of button was added in order to prevent the page to reload -->
-        <button class="ui button" id="buttonAddQuestion" type="button">
-          Add new question
-        </button>
-      </form><br>
-      
-      
-      <div id="listAnswersTitle"></div>
-      <table class="ui celled table" id="answersTable" style="width:50%">
-        <thead>
-          <tr>
-            <th>User</th><th>Name</th><th>Answer</th>
-          </tr>
-        </thead>
-        <tbody>
-        </tbody>      
-      </table>
-
-      <form id='newAnswerForm'>      
-        <h3>Add a new answer</h3>
-
-        <div class="ui input">
-          <input type="text" placeholder="Answer" id="newAnswer">
-        </div>
-        <!-- Note that type of button was added in order to prevent the page to reload -->
-        <button class="ui button" id="buttonAddAnswer" type="button">
-          Add new answer
-        </button>
-      </form><br>
     </div>
   </body>
 </html>
