@@ -116,23 +116,23 @@ write_to_log(mode="w")
 def home_page():
     # The access token is generated everytime the user authenticates into FENIX
     print(fenix_blueprint.session.authorized)
-    print("Access token: "+ str(fenix_blueprint.session.access_token))
+    # print("Access token: "+ str(fenix_blueprint.session.access_token))
 
     if fenix_blueprint.session.authorized == False:
         #if not logged in browser is redirected to login page (in this case FENIX handled the login)
-        return render_template("appPage.html", loggedIn = fenix_blueprint.session.authorized)
+        return render_template("appPage.html", loggedIn = fenix_blueprint.session.authorized, userID='', userName='')
 
     try:
         #if the user is authenticated then a request to FENIX is made
         resp = fenix_blueprint.session.get("/api/fenix/v1/person/")
         #res contains the responde made to /api/fenix/vi/person (information about current user)
         user = resp.json() 
-        print(resp.json())    
+        # print(resp.json())    
         return render_template("appPage.html", loggedIn = fenix_blueprint.session.authorized, userID=user['username'], userName=user['name'])
 
     except:  # or maybe any OAuth2Error
         #if not logged in browser is redirected to login page (in this case FENIX handled the login)
-        return render_template("appPage.html", loggedIn = fenix_blueprint.session.authorized)
+        return render_template("appPage.html", loggedIn = fenix_blueprint.session.authorized, userID='', userName='')
 
 
 @app.route('/logout')

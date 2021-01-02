@@ -1,2 +1,316 @@
 TIMESTAMP            : EVENT
 
+02/01/2021 20:26:54  : Single video dictionary returned {'description': 'Safa brian', 'url': 'https://www.youtube.com/watch?v=rmH4DxYD_KU&ab_channel=SAFABrian', 'video_id': 1, 'views': 22}
+
+02/01/2021 20:26:54  : Questions dictionary returned [{'question': 'WHat is this???', 'question_id': 1, 'time': '1.767691849319458', 'user': 'ist187136', 'video_id': 1}]
+
+02/01/2021 20:27:00  : Videos dictionary returned [{'description': 'Safa brian', 'video_id': 1}, {'description': '', 'video_id': 2}, {'description': '', 'video_id': 3}, {'description': '', 'video_id': 4}, {'description': '', 'video_id': 5}, {'description': '', 'video_id': 6}]
+
+02/01/2021 20:27:00  : Questions dictionary returned [{'question': 'WHat is this???', 'question_id': 1, 'time': '1.767691849319458', 'user': 'ist187136', 'video_id': 1}]
+
+02/01/2021 20:27:00  : Questions dictionary returned []
+
+02/01/2021 20:27:00  : Questions dictionary returned []
+
+02/01/2021 20:27:01  : Questions dictionary returned []
+
+02/01/2021 20:27:01  : Questions dictionary returned []
+
+02/01/2021 20:27:01  : Questions dictionary returned []
+
+02/01/2021 20:27:03  : Single video dictionary returned {'description': 'Safa brian', 'url': 'https://www.youtube.com/watch?v=rmH4DxYD_KU&ab_channel=SAFABrian', 'video_id': 1, 'views': 22}
+
+02/01/2021 20:27:03  : Questions dictionary returned [{'question': 'WHat is this???', 'question_id': 1, 'time': '1.767691849319458', 'user': 'ist187136', 'video_id': 1}]
+
+02/01/2021 20:27:54  : Questions dictionary returned [{'question': 'WHat is this???', 'question_id': 1, 'time': '1.767691849319458', 'user': 'ist187136', 'video_id': 1}]
+
+02/01/2021 20:27:54  : Answer(s) dictionary returned [{'answer': 'This is a video of the best decents!', 'answer_id': 1, 'question_id': 1, 'user_id': 'ist187136', 'user_name': 'Xavier Abreu Dias'}, {'answer': '', 'answer_id': 2, 'question_id': 1, 'user_id': 'ist187136', 'user_name': 'Xavier Abreu Dias'}, {'answer': '', 'answer_id': 3, 'question_id': 1, 'user_id': 'ist187136', 'user_name': 'Xavier Abreu Dias'}, {'answer': '', 'answer_id': 4, 'question_id': 1, 'user_id': 'ist187136', 'user_name': 'Xavier Abreu Dias'}, {'answer': 'I!!', 'answer_id': 5, 'question_id': 1, 'user_id': 'ist187136', 'user_name': 'Xavier Abreu Dias'}]
+
+02/01/2021 20:29:02  : Single video dictionary returned {'description': 'Safa brian', 'url': 'https://www.youtube.com/watch?v=rmH4DxYD_KU&ab_channel=SAFABrian', 'video_id': 1, 'views': 22}
+
+02/01/2021 20:29:02  : Questions dictionary returned [{'question': 'WHat is this???', 'question_id': 1, 'time': '1.767691849319458', 'user': 'ist187136', 'video_id': 1}]
+
+02/01/2021 20:29:14  : Single video dictionary returned {'description': 'Safa brian', 'url': 'https://www.youtube.com/watch?v=rmH4DxYD_KU&ab_channel=SAFABrian', 'video_id': 1, 'views': 22}
+
+02/01/2021 20:29:14  : Questions dictionary returned [{'question': 'WHat is this???', 'question_id': 1, 'time': '1.767691849319458', 'user': 'ist187136', 'video_id': 1}]
+
+02/01/2021 20:29:23  : Single video dictionary returned {'description': 'Safa brian', 'url': 'https://www.youtube.com/watch?v=rmH4DxYD_KU&ab_channel=SAFABrian', 'video_id': 1, 'views': 22}
+
+02/01/2021 20:29:23  : Questions dictionary returned [{'question': 'WHat is this???', 'question_id': 1, 'time': '1.767691849319458', 'user': 'ist187136', 'video_id': 1}]
+
+02/01/2021 20:29:49  : Single video dictionary returned {'description': 'Safa brian', 'url': 'https://www.youtube.com/watch?v=rmH4DxYD_KU&ab_channel=SAFABrian', 'video_id': 1, 'views': 22}
+
+02/01/2021 20:29:49  : Questions dictionary returned [{'question': 'WHat is this???', 'question_id': 1, 'time': '1.767691849319458', 'user': 'ist187136', 'video_id': 1}]
+
+02/01/2021 20:30:31  : Single video dictionary returned {'description': 'Safa brian', 'url': 'https://www.youtube.com/watch?v=rmH4DxYD_KU&ab_channel=SAFABrian', 'video_id': 1, 'views': 22}
+
+02/01/2021 20:30:31  : Questions dictionary returned [{'question': 'WHat is this???', 'question_id': 1, 'time': '1.767691849319458', 'user': 'ist187136', 'video_id': 1}]
+
+02/01/2021 20:30:44  : Single video dictionary returned {'description': 'Safa brian', 'url': 'https://www.youtube.com/watch?v=rmH4DxYD_KU&ab_channel=SAFABrian', 'video_id': 1, 'views': 22}
+
+02/01/2021 20:30:44  : Questions dictionary returned [{'question': 'WHat is this???', 'question_id': 1, 'time': '1.767691849319458', 'user': 'ist187136', 'video_id': 1}]
+
+02/01/2021 20:30:52  : Single video dictionary returned {'description': 'Safa brian', 'url': 'https://www.youtube.com/watch?v=rmH4DxYD_KU&ab_channel=SAFABrian', 'video_id': 1, 'views': 22}
+
+02/01/2021 20:30:52  : Questions dictionary returned [{'question': 'WHat is this???', 'question_id': 1, 'time': '1.767691849319458', 'user': 'ist187136', 'video_id': 1}]
+
+02/01/2021 20:31:00  : Single video dictionary returned {'description': 'Safa brian', 'url': 'https://www.youtube.com/watch?v=rmH4DxYD_KU&ab_channel=SAFABrian', 'video_id': 1, 'views': 22}
+
+02/01/2021 20:31:00  : Questions dictionary returned [{'question': 'WHat is this???', 'question_id': 1, 'time': '1.767691849319458', 'user': 'ist187136', 'video_id': 1}]
+
+02/01/2021 20:31:15  : Single video dictionary returned {'description': 'Safa brian', 'url': 'https://www.youtube.com/watch?v=rmH4DxYD_KU&ab_channel=SAFABrian', 'video_id': 1, 'views': 22}
+
+02/01/2021 20:31:15  : Questions dictionary returned [{'question': 'WHat is this???', 'question_id': 1, 'time': '1.767691849319458', 'user': 'ist187136', 'video_id': 1}]
+
+02/01/2021 20:31:29  : Single video dictionary returned {'description': 'Safa brian', 'url': 'https://www.youtube.com/watch?v=rmH4DxYD_KU&ab_channel=SAFABrian', 'video_id': 1, 'views': 22}
+
+02/01/2021 20:31:29  : Questions dictionary returned [{'question': 'WHat is this???', 'question_id': 1, 'time': '1.767691849319458', 'user': 'ist187136', 'video_id': 1}]
+
+02/01/2021 20:32:08  : Single video dictionary returned {'description': 'Safa brian', 'url': 'https://www.youtube.com/watch?v=rmH4DxYD_KU&ab_channel=SAFABrian', 'video_id': 1, 'views': 22}
+
+02/01/2021 20:32:08  : Questions dictionary returned [{'question': 'WHat is this???', 'question_id': 1, 'time': '1.767691849319458', 'user': 'ist187136', 'video_id': 1}]
+
+02/01/2021 20:32:26  : Single video dictionary returned {'description': 'Safa brian', 'url': 'https://www.youtube.com/watch?v=rmH4DxYD_KU&ab_channel=SAFABrian', 'video_id': 1, 'views': 22}
+
+02/01/2021 20:32:26  : Questions dictionary returned [{'question': 'WHat is this???', 'question_id': 1, 'time': '1.767691849319458', 'user': 'ist187136', 'video_id': 1}]
+
+02/01/2021 20:32:42  : Single video dictionary returned {'description': 'Safa brian', 'url': 'https://www.youtube.com/watch?v=rmH4DxYD_KU&ab_channel=SAFABrian', 'video_id': 1, 'views': 22}
+
+02/01/2021 20:32:45  : Questions dictionary returned [{'question': 'WHat is this???', 'question_id': 1, 'time': '1.767691849319458', 'user': 'ist187136', 'video_id': 1}]
+
+02/01/2021 20:32:55  : Single video dictionary returned {'description': 'Safa brian', 'url': 'https://www.youtube.com/watch?v=rmH4DxYD_KU&ab_channel=SAFABrian', 'video_id': 1, 'views': 22}
+
+02/01/2021 20:32:55  : Questions dictionary returned [{'question': 'WHat is this???', 'question_id': 1, 'time': '1.767691849319458', 'user': 'ist187136', 'video_id': 1}]
+
+02/01/2021 20:33:39  : Questions dictionary returned [{'question': 'WHat is this???', 'question_id': 1, 'time': '1.767691849319458', 'user': 'ist187136', 'video_id': 1}]
+
+02/01/2021 20:33:39  : Single video dictionary returned {'description': 'Safa brian', 'url': 'https://www.youtube.com/watch?v=rmH4DxYD_KU&ab_channel=SAFABrian', 'video_id': 1, 'views': 22}
+
+02/01/2021 20:33:51  : Questions dictionary returned [{'question': 'WHat is this???', 'question_id': 1, 'time': '1.767691849319458', 'user': 'ist187136', 'video_id': 1}]
+
+02/01/2021 20:33:51  : Answer(s) dictionary returned [{'answer': 'This is a video of the best decents!', 'answer_id': 1, 'question_id': 1, 'user_id': 'ist187136', 'user_name': 'Xavier Abreu Dias'}, {'answer': '', 'answer_id': 2, 'question_id': 1, 'user_id': 'ist187136', 'user_name': 'Xavier Abreu Dias'}, {'answer': '', 'answer_id': 3, 'question_id': 1, 'user_id': 'ist187136', 'user_name': 'Xavier Abreu Dias'}, {'answer': '', 'answer_id': 4, 'question_id': 1, 'user_id': 'ist187136', 'user_name': 'Xavier Abreu Dias'}, {'answer': 'I!!', 'answer_id': 5, 'question_id': 1, 'user_id': 'ist187136', 'user_name': 'Xavier Abreu Dias'}]
+
+02/01/2021 20:34:35  : Single video dictionary returned {'description': 'Safa brian', 'url': 'https://www.youtube.com/watch?v=rmH4DxYD_KU&ab_channel=SAFABrian', 'video_id': 1, 'views': 22}
+
+02/01/2021 20:34:35  : Questions dictionary returned [{'question': 'WHat is this???', 'question_id': 1, 'time': '1.767691849319458', 'user': 'ist187136', 'video_id': 1}]
+
+02/01/2021 20:34:37  : Answer(s) dictionary returned [{'answer': 'This is a video of the best decents!', 'answer_id': 1, 'question_id': 1, 'user_id': 'ist187136', 'user_name': 'Xavier Abreu Dias'}, {'answer': '', 'answer_id': 2, 'question_id': 1, 'user_id': 'ist187136', 'user_name': 'Xavier Abreu Dias'}, {'answer': '', 'answer_id': 3, 'question_id': 1, 'user_id': 'ist187136', 'user_name': 'Xavier Abreu Dias'}, {'answer': '', 'answer_id': 4, 'question_id': 1, 'user_id': 'ist187136', 'user_name': 'Xavier Abreu Dias'}, {'answer': 'I!!', 'answer_id': 5, 'question_id': 1, 'user_id': 'ist187136', 'user_name': 'Xavier Abreu Dias'}]
+
+02/01/2021 20:34:37  : Questions dictionary returned [{'question': 'WHat is this???', 'question_id': 1, 'time': '1.767691849319458', 'user': 'ist187136', 'video_id': 1}]
+
+02/01/2021 20:35:26  : Single video dictionary returned {'description': 'Safa brian', 'url': 'https://www.youtube.com/watch?v=rmH4DxYD_KU&ab_channel=SAFABrian', 'video_id': 1, 'views': 22}
+
+02/01/2021 20:35:26  : Questions dictionary returned [{'question': 'WHat is this???', 'question_id': 1, 'time': '1.767691849319458', 'user': 'ist187136', 'video_id': 1}]
+
+02/01/2021 20:35:27  : Questions dictionary returned [{'question': 'WHat is this???', 'question_id': 1, 'time': '1.767691849319458', 'user': 'ist187136', 'video_id': 1}]
+
+02/01/2021 20:35:27  : Answer(s) dictionary returned [{'answer': 'This is a video of the best decents!', 'answer_id': 1, 'question_id': 1, 'user_id': 'ist187136', 'user_name': 'Xavier Abreu Dias'}, {'answer': '', 'answer_id': 2, 'question_id': 1, 'user_id': 'ist187136', 'user_name': 'Xavier Abreu Dias'}, {'answer': '', 'answer_id': 3, 'question_id': 1, 'user_id': 'ist187136', 'user_name': 'Xavier Abreu Dias'}, {'answer': '', 'answer_id': 4, 'question_id': 1, 'user_id': 'ist187136', 'user_name': 'Xavier Abreu Dias'}, {'answer': 'I!!', 'answer_id': 5, 'question_id': 1, 'user_id': 'ist187136', 'user_name': 'Xavier Abreu Dias'}]
+
+02/01/2021 20:36:21  : Single video dictionary returned {'description': 'Safa brian', 'url': 'https://www.youtube.com/watch?v=rmH4DxYD_KU&ab_channel=SAFABrian', 'video_id': 1, 'views': 22}
+
+02/01/2021 20:36:21  : Questions dictionary returned [{'question': 'WHat is this???', 'question_id': 1, 'time': '1.767691849319458', 'user': 'ist187136', 'video_id': 1}]
+
+02/01/2021 20:36:23  : Questions dictionary returned [{'question': 'WHat is this???', 'question_id': 1, 'time': '1.767691849319458', 'user': 'ist187136', 'video_id': 1}]
+
+02/01/2021 20:36:23  : Answer(s) dictionary returned [{'answer': 'This is a video of the best decents!', 'answer_id': 1, 'question_id': 1, 'user_id': 'ist187136', 'user_name': 'Xavier Abreu Dias'}, {'answer': '', 'answer_id': 2, 'question_id': 1, 'user_id': 'ist187136', 'user_name': 'Xavier Abreu Dias'}, {'answer': '', 'answer_id': 3, 'question_id': 1, 'user_id': 'ist187136', 'user_name': 'Xavier Abreu Dias'}, {'answer': '', 'answer_id': 4, 'question_id': 1, 'user_id': 'ist187136', 'user_name': 'Xavier Abreu Dias'}, {'answer': 'I!!', 'answer_id': 5, 'question_id': 1, 'user_id': 'ist187136', 'user_name': 'Xavier Abreu Dias'}]
+
+02/01/2021 20:36:37  : Videos dictionary returned [{'description': 'Safa brian', 'video_id': 1}, {'description': '', 'video_id': 2}, {'description': '', 'video_id': 3}, {'description': '', 'video_id': 4}, {'description': '', 'video_id': 5}, {'description': '', 'video_id': 6}]
+
+02/01/2021 20:36:37  : Questions dictionary returned []
+
+02/01/2021 20:36:37  : Questions dictionary returned [{'question': 'WHat is this???', 'question_id': 1, 'time': '1.767691849319458', 'user': 'ist187136', 'video_id': 1}]
+
+02/01/2021 20:36:37  : Questions dictionary returned []
+
+02/01/2021 20:36:37  : Questions dictionary returned []
+
+02/01/2021 20:36:37  : Questions dictionary returned []
+
+02/01/2021 20:36:37  : Questions dictionary returned []
+
+02/01/2021 20:36:50  : Videos dictionary returned [{'description': 'Safa brian', 'video_id': 1}, {'description': '', 'video_id': 2}, {'description': '', 'video_id': 3}, {'description': '', 'video_id': 4}, {'description': '', 'video_id': 5}, {'description': '', 'video_id': 6}]
+
+02/01/2021 20:36:50  : Questions dictionary returned [{'question': 'WHat is this???', 'question_id': 1, 'time': '1.767691849319458', 'user': 'ist187136', 'video_id': 1}]
+
+02/01/2021 20:36:50  : Questions dictionary returned []
+
+02/01/2021 20:36:50  : Questions dictionary returned []
+
+02/01/2021 20:36:50  : Questions dictionary returned []
+
+02/01/2021 20:36:50  : Questions dictionary returned []
+
+02/01/2021 20:36:51  : Questions dictionary returned []
+
+02/01/2021 20:36:55  : Videos dictionary returned [{'description': 'Safa brian', 'video_id': 1}, {'description': '', 'video_id': 2}, {'description': '', 'video_id': 3}, {'description': '', 'video_id': 4}, {'description': '', 'video_id': 5}, {'description': '', 'video_id': 6}]
+
+02/01/2021 20:36:55  : Questions dictionary returned [{'question': 'WHat is this???', 'question_id': 1, 'time': '1.767691849319458', 'user': 'ist187136', 'video_id': 1}]
+
+02/01/2021 20:36:55  : Questions dictionary returned []
+
+02/01/2021 20:36:55  : Questions dictionary returned []
+
+02/01/2021 20:36:55  : Questions dictionary returned []
+
+02/01/2021 20:36:55  : Questions dictionary returned []
+
+02/01/2021 20:36:55  : Questions dictionary returned []
+
+02/01/2021 20:37:14  : Videos dictionary returned [{'description': 'Safa brian', 'video_id': 1}, {'description': '', 'video_id': 2}, {'description': '', 'video_id': 3}, {'description': '', 'video_id': 4}, {'description': '', 'video_id': 5}, {'description': '', 'video_id': 6}]
+
+02/01/2021 20:37:15  : Questions dictionary returned [{'question': 'WHat is this???', 'question_id': 1, 'time': '1.767691849319458', 'user': 'ist187136', 'video_id': 1}]
+
+02/01/2021 20:37:15  : Questions dictionary returned []
+
+02/01/2021 20:37:15  : Questions dictionary returned []
+
+02/01/2021 20:37:15  : Questions dictionary returned []
+
+02/01/2021 20:37:15  : Questions dictionary returned []
+
+02/01/2021 20:37:15  : Questions dictionary returned []
+
+02/01/2021 20:37:16  : Videos dictionary returned [{'description': 'Safa brian', 'video_id': 1}, {'description': '', 'video_id': 2}, {'description': '', 'video_id': 3}, {'description': '', 'video_id': 4}, {'description': '', 'video_id': 5}, {'description': '', 'video_id': 6}]
+
+02/01/2021 20:37:17  : Questions dictionary returned [{'question': 'WHat is this???', 'question_id': 1, 'time': '1.767691849319458', 'user': 'ist187136', 'video_id': 1}]
+
+02/01/2021 20:37:17  : Questions dictionary returned []
+
+02/01/2021 20:37:17  : Questions dictionary returned []
+
+02/01/2021 20:37:17  : Questions dictionary returned []
+
+02/01/2021 20:37:17  : Questions dictionary returned []
+
+02/01/2021 20:37:17  : Questions dictionary returned []
+
+02/01/2021 20:37:42  : Videos dictionary returned [{'description': 'Safa brian', 'video_id': 1}, {'description': '', 'video_id': 2}, {'description': '', 'video_id': 3}, {'description': '', 'video_id': 4}, {'description': '', 'video_id': 5}, {'description': '', 'video_id': 6}]
+
+02/01/2021 20:37:42  : Questions dictionary returned [{'question': 'WHat is this???', 'question_id': 1, 'time': '1.767691849319458', 'user': 'ist187136', 'video_id': 1}]
+
+02/01/2021 20:37:42  : Questions dictionary returned []
+
+02/01/2021 20:37:42  : Questions dictionary returned []
+
+02/01/2021 20:37:42  : Questions dictionary returned []
+
+02/01/2021 20:37:42  : Questions dictionary returned []
+
+02/01/2021 20:37:45  : Videos dictionary returned [{'description': 'Safa brian', 'video_id': 1}, {'description': '', 'video_id': 2}, {'description': '', 'video_id': 3}, {'description': '', 'video_id': 4}, {'description': '', 'video_id': 5}, {'description': '', 'video_id': 6}]
+
+02/01/2021 20:37:46  : Questions dictionary returned []
+
+02/01/2021 20:37:46  : Questions dictionary returned [{'question': 'WHat is this???', 'question_id': 1, 'time': '1.767691849319458', 'user': 'ist187136', 'video_id': 1}]
+
+02/01/2021 20:37:46  : Questions dictionary returned []
+
+02/01/2021 20:37:46  : Questions dictionary returned []
+
+02/01/2021 20:37:46  : Questions dictionary returned []
+
+02/01/2021 20:37:46  : Questions dictionary returned []
+
+02/01/2021 20:37:46  : Questions dictionary returned []
+
+02/01/2021 20:37:48  : Videos dictionary returned [{'description': 'Safa brian', 'video_id': 1}, {'description': '', 'video_id': 2}, {'description': '', 'video_id': 3}, {'description': '', 'video_id': 4}, {'description': '', 'video_id': 5}, {'description': '', 'video_id': 6}]
+
+02/01/2021 20:37:48  : Questions dictionary returned [{'question': 'WHat is this???', 'question_id': 1, 'time': '1.767691849319458', 'user': 'ist187136', 'video_id': 1}]
+
+02/01/2021 20:37:48  : Questions dictionary returned []
+
+02/01/2021 20:37:48  : Questions dictionary returned []
+
+02/01/2021 20:37:48  : Questions dictionary returned []
+
+02/01/2021 20:37:48  : Questions dictionary returned []
+
+02/01/2021 20:37:48  : Questions dictionary returned []
+
+02/01/2021 20:38:06  : Videos dictionary returned [{'description': 'Safa brian', 'video_id': 1}, {'description': '', 'video_id': 2}, {'description': '', 'video_id': 3}, {'description': '', 'video_id': 4}, {'description': '', 'video_id': 5}, {'description': '', 'video_id': 6}]
+
+02/01/2021 20:38:06  : Questions dictionary returned [{'question': 'WHat is this???', 'question_id': 1, 'time': '1.767691849319458', 'user': 'ist187136', 'video_id': 1}]
+
+02/01/2021 20:38:06  : Questions dictionary returned []
+
+02/01/2021 20:38:06  : Questions dictionary returned []
+
+02/01/2021 20:38:06  : Questions dictionary returned []
+
+02/01/2021 20:38:06  : Questions dictionary returned []
+
+02/01/2021 20:38:06  : Questions dictionary returned []
+
+02/01/2021 20:38:09  : Videos dictionary returned [{'description': 'Safa brian', 'video_id': 1}, {'description': '', 'video_id': 2}, {'description': '', 'video_id': 3}, {'description': '', 'video_id': 4}, {'description': '', 'video_id': 5}, {'description': '', 'video_id': 6}]
+
+02/01/2021 20:38:09  : Questions dictionary returned [{'question': 'WHat is this???', 'question_id': 1, 'time': '1.767691849319458', 'user': 'ist187136', 'video_id': 1}]
+
+02/01/2021 20:38:09  : Questions dictionary returned []
+
+02/01/2021 20:38:09  : Questions dictionary returned []
+
+02/01/2021 20:38:09  : Questions dictionary returned []
+
+02/01/2021 20:38:09  : Questions dictionary returned []
+
+02/01/2021 20:38:09  : Questions dictionary returned []
+
+02/01/2021 20:38:10  : Videos dictionary returned [{'description': 'Safa brian', 'video_id': 1}, {'description': '', 'video_id': 2}, {'description': '', 'video_id': 3}, {'description': '', 'video_id': 4}, {'description': '', 'video_id': 5}, {'description': '', 'video_id': 6}]
+
+02/01/2021 20:38:10  : Questions dictionary returned [{'question': 'WHat is this???', 'question_id': 1, 'time': '1.767691849319458', 'user': 'ist187136', 'video_id': 1}]
+
+02/01/2021 20:38:10  : Questions dictionary returned []
+
+02/01/2021 20:38:10  : Questions dictionary returned []
+
+02/01/2021 20:38:10  : Questions dictionary returned []
+
+02/01/2021 20:38:10  : Questions dictionary returned []
+
+02/01/2021 20:38:10  : Questions dictionary returned []
+
+02/01/2021 20:38:33  : Videos dictionary returned [{'description': 'Safa brian', 'video_id': 1}, {'description': '', 'video_id': 2}, {'description': '', 'video_id': 3}, {'description': '', 'video_id': 4}, {'description': '', 'video_id': 5}, {'description': '', 'video_id': 6}]
+
+02/01/2021 20:38:34  : Questions dictionary returned [{'question': 'WHat is this???', 'question_id': 1, 'time': '1.767691849319458', 'user': 'ist187136', 'video_id': 1}]
+
+02/01/2021 20:38:34  : Questions dictionary returned []
+
+02/01/2021 20:38:34  : Questions dictionary returned []
+
+02/01/2021 20:38:34  : Questions dictionary returned []
+
+02/01/2021 20:38:34  : Questions dictionary returned []
+
+02/01/2021 20:38:34  : Questions dictionary returned []
+
+02/01/2021 20:38:36  : Videos dictionary returned [{'description': 'Safa brian', 'video_id': 1}, {'description': '', 'video_id': 2}, {'description': '', 'video_id': 3}, {'description': '', 'video_id': 4}, {'description': '', 'video_id': 5}, {'description': '', 'video_id': 6}]
+
+02/01/2021 20:38:36  : Questions dictionary returned [{'question': 'WHat is this???', 'question_id': 1, 'time': '1.767691849319458', 'user': 'ist187136', 'video_id': 1}]
+
+02/01/2021 20:38:36  : Questions dictionary returned []
+
+02/01/2021 20:38:36  : Questions dictionary returned []
+
+02/01/2021 20:38:36  : Questions dictionary returned []
+
+02/01/2021 20:38:37  : Questions dictionary returned []
+
+02/01/2021 20:38:37  : Questions dictionary returned []
+
+02/01/2021 20:38:38  : Videos dictionary returned [{'description': 'Safa brian', 'video_id': 1}, {'description': '', 'video_id': 2}, {'description': '', 'video_id': 3}, {'description': '', 'video_id': 4}, {'description': '', 'video_id': 5}, {'description': '', 'video_id': 6}]
+
+02/01/2021 20:38:38  : Questions dictionary returned []
+
+02/01/2021 20:38:39  : Questions dictionary returned [{'question': 'WHat is this???', 'question_id': 1, 'time': '1.767691849319458', 'user': 'ist187136', 'video_id': 1}]
+
+02/01/2021 20:38:39  : Questions dictionary returned []
+
+02/01/2021 20:38:39  : Questions dictionary returned []
+
+02/01/2021 20:38:39  : Questions dictionary returned []
+
+02/01/2021 20:38:39  : Questions dictionary returned []
+
+02/01/2021 20:39:07  : Single video dictionary returned {'description': 'Safa brian', 'url': 'https://www.youtube.com/watch?v=rmH4DxYD_KU&ab_channel=SAFABrian', 'video_id': 1, 'views': 22}
+
+02/01/2021 20:39:07  : Questions dictionary returned [{'question': 'WHat is this???', 'question_id': 1, 'time': '1.767691849319458', 'user': 'ist187136', 'video_id': 1}]
+

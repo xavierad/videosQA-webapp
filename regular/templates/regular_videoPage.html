@@ -44,7 +44,7 @@
               console.log(q["time"]+" "+q["question"])
               question = q['question_id']
               $('#questionsTable > tbody:last-child').
-                  append('<tr><td>'+ q["time"]+'</td><td>' +q["question"] + '</td> <td><button class="ui button" id="buttonQDetails" onclick="getQuestion(questions[this.parentNode.parentNode.rowIndex-1])">Details</button></td></tr>');
+                  append('<tr><td class="left aligned collapsing">'+ q["time"]+'</td><td class="center aligned">' +q["question"] + '</td> <td class="center aligned collapsing selectable"><button class="ui button" id="buttonQDetails" onclick="getQuestion(questions[this.parentNode.parentNode.rowIndex-1])">Details</button></td></tr>');
             });
           }
         }); 
@@ -87,7 +87,7 @@
             $('#answersTable > tbody:last-child').empty()
             answers.forEach(a => {
               $('#answersTable > tbody:last-child').
-                  append('<tr><td>'+ a["user_id"]+'</td><td>'+ a["user_name"]+'</td><td>'+ a["answer"]+'</td></tr>');
+                  append('<tr><td class="center aligned collapsing">'+ a["user_id"]+'</td><td class="center aligned collapsing">'+ a["user_name"]+'</td><td class="center aligned">'+ a["answer"]+'</td></tr>');
             });  
           }
         }); 
@@ -351,7 +351,7 @@
             <table class="ui celled table" id="questionsTable" >
               <thead class="full-width">
                 <tr>
-                  <th>Time</th><th>Question</th><th></th>
+                  <th class="center aligned collapsing">Time</th><th class="center aligned">Question</th><th></th>
                 </tr>
               </thead>
               <tfoot class="full-width">
@@ -380,7 +380,7 @@
             <table class="ui celled table" id="answersTable" >
               <thead>
                 <tr>
-                  <th>User</th><th>Name</th><th>Answer</th>
+                  <th class="center aligned collapsing">User</th><th class="center aligned collapsing">Name</th><th class="center aligned">Answer</th>
                 </tr>
               </thead>
               <tfoot class="full-width">

@@ -16,7 +16,7 @@ def construct_regular_bp(fenix_blueprint):
             resp = fenix_blueprint.session.get("/api/fenix/v1/person/")
             #resp contains the response made to /api/fenix/vi/person (information about current user)
             user = resp.json() 
-            print(resp.json())
+            # print(resp.json())
             return render_template("regularPage.html", username=user['username'], name=user['name'])
         except:
             return redirect(url_for("fenix-example.login"))
@@ -33,7 +33,7 @@ def construct_regular_bp(fenix_blueprint):
             resp = fenix_blueprint.session.get("/api/fenix/v1/person/")
             #resp contains the response made to /api/fenix/vi/person (information about current user)
             user = resp.json() 
-            print(resp.json())
+            # print(resp.json())
             return render_template("regular_videoPage.html", videoID=id, username=user['username'], name=user['name'])  
         except:
             return redirect(url_for("fenix-example.login"))

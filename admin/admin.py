@@ -16,7 +16,7 @@ def construct_admin_bp(fenix_blueprint):
             resp = fenix_blueprint.session.get("/api/fenix/v1/person/")
             #res contains the responde made to /api/fenix/vi/person (information about current user)
             data = resp.json() 
-            print(resp.json())
+            # print(resp.json())
             return render_template("adminPage.html", username=data['username'], name=data['name'])
         except:
             return redirect(url_for("fenix-example.login"))
@@ -33,7 +33,7 @@ def construct_admin_bp(fenix_blueprint):
             resp = fenix_blueprint.session.get("/api/fenix/v1/person/")
             #resp contains the response made to /api/fenix/vi/person (information about current user)
             user = resp.json() 
-            print(resp.json())
+            # print(resp.json())
             return render_template("admin_videoPage.html", videoID=id, username=user['username'], name=user['name'])
         except:
             return redirect(url_for("fenix-example.login"))
