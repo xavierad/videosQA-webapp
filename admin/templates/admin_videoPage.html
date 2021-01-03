@@ -44,7 +44,7 @@
               console.log(q["time"]+" "+q["question"])
               question = q['question_id']
               $('#questionsTable > tbody:last-child').
-                  append('<tr><td>'+ q["time"]+'</td><td>' +q["question"] + '</td> <td><button class="ui button" id="buttonQDetails" onclick="getQuestion(questions[this.parentNode.parentNode.rowIndex-1])">Details</button></td></tr>');
+                  append('<tr><td class="left aligned collapsing">'+ q["time"]+'</td><td class="center aligned">' +q["question"] + '</td> <td class="center aligned collapsing selectable"><button class="ui button" id="buttonQDetails" onclick="getQuestion(questions[this.parentNode.parentNode.rowIndex-1])">Details</button></td></tr>');
             });
           }
         }); 
@@ -53,6 +53,28 @@
       // a function to get all answers and to update the table containing all answers about the question
       function updateAnswerstable(question_id){      
         var videoID = '{{videoID}}'  
+        console.log('On update answers table, the focused question id: '+question_id)
+        $.ajax({
+          url: '/API/questions/'+videoID+'/',
+          type: "GET",
+          dataType: "json",
+          success: function (data) {
+            let questions = data['questions']
+            console.log(questions)
+            
+            for (var q in questions) {
+              console.log(q)
+              if(questions[q]['question_id'] == question_id) {
+                break;
+              }
+            }
+            var question = questions[q]
+            console.log('And the corresponding question: '+question['question'])
+            
+            $('#listAnswersTitle').empty()
+            $('#listAnswersTitle').append('<h4>Question: '+question['question']+'<br>Time: '+question['time']+'<br>User: '+question['user']+'</h4>'+'<h3>List of Answers</h3>')
+          }
+        }); 
         $.ajax({
           url: '/API/questions/'+videoID+'/'+question_id+'/',
           type: "GET",
@@ -60,10 +82,12 @@
           success: function (data) {
             console.log(data)
             answers = data['answers']
+            // $('#listAnswersTitle').empty()
+            // $('#listAnswersTitle').append('<h4>Question: '+question['question']+'<br>Time: '+question['time']+'<br>User: '+question['user']+'</h4>')
             $('#answersTable > tbody:last-child').empty()
             answers.forEach(a => {
               $('#answersTable > tbody:last-child').
-                  append('<tr><td>'+ a["user_id"]+'</td><td>'+ a["user_name"]+'</td><td>'+ a["answer"]+'</td></tr>');
+                  append('<tr><td class="center aligned collapsing">'+ a["user_id"]+'</td><td class="center aligned collapsing">'+ a["user_name"]+'</td><td class="center aligned">'+ a["answer"]+'</td></tr>');
             });  
           }
         }); 
@@ -83,7 +107,7 @@
             console.log(data)
             updateQuestionstable()
           }
-        });        
+        });   
         $.ajax({  
           url: '/API/users/'+'{{username}}'+'/nquestions/',
           type: "PUT",
@@ -94,7 +118,7 @@
             console.log("response for video creation "+data)
             console.log(data)
           }
-        });     
+        });         
       }
 
       //to add a new answer
@@ -112,7 +136,7 @@
             console.log(data)
             updateAnswerstable(question_id)
           }
-        });  
+        });        
         $.ajax({  
           url: '/API/users/'+'{{username}}'+'/nanswers/',
           type: "PUT",
@@ -123,7 +147,7 @@
             console.log("response for video creation "+data)
             console.log(data)
           }
-        });      
+        });   
       }
         
       // to get question when button Details is pressed
@@ -184,11 +208,15 @@
           newTime = $("#resumetime").val()
           user = '{{username}}' // only goes ist id!
           videoID = '{{videoID}}'
-          addNewQuestion(newQuestion, user, newTime, videoID)
+           // if there is input in the fields
+          if (newQuestion.trim()!=""){
+            addNewQuestion(newQuestion, user, newTime, videoID)
+            // automatically resumes the video
+            vPlayer.currentTime( parseFloat($("#resumetime").val()))
+            vPlayer.play()
+          }
           
-          // automatically resumes the video
-          vPlayer.currentTime( parseFloat($("#resumetime").val()))
-          vPlayer.play()
+ 
         })
 
         // when a new answer is added
@@ -196,8 +224,10 @@
           newAnswer = $("#newAnswer").val()
           user_id = '{{username}}'
           user_name = '{{name}}'
-          addNewAnswer(newAnswer, user_id, user_name, question_id)
-          $("#newAnswerForm")[0].reset();
+          // if there is input in the fields
+          if (newAnswer.trim()!=""){            
+            addNewAnswer(newAnswer, user_id, user_name, question_id)
+          }
         })
 
         // to pause the video with the button with id buttonVideoPause
@@ -236,16 +266,15 @@
                   success: function (data) {
                     console.log(data)
                   }
-                })                        
+                })                          
               }
             });
-            
             $.ajax({  
               url: '/API/users/'+'{{username}}'+'/videoViews/',
               type: "PUT",
               dataType: "json",
-              // contentType: 'application/json',
-              // data: JSON.stringify(requestData),
+              contentType: 'application/json',
+              data: JSON.stringify(requestData),
               success: function(data){
                 console.log("response for video creation "+data)
                 console.log(data)
@@ -281,85 +310,150 @@
         //   });
         // })
 
+        $('#newQuestionForm').form({
+          on: 'blur',
+          fields: {
+            question: {
+              identifier  : 'question',
+              rules: [
+                {
+                  type   : 'empty',
+                  prompt : 'Please enter a question'
+                }
+              ]
+            },
+          }
+        });
+
+        $('#newAnswerForm').form({
+          on: 'blur',
+          fields: {
+            answer: {
+              identifier  : 'answer',
+              rules: [
+                {
+                  type   : 'empty',
+                  prompt : 'Please enter an answer'
+                }
+              ]
+            },
+          }
+        });  
+
+
       });
 
     </script>  
   </head>
-
+  <title>Video APP</title>
   <body>
+    <div class="ui vertical masthead center aligned">
+      <div class="ui container">
+        <div class="ui large secondary pointing menu">
+          <a href="{{ url_for("admin.admin_page") }}" class="item">Back</a>
+          <a href="{{ url_for("home_page") }}" class=" item">Home</a>
+          <div class="right menu">
+            <p class="item">Welcome {{name.split()[0]}}!</p>
+            <a href="{{ url_for("logout") }}" class="item">Logout</a>
+          </div>           
+        </div>
+      </div>  
+    </div>
+
     <div class="ui container">
-      User {{username}} {{name}}
-      <a href="{{ url_for("logout") }}"> <p style="font-family:helvetica">Logout</p></a>
-      <!-- V I D E O -->
-      <br>
-      <div id=description_hd></div>
-      <br>
-      <video  id="videoPlayer" controls 
-              class="video-js vjs-default-skin"
-              width="640"
-              data-setup='{ "autoplay": true, "preload": "auto", "techOrder": ["youtube"], "sources": [{ "type": "video/youtube" }'
-      ></video>
-      <br>
-      <button class="ui button" id="buttonPlayVideo">
-        Play
-      </button>
-      <button class="ui button" id="buttonVideoPause">
-      Pause
-      </button> 
-      <div class="ui input focus" >
-        <input type="text" id="resumetime">
+      <div class="ui vertical stripe segment">
+        <div class="ui equal width stackable internally celled grid">
+          <div class="column">
+            <!-- V I D E O -->
+            <br>
+            <div id=description_hd></div>
+            <br>
+            <video  id="videoPlayer" controls 
+                    class="video-js vjs-default-skin"
+                    width="530"
+                    data-setup='{ "autoplay": true, "preload": "auto", "techOrder": ["youtube"], "sources": [{ "type": "video/youtube" }'
+            ></video>
+            <br>
+            <button class="ui button" id="buttonPlayVideo">Play</button>
+            <button class="ui button" id="buttonVideoPause">Pause</button> 
+            <div class="ui input focus" >
+              <input type="text" id="resumetime">
+            </div>
+          </div>
+          <div class="column">
+            <br>
+            <!-- Q U E S T I O N S  &  A N S W E R S -->
+            <h3>List of questions</h3>
+            <table class="ui celled table" id="questionsTable" >
+              <thead class="full-width">
+                <tr>
+                  <th class="center aligned collapsing">Time</th><th class="center aligned">Question</th><th></th>
+                </tr>
+              </thead>
+              <tfoot class="full-width">
+                <tr>
+                  <th colspan="3">                    
+                    <button class="ui small button" id="buttonNewQuestion">New Question</button> 
+                  </th>
+                </tr>
+                <tr>
+                  <th colspan="3">
+                    <!-- <form id="newQuestionForm">
+                      <div class="ui input">
+                        <input type="text" placeholder="Question" id="newQuestion" >     
+                      </div>  
+                      <button class="ui right floated small icon button" id="buttonAddQuestion" type="button">Add new question</button>
+                    </form>  -->
+                    
+                    <form class="ui form" id="newQuestionForm" onsubmit="return false">
+                      <div class="field">
+                        <label>Question</label>
+                        <input name="question" type="text" placeholder="Question" id="newQuestion">
+                      </div>
+                      <div class="ui submit button" type="button" id="buttonAddQuestion">Add New Question</div>
+                      <div class="ui error message"></div>
+                    </form>
+                  </th>
+                </tr>
+              </tfoot>
+              <tbody>
+              </tbody>      
+            </table>
+            
+            <div id="listAnswersTitle"></div>
+            <table class="ui celled table" id="answersTable" >
+              <thead>
+                <tr>
+                  <th class="center aligned collapsing">User</th><th class="center aligned collapsing">Name</th><th class="center aligned">Answer</th>
+                </tr>
+              </thead>
+              <tfoot class="full-width">
+                <tr>
+                  <th colspan="3">
+                    <!-- <form id="newAnswerForm">
+                      <div class="ui input">
+                        <input type="text" placeholder="Answer" id="newAnswer">
+                      </div>
+                      <button class="ui right floated small icon button" id="buttonAddAnswer" type="button">Add new answer</button>     
+                    </form>  -->
+
+                    <form class="ui form" id="newAnswerForm" onsubmit="return false">
+                      <div class="field">
+                        <label>Answer</label>
+                        <input name="answer" type="text" placeholder="Answer" id="newAnswer">
+                      </div>
+                      <div class="ui submit button" type="button" id="buttonAddAnswer">Add New Answer</div>
+                      <div class="ui error message"></div>
+                    </form>
+                  </th>
+                </tr>
+              </tfoot>
+              <tbody>
+              </tbody>      
+            </table>
+          </div>
+        </div>
       </div>
-
-      <!-- Q U E S T I O N S  &  A N S W E R S -->
-      <h3>List of questions</h3>
-      <table class="ui celled table" id="questionsTable" style="width:50%">
-        <thead>
-          <tr>
-            <th>Time</th><th>Question</th><th></th>
-          </tr>
-        </thead>
-        <tbody>
-        </tbody>      
-      </table> 
-
-      <button class="ui button" id="buttonNewQuestion">New Question</button>
-
-     
-      <form id='newQuestionForm'>      
-        <br><h3>Add a new question</h3>
-
-        <div class="ui input">
-          <input type="text" placeholder="Question" id="newQuestion">
-        </div>
-        <!-- Note that type of button was added in order to prevent the page to reload -->
-        <button class="ui button" id="buttonAddQuestion" type="button">
-          Add new question
-        </button>
-      </form><br>
-      
-      
-      <div id="listAnswersTitle"></div>
-      <table class="ui celled table" id="answersTable" style="width:50%">
-        <thead>
-          <tr>
-            <th>User</th><th>Name</th><th>Answer</th>
-          </tr>
-        </thead>
-        <tbody>
-        </tbody>      
-      </table>
-
-      <form id='newAnswerForm'>      
-        <h3>Add a new answer</h3>
-
-        <div class="ui input">
-          <input type="text" placeholder="Answer" id="newAnswer">
-        </div>
-        <!-- Note that type of button was added in order to prevent the page to reload -->
-        <button class="ui button" id="buttonAddAnswer" type="button">
-          Add new answer
-        </button>
-      </form><br>
     </div>
   </body>
 </html>

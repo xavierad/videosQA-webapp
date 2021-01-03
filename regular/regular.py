@@ -20,6 +20,7 @@ def construct_regular_bp(fenix_blueprint):
             return render_template("regularPage.html", username=user['username'], name=user['name'])
         except:
             return redirect(url_for("fenix-example.login"))
+            
 
     @regular.route('/video_page')
     @regular.route('/video_page/<string:id>')

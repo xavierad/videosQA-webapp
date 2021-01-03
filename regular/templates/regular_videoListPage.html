@@ -100,18 +100,43 @@
           newVideoDESC = $("#newVideoDescription").val()
 
           // if there is input in the fields
-          if (newVideoURl.trim() & newVideoDESC.trim()){
+          if (newVideoURl.trim()!="" & newVideoDESC.trim()!=""){
             addNewVideo(newVideoURl, newVideoDESC)
-          }
-        })
+          }         
+        });
 
-      });
+        $('.ui.form').form({
+          on: 'blur',
+          fields: {
+            videoURL: {
+              identifier  : 'videoURL',
+              rules: [
+                {
+                  type   : 'url',
+                  prompt : 'Please enter a video URL'
+                }
+              ]
+            },
+            videoDesc: {
+              identifier  : 'videoDesc',
+              rules: [
+                {
+                  type   : 'empty',
+                  prompt : 'Please enter a video description'
+                }
+              ]
+            },
+          }
+        });  
+
+      })
+
+        
   </script>
 
   </head>
 
   <body>
-    <div class="ui vertical stripe segment">
       <div class="ui text container">
         <br>  
         <h3>List of videos</h3>    
@@ -129,19 +154,32 @@
             </tr>
             <tr>
               <th colspan="3">
-                <form>
+                <!-- <form class="ui form">
                   <div class="ui small input">
-                    <input type="text" placeholder="Video URL" id="newVideoURL" required="required">              
-                    <input type="text" placeholder="Video Description" id="newVideoDescription" required="required">
+                    <input type="text" placeholder="Video URL" id="newVideoURL" name="VideoURL">              
+                    <input type="text" placeholder="Video Description" id="newVideoDescription" name="videoDescription">
                   </div>
+                  <br>
                   <button class="ui right floated small icon button" id="buttonAddVideo" type="button">Add new Video</button>     
-                </form> 
+                </form> -->
+                
+                <form class="ui form" onsubmit="return false">
+                  <div class="field">
+                    <label>URL</label>
+                    <input name="videoURL" type="text" placeholder="Video URL" id="newVideoURL">
+                  </div>
+                  <div class="field">
+                    <label>Description</label>
+                    <input name="videoDesc" type="text" placeholder="Video Description" id="newVideoDescription">
+                  </div>
+                  <div class="ui submit button" type="button" id="buttonAddVideo">Add New Video</div>
+                  <div class="ui error message"></div>
+                </form>
               </th>
             </tr>
           </tfoot>
           <tbody></tbody>        
         </table>
-      </div>
     </div>
   </body>
 

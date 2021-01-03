@@ -208,11 +208,15 @@
           newTime = $("#resumetime").val()
           user = '{{username}}' // only goes ist id!
           videoID = '{{videoID}}'
-          addNewQuestion(newQuestion, user, newTime, videoID)
+           // if there is input in the fields
+          if (newQuestion.trim()!=""){
+            addNewQuestion(newQuestion, user, newTime, videoID)
+            // automatically resumes the video
+            vPlayer.currentTime( parseFloat($("#resumetime").val()))
+            vPlayer.play()
+          }
           
-          // automatically resumes the video
-          vPlayer.currentTime( parseFloat($("#resumetime").val()))
-          vPlayer.play()
+ 
         })
 
         // when a new answer is added
@@ -220,8 +224,10 @@
           newAnswer = $("#newAnswer").val()
           user_id = '{{username}}'
           user_name = '{{name}}'
-          addNewAnswer(newAnswer, user_id, user_name, question_id)
-          $("#newAnswerForm")[0].reset();
+          // if there is input in the fields
+          if (newAnswer.trim()!=""){            
+            addNewAnswer(newAnswer, user_id, user_name, question_id)
+          }
         })
 
         // to pause the video with the button with id buttonVideoPause
@@ -304,6 +310,37 @@
         //   });
         // })
 
+        $('#newQuestionForm').form({
+          on: 'blur',
+          fields: {
+            question: {
+              identifier  : 'question',
+              rules: [
+                {
+                  type   : 'empty',
+                  prompt : 'Please enter a question'
+                }
+              ]
+            },
+          }
+        });
+
+        $('#newAnswerForm').form({
+          on: 'blur',
+          fields: {
+            answer: {
+              identifier  : 'answer',
+              rules: [
+                {
+                  type   : 'empty',
+                  prompt : 'Please enter an answer'
+                }
+              ]
+            },
+          }
+        });  
+
+
       });
 
     </script>  
@@ -313,9 +350,8 @@
     <div class="ui vertical masthead center aligned">
       <div class="ui container">
         <div class="ui large secondary pointing menu">
+          <a href="{{ url_for("regular.regular_page") }}" class="active item">Back</a>
           <a href="{{ url_for("home_page") }}" class=" item">Home</a>
-          <a href="{{ url_for("regular.regular_page") }}" class="active item">List of videos > video {{videoID}}</a>
-          <a id="admin_option" href="{{ url_for("admin.admin_page") }}" class="item">Private page of the site</a>
           <div class="right menu">
             <p class="item">Welcome {{name.split()[0]}}!</p>
             <a href="{{ url_for("logout") }}" class="item">Logout</a>
@@ -362,13 +398,21 @@
                 </tr>
                 <tr>
                   <th colspan="3">
-                    <form id="newQuestionForm">
+                    <!-- <form id="newQuestionForm">
                       <div class="ui input">
-                        <input type="text" placeholder="Question" id="newQuestion" required>     
+                        <input type="text" placeholder="Question" id="newQuestion" >     
                       </div>  
-                      <!-- Note that type of button was added in order to prevent the page to reload -->
                       <button class="ui right floated small icon button" id="buttonAddQuestion" type="button">Add new question</button>
-                    </form> 
+                    </form>  -->
+                    
+                    <form class="ui form" id="newQuestionForm" onsubmit="return false">
+                      <div class="field">
+                        <label>Question</label>
+                        <input name="question" type="text" placeholder="Question" id="newQuestion">
+                      </div>
+                      <div class="ui submit button" type="button" id="buttonAddQuestion">Add New Question</div>
+                      <div class="ui error message"></div>
+                    </form>
                   </th>
                 </tr>
               </tfoot>
@@ -386,12 +430,21 @@
               <tfoot class="full-width">
                 <tr>
                   <th colspan="3">
-                    <form id="newAnswerForm">
+                    <!-- <form id="newAnswerForm">
                       <div class="ui input">
                         <input type="text" placeholder="Answer" id="newAnswer">
                       </div>
                       <button class="ui right floated small icon button" id="buttonAddAnswer" type="button">Add new answer</button>     
-                    </form> 
+                    </form>  -->
+
+                    <form class="ui form" id="newAnswerForm" onsubmit="return false">
+                      <div class="field">
+                        <label>Answer</label>
+                        <input name="answer" type="text" placeholder="Answer" id="newAnswer">
+                      </div>
+                      <div class="ui submit button" type="button" id="buttonAddAnswer">Add New Answer</div>
+                      <div class="ui error message"></div>
+                    </form>
                   </th>
                 </tr>
               </tfoot>
