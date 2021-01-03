@@ -8,7 +8,6 @@ from User_DB import *
 
 app = Flask(__name__)
 
-
 #                           USER DB ENDPOINTS
 #-----------------------------------------------------------------------------
 # get a list of users
@@ -81,13 +80,7 @@ def createNewUser():
     else:        
         return {}
     # if there is an erro return ERROR 409
-
-
     
-@app.route("/")
-def index():
-    pass
-    # return app.send_static_file('index.html')
     
 if __name__ == "__main__":
    app.run(host='127.0.0.1', port=8001, debug=True)

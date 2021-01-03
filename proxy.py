@@ -50,67 +50,40 @@ app = Flask(__name__)
 app.secret_key = "supersekrit"  # Replace this with your own secret!
 app.config['SESSION_TYPE'] = 'filesystem'
 app.config['SESSION_PERMANENT'] = False
-
-# apagar no final do projeto os ifs
-import sys
-fenix_id = ''
-if len(sys.argv) > 1 :
-    fenix_id = sys.argv[1]
-    print(fenix_id)
-if fenix_id == '' or fenix_id == 'pedro':
-    # Pedro
-    print(fenix_id)
-    fenix_blueprint = OAuth2ConsumerBlueprint(
-        "fenix-example", __name__,
-        # this value should be retrived from the FENIX OAuth page
-        client_id="1695915081466076",
-        # this value should be retrived from the FENIX OAuth page
-        client_secret="TOxHh4DiSz/Z6hT+kRKASmJ5cmDD3dSPm79J+ikRtG991k09qypy29v7EZQsP82kV3tM2MPxfKXbm7mJop7KMg==",
-        # do not change next lines
-        base_url="https://fenix.tecnico.ulisboa.pt/",
-        token_url="https://fenix.tecnico.ulisboa.pt/oauth/access_token",
-        authorization_url="https://fenix.tecnico.ulisboa.pt/oauth/userdialog",
+fenix_blueprint = OAuth2ConsumerBlueprint(
+    "fenix-example", __name__,
+    # this value should be retrived from the FENIX OAuth page
+    client_id="1695915081466076",
+    # this value should be retrived from the FENIX OAuth page
+    client_secret="TOxHh4DiSz/Z6hT+kRKASmJ5cmDD3dSPm79J+ikRtG991k09qypy29v7EZQsP82kV3tM2MPxfKXbm7mJop7KMg==",
+    # do not change next lines
+    base_url="https://fenix.tecnico.ulisboa.pt/",
+    token_url="https://fenix.tecnico.ulisboa.pt/oauth/access_token",
+    authorization_url="https://fenix.tecnico.ulisboa.pt/oauth/userdialog",
     )
-elif fenix_id=='xavier':
-    print('hereee',fenix_id)
-    fenix_blueprint = OAuth2ConsumerBlueprint(
-        "fenix-example", __name__,
-        # this value should be retrived from the FENIX OAuth page
-        client_id="1132965128044779",
-        # this value should be retrived from the FENIX OAuth page
-        client_secret="HOmZwGuoFApLQEdqum3DTdSMk6XpLux6qJoqhZZVrKRQ+0cqo/rBnAupdik01GLsqunxF2EIR2jYef8skOS3Jg==",
-        # do not change next lines
-        base_url="https://fenix.tecnico.ulisboa.pt/",
-        token_url="https://fenix.tecnico.ulisboa.pt/oauth/access_token",
-        authorization_url="https://fenix.tecnico.ulisboa.pt/oauth/userdialog",
-    )
-else:
-    sys.exit()
 
-user = {}
+# Registering blueprints: fenix, admin and regular
 app.register_blueprint(fenix_blueprint)
 app.register_blueprint(construct_admin_bp(fenix_blueprint), url_prefix="/admin")
 app.register_blueprint(construct_regular_bp(fenix_blueprint), url_prefix="/regular")
-
 
 # Target databases addresses
 VIDEOS_URL = 'http://127.0.0.1:8000/API/'
 USERS_URL = 'http://127.0.0.1:8001/API/'
 QUESTIONS_URL = 'http://127.0.0.1:8002/API/'
 
-
-# A log file that will store all events ocurred in the system
-def write_to_log(f="log.txt", mode="w", timestamp="TIMESTAMP", event="EVENT"):
+# This functions allows to write log events on a file named log.txt
+def write_to_log(f="log.txt", mode="w", endpoint="ENDPOINT", timestamp="TIMESTAMP", event="EVENT"):
     with open(f, mode) as log:    
-        log.write('{: <20s} : {:}\n\n'.format(timestamp, event))
+        log.write('{: <20s} | {: <40s} | {:}\n\n'.format(timestamp, endpoint , event))
 
-# Initialize log.txt
+# Initializing log.txt
 write_to_log(mode="w")
     
 
 #                           PROXY ENDPOINTS
 #-----------------------------------------------------------------------------
-# Related to login
+# Related to login / logout
 
 @app.route('/')
 def home_page():
@@ -127,10 +100,9 @@ def home_page():
         resp = fenix_blueprint.session.get("/api/fenix/v1/person/")
         #res contains the responde made to /api/fenix/vi/person (information about current user)
         user = resp.json() 
-        # print(resp.json())    
         return render_template("appPage.html", loggedIn = fenix_blueprint.session.authorized, userID=user['username'], userName=user['name'])
 
-    except:  # or maybe any OAuth2Error
+    except:  
         #if not logged in browser is redirected to login page (in this case FENIX handled the login)
         return render_template("appPage.html", loggedIn = fenix_blueprint.session.authorized, userID='', userName='')
 
@@ -146,7 +118,7 @@ def logout():
     # when the browser is redirected to home page it is not logged in anymore
     return redirect(url_for("home_page"))    
 
-# Related to login
+# Related to login / logout
 #-----------------------------------------------------------------------------
 # Related to videos
 
@@ -172,7 +144,7 @@ def returnSingleVideoJSON(id):
     # datetime object containing current date and time and converting it to a string
     now = datetime.now()    
     write_to_log(mode="a",timestamp=now.strftime("%d/%m/%Y %H:%M:%S"),
-        event='Single video dictionary returned ' + str(resp))  
+        endpoint=url, event='Single video dictionary returned ' + str(resp))  
 
     return resp
 
@@ -191,7 +163,7 @@ def createNewVideo():
     if ret:
         now = datetime.now()    
         write_to_log(mode="a",timestamp=now.strftime("%d/%m/%Y %H:%M:%S"),
-            event='Created new video with id ' + str(ret))  
+            endpoint=url, event='Created new video with id ' + str(ret))  
         print(ret)
         return {"id": ret}
     else:
@@ -216,7 +188,7 @@ def returnsQuestionsJSON(video_id):
     # datetime object containing current date and time and converting it to a string
     now = datetime.now()    
     write_to_log(mode="a",timestamp=now.strftime("%d/%m/%Y %H:%M:%S"),
-        event='Questions dictionary returned ' + str(resp['questions'][:]))        
+        endpoint=url, event='Questions dictionary returned ' + str(resp['questions'][:]))        
 
     return resp
 
@@ -235,7 +207,7 @@ def createNewQuestion(video_id):
     if ret:
         now = datetime.now()    
         write_to_log(mode="a",timestamp=now.strftime("%d/%m/%Y %H:%M:%S"),
-            event='Created new question with id ' + str(ret))  
+            endpoint=url, event='Created new question with id ' + str(ret))  
         print(ret)
         return {"id": ret}
     else:
@@ -255,7 +227,7 @@ def returnsAnswersJSON(video_id, question_id):
     # datetime object containing current date and time and converting it to a string
     now = datetime.now()    
     write_to_log(mode="a",timestamp=now.strftime("%d/%m/%Y %H:%M:%S"),
-        event='Answer(s) dictionary returned ' + str(resp['answers'][:]))        
+        endpoint=url, event='Answer(s) dictionary returned ' + str(resp['answers'][:]))        
 
     return resp
 
@@ -274,7 +246,7 @@ def createNewAnswer(video_id, question_id):
     if ret:
         now = datetime.now()    
         write_to_log(mode="a",timestamp=now.strftime("%d/%m/%Y %H:%M:%S"),
-            event='Created new answer with id ' + str(ret))  
+            endpoint=url, event='Created new answer with id ' + str(ret))  
         print(ret)
         return {"id": ret}
     else:
@@ -294,7 +266,7 @@ def returnsUsersJSON():
     # datetime object containing current date and time and converting it to a string
     now = datetime.now()    
     write_to_log(mode="a",timestamp=now.strftime("%d/%m/%Y %H:%M:%S"),
-        event='Users dictionary returned ' + str(resp['users'][:]))        
+        endpoint=url, event='Users dictionary returned ' + str(resp['users'][:]))        
 
     return resp
 
@@ -307,7 +279,7 @@ def returnSingleUserJSON(id):
     # datetime object containing current date and time and converting it to a string
     now = datetime.now()    
     write_to_log(mode="a",timestamp=now.strftime("%d/%m/%Y %H:%M:%S"),
-        event='Single user dictionary returned ' + str(resp))  
+        endpoint=url, event='Single user dictionary returned ' + str(resp))  
 
     return resp
 
@@ -321,14 +293,13 @@ def createNewUser():
         print(j["id"])
         ret = rq.post(url, json=j).json()
     except Exception as e:
-        print(e)
         abort(400)
         #the arguments were incorrect
 
     if ret != {}:
         now = datetime.now()    
         write_to_log(mode="a",timestamp=now.strftime("%d/%m/%Y %H:%M:%S"),
-            event='Created new user ' + str(ret))  
+            endpoint=url, event='Created new user ' + str(ret))  
         print(ret)
         return {"id": ret}
     elif ret == {}:
@@ -341,31 +312,57 @@ def createNewUser():
 # increment the number of registered videos of an user
 @app.route("/API/users/<string:user_id>/videosRegistred/", methods=['PUT', 'PATCH'])
 def newVideoRegistration(user_id):
-    ret = rq.put(USERS_URL+'users/'+user_id+'/videosRegistred/', user_id).json()
+    url = USERS_URL+'users/'+user_id+'/videosRegistred/'
+    ret = rq.put(url, user_id).json()
+
+    # datetime object containing current date and time and converting it to a string
+    now = datetime.now()    
+    write_to_log(mode="a",timestamp=now.strftime("%d/%m/%Y %H:%M:%S"),
+        endpoint=url, event='New video registration ' + str(ret))  
+
     return ret
 
 # increment the number of videos visualized by an user
 @app.route("/API/users/<string:user_id>/videoViews/", methods=['PUT', 'PATCH'])
 def incrementUserViews(user_id):
-    ret = rq.put(USERS_URL+'users/'+user_id+'/videoViews/', user_id).json()
+    url = USERS_URL+'users/'+user_id+'/videoViews/'
+    ret = rq.put(url, user_id).json()
+
+    # datetime object containing current date and time and converting it to a string
+    now = datetime.now()    
+    write_to_log(mode="a",timestamp=now.strftime("%d/%m/%Y %H:%M:%S"),
+        endpoint=url, event='User views ' + str(ret))  
+
     return ret
 
 # increment the number of questions made by an user
 @app.route("/API/users/<string:user_id>/nquestions/", methods=['PUT', 'PATCH'])
 def incrementUserQuestions(user_id):
-    ret = rq.put(USERS_URL+'users/'+user_id+'/nquestions/', user_id).json()
+    url = USERS_URL+'users/'+user_id+'/nquestions/'
+    ret = rq.put(url, user_id).json()
+    
+    # datetime object containing current date and time and converting it to a string
+    now = datetime.now()    
+    write_to_log(mode="a",timestamp=now.strftime("%d/%m/%Y %H:%M:%S"),
+        endpoint=url, event='User number of questions ' + str(ret))  
+
     return ret
 
 # increment the number of answers made by an user
 @app.route("/API/users/<string:user_id>/nanswers/", methods=['PUT', 'PATCH'])
 def incrementUserAnswers(user_id):
-    ret = rq.put(USERS_URL+'users/'+user_id+'/nanswers/', user_id).json()
+    url = USERS_URL+'users/'+user_id+'/nanswers/'
+    ret = rq.put(url, user_id).json()
+        
+    # datetime object containing current date and time and converting it to a string
+    now = datetime.now()    
+    write_to_log(mode="a",timestamp=now.strftime("%d/%m/%Y %H:%M:%S"),
+        endpoint=url, event='User number of answers ' + str(ret))  
+
     return ret
 
 # Related to users
 #-----------------------------------------------------------------------------
-
-
 
 if __name__ == "__main__":
    app.run(debug=True) # by default it will run in 127.0.0.1:5000

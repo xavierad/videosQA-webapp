@@ -15,14 +15,14 @@ engine = create_engine('sqlite:///%s'%(DATABASE_FILE), echo=False) #echo = True 
 
 Base = declarative_base()
 
-#Declaration of data
+# Declaration of data regarding a question
 class Question(Base):
     __tablename__ = 'Question'
-    id = Column(Integer, primary_key=True)
-    question = Column(String)
-    time = Column(String)
-    user = Column(String)
-    video_id = Column(Integer)
+    id = Column(Integer, primary_key=True) # question id is defined as the primary key
+    question = Column(String) # the question text
+    time = Column(String) # the time of the video when the question was made
+    user = Column(String) # the user that made the question
+    video_id = Column(Integer) # the video id that the question made corresponds to
 
     def __repr__(self):
         return "<Question (id=%d Question=%s User=%s Time=%s VideoID=%d)>" % (self.id, self.question, self.user, self.time, self.video_id)
@@ -30,14 +30,14 @@ class Question(Base):
     def to_dictionary(self):
         return {"question_id": self.id, "question": self.question, "user": self.user, "time": self.time, "video_id": self.video_id}
 
-
+# Declaration of data regarding an answer
 class Answer(Base):
     __tablename__ = 'Answer'
-    id = Column(Integer, primary_key=True)
-    answer = Column(String)
-    user_id = Column(String)
-    user_name = Column(String)
-    question_id = Column(Integer)
+    id = Column(Integer, primary_key=True) # the answer id is defined as the primary key
+    answer = Column(String) # the answer text
+    user_id = Column(String) # the user id that made the answer
+    user_name = Column(String) # the user name of the user id
+    question_id = Column(Integer) # the question id that the answer made corresponds to
 
     def __repr__(self):
         return "<Answer (id=%d Question_id=%d Answer=%s User_id=%s User_Name=%s)>" % (self.id, self.question_id, self.answer, self.user_id, self.user_name)
@@ -51,10 +51,12 @@ Session = sessionmaker(bind=engine)
 sql_session = scoped_session(Session)
 
 # Regarding Questions
+# to query all questions (if any) corresponding to a video
 def listQuestions(video_id):
     return sql_session.query(Question).filter(Question.video_id==video_id).all()
     sql_session.close()
 
+# to get a list of dictionary questions of a video
 def listQuestionsDICT(video_id):
     ret_list = []
     lq = listQuestions(video_id)
@@ -64,14 +66,17 @@ def listQuestionsDICT(video_id):
         ret_list.append(quest)
     return ret_list
 
+# to get single question
 def getQuestion(id):
     q =  sql_session.query(Question).filter(Question.id==id).first()
     sql_session.close()
     return q
 
+# to return a question dictionary
 def getQuestionDICT(id):
     return getQuestion(id).to_dictionary()
 
+# to add a new question
 def newQuestion(question, user, time, video_id):
     q = Question(question=question, user=user, time=time, video_id=video_id)
     try:
@@ -90,6 +95,7 @@ def listAnswers(question_id):
     return sql_session.query(Answer).filter(Answer.question_id==question_id).all()
     sql_session.close()
 
+# to get a list of dictionary answers of a question
 def listAnswersDICT(question_id):
     ret_list = []
     la = listAnswers(question_id)
@@ -99,6 +105,7 @@ def listAnswersDICT(question_id):
         ret_list.append(ans_dict)
     return ret_list
 
+# to add a new answer
 def newAnswer(answer, user_id, user_name, question_id):
     ans = Answer(question_id=question_id, answer=answer, user_id=user_id, user_name=user_name)
     try:
@@ -110,7 +117,3 @@ def newAnswer(answer, user_id, user_name, question_id):
     except Exception as e:
         print(e)
         return None
-
-
-if __name__ == "__main__":
-    pass

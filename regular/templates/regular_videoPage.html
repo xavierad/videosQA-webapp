@@ -13,6 +13,7 @@
 
     <script>
       
+      
       // a simple function only to print the video description in the header of the page
       function printVideoDescription(){          
         var videoID = '{{videoID}}'
@@ -24,7 +25,8 @@
             console.log(data);
             var div = document.getElementById('description_hd');              
             description_header = "<h1>"+data['description']+"</h1>"
-            div.innerHTML += description_header
+            views_header = "<h4>Views "+data['views']+"</h4>"
+            div.innerHTML += description_header + views_header
           }
         })
       }      
@@ -350,7 +352,7 @@
     <div class="ui vertical masthead center aligned">
       <div class="ui container">
         <div class="ui large secondary pointing menu">
-          <a href="{{ url_for("regular.regular_page") }}" class="active item">Back</a>
+          <a href="{{ url_for("regular.regular_page") }}" class="item">Back</a>
           <a href="{{ url_for("home_page") }}" class=" item">Home</a>
           <div class="right menu">
             <p class="item">Welcome {{name.split()[0]}}!</p>

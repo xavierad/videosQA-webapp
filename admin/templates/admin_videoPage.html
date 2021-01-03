@@ -22,9 +22,10 @@
           dataType: "json",
           success: function (data) {
             console.log(data);
-            var div = document.getElementById('description_hd');              
+            var div = document.getElementById('description_hd');                      
             description_header = "<h1>"+data['description']+"</h1>"
-            div.innerHTML += description_header
+            views_header = "<h4>Views "+data['views']+"</h4>"
+            div.innerHTML += description_header + views_header
           }
         })
       }      

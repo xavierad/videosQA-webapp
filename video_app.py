@@ -1,6 +1,5 @@
 '''
 A video database application to serve proxy
-confirm with professor: this flask will provide QA and user stats to proxy (however, proxy must know video_app urls)
 '''
 
 from flask import Flask, abort, request, redirect, url_for, session, jsonify, render_template
@@ -8,7 +7,6 @@ from time import sleep
 from Video_DB import *
 
 app = Flask(__name__)
-
 
 #                           VIDEO DB ENDPOINTS
 #-----------------------------------------------------------------------------
@@ -46,17 +44,14 @@ def createNewVideo():
         abort(409)
     #if there is an erro return ERROR 409
 
+# to increment the number of views
 @app.route("/API/videos/<int:id>/views", methods=['PUT', 'PATCH'])
 def newView(id):
     try:
         return {"id":id, "views": newVideoView(id)}
     except:
         abort(404)
-    
-@app.route("/")
-def index():
-    pass
-    # return app.send_static_file('index.html')
+
     
 if __name__ == "__main__":
    app.run(host='127.0.0.1', port=8000, debug=True)

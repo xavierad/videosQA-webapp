@@ -8,19 +8,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-xmlrpc/0.4.3/jquery.xmlrpc.js"> </script>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>    
     <script>
-      function getVideoViews(videoID){
-        $.ajax({
-          url: '/API/videos/'+videoID+'/',
-          type: "GET",
-          dataType: "json",
-          success: function (data) {
-            console.log(data)
-            $("#nviews"+videoID).html(data['views'])
-            console.log("update the number of views on the table for"+videoID)
-          },
-        })
-      }
-
       function getVideoQandas(videoID){
         $.ajax({
           url: '/API/questions/'+videoID+'/',
