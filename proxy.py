@@ -163,7 +163,7 @@ def createNewVideo():
     if ret:
         now = datetime.now()    
         write_to_log(mode="a",timestamp=now.strftime("%d/%m/%Y %H:%M:%S"),
-            endpoint=url, event='Created new video with id ' + str(ret))  
+            endpoint=url, event='New video registered with id ' + str(ret))  
         print(ret)
         return {"id": ret}
     else:
@@ -318,7 +318,7 @@ def newVideoRegistration(user_id):
     # datetime object containing current date and time and converting it to a string
     now = datetime.now()    
     write_to_log(mode="a",timestamp=now.strftime("%d/%m/%Y %H:%M:%S"),
-        endpoint=url, event='New video registration ' + str(ret))  
+        endpoint=url, event='New video registration by user '+ user_id +' '+ str(ret))  
 
     return ret
 
@@ -331,7 +331,7 @@ def incrementUserViews(user_id):
     # datetime object containing current date and time and converting it to a string
     now = datetime.now()    
     write_to_log(mode="a",timestamp=now.strftime("%d/%m/%Y %H:%M:%S"),
-        endpoint=url, event='User views ' + str(ret))  
+        endpoint=url, event='Number of views of user ' + user_id +' updated to ' + str(ret))  
 
     return ret
 
@@ -344,7 +344,7 @@ def incrementUserQuestions(user_id):
     # datetime object containing current date and time and converting it to a string
     now = datetime.now()    
     write_to_log(mode="a",timestamp=now.strftime("%d/%m/%Y %H:%M:%S"),
-        endpoint=url, event='User number of questions ' + str(ret))  
+        endpoint=url, event='Number of questions made by ' + user_id + ' updated to ' + str(ret))  
 
     return ret
 
@@ -357,7 +357,7 @@ def incrementUserAnswers(user_id):
     # datetime object containing current date and time and converting it to a string
     now = datetime.now()    
     write_to_log(mode="a",timestamp=now.strftime("%d/%m/%Y %H:%M:%S"),
-        endpoint=url, event='User number of answers ' + str(ret))  
+        endpoint=url, event='Number of answers made by ' + user_id + ' updated to ' + str(ret))  
 
     return ret
 
