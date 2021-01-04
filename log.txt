@@ -1,2 +1,0 @@
-TIMESTAMP            | ENDPOINT                                 | EVENT
-

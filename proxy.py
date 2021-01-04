@@ -43,6 +43,7 @@ import requests as rq
 from datetime import datetime
 from admin.admin import construct_admin_bp
 from regular.regular import construct_regular_bp
+import os.path
 
 os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
 
@@ -78,12 +79,20 @@ def write_to_log(f="log.txt", mode="w", endpoint="ENDPOINT", timestamp="TIMESTAM
         log.write('{: <20s} | {: <40s} | {:}\n\n'.format(timestamp, endpoint , event))
 
 # Initializing log.txt
-write_to_log(mode="w")
+if os.path.exists('log.txt'):
+    write_to_log(mode="w")
     
 
 #                           PROXY ENDPOINTS
 #-----------------------------------------------------------------------------
 # Related to login / logout
+
+# To save id and name of the user logged in
+class This_User:
+    id = ''
+    name = ''
+this_user = This_User()
+
 
 @app.route('/')
 def home_page():
@@ -100,6 +109,8 @@ def home_page():
         resp = fenix_blueprint.session.get("/api/fenix/v1/person/")
         #res contains the responde made to /api/fenix/vi/person (information about current user)
         user = resp.json() 
+        this_user.id = user['username']
+        this_user.name = user['name']
         return render_template("appPage.html", loggedIn = fenix_blueprint.session.authorized, userID=user['username'], userName=user['name'])
 
     except:  
@@ -131,7 +142,7 @@ def returnsVideosJSON():
     # datetime object containing current date and time and converting it to a string
     now = datetime.now()    
     write_to_log(mode="a",timestamp=now.strftime("%d/%m/%Y %H:%M:%S"),
-        event='Videos dictionary returned ' + str(resp['videos'][:]))        
+        endpoint=url, event='List of video(s) dictionary returned ' + str(resp['videos'][:]))        
 
     return resp
 
@@ -163,7 +174,7 @@ def createNewVideo():
     if ret:
         now = datetime.now()    
         write_to_log(mode="a",timestamp=now.strftime("%d/%m/%Y %H:%M:%S"),
-            endpoint=url, event='New video registered with id ' + str(ret))  
+            endpoint=url, event=f'User {this_user.id} registered a new video with id {ret}, dataype of dictionary, content {j}')  
         print(ret)
         return {"id": ret}
     else:
@@ -188,7 +199,7 @@ def returnsQuestionsJSON(video_id):
     # datetime object containing current date and time and converting it to a string
     now = datetime.now()    
     write_to_log(mode="a",timestamp=now.strftime("%d/%m/%Y %H:%M:%S"),
-        endpoint=url, event='Questions dictionary returned ' + str(resp['questions'][:]))        
+        endpoint=url, event='List of question(s) dictionary returned ' + str(resp['questions'][:]))        
 
     return resp
 
@@ -207,7 +218,7 @@ def createNewQuestion(video_id):
     if ret:
         now = datetime.now()    
         write_to_log(mode="a",timestamp=now.strftime("%d/%m/%Y %H:%M:%S"),
-            endpoint=url, event='Created new question with id ' + str(ret))  
+            endpoint=url, event=f'User {this_user.id} created a new question with id {ret}, datatype of dictionary, content {j}')  
         print(ret)
         return {"id": ret}
     else:
@@ -246,7 +257,7 @@ def createNewAnswer(video_id, question_id):
     if ret:
         now = datetime.now()    
         write_to_log(mode="a",timestamp=now.strftime("%d/%m/%Y %H:%M:%S"),
-            endpoint=url, event='Created new answer with id ' + str(ret))  
+            endpoint=url, event=f'User {this_user.id} created a new answer with id {ret}, datatype of dictionary, content {j} ')  
         print(ret)
         return {"id": ret}
     else:
@@ -266,7 +277,7 @@ def returnsUsersJSON():
     # datetime object containing current date and time and converting it to a string
     now = datetime.now()    
     write_to_log(mode="a",timestamp=now.strftime("%d/%m/%Y %H:%M:%S"),
-        endpoint=url, event='Users dictionary returned ' + str(resp['users'][:]))        
+        endpoint=url, event='List of user(s) dictionary returned ' + str(resp['users'][:]))        
 
     return resp
 
@@ -299,7 +310,7 @@ def createNewUser():
     if ret != {}:
         now = datetime.now()    
         write_to_log(mode="a",timestamp=now.strftime("%d/%m/%Y %H:%M:%S"),
-            endpoint=url, event='Created new user ' + str(ret))  
+            endpoint=url, event=f'Created new user {ret}, datatype dictionary, content {j}')  
         print(ret)
         return {"id": ret}
     elif ret == {}:
@@ -318,7 +329,7 @@ def newVideoRegistration(user_id):
     # datetime object containing current date and time and converting it to a string
     now = datetime.now()    
     write_to_log(mode="a",timestamp=now.strftime("%d/%m/%Y %H:%M:%S"),
-        endpoint=url, event='New video registration by user '+ user_id +' '+ str(ret))  
+        endpoint=url, event='Number of video registrations by user '+ user_id +' uptated to '+ str(ret))  
 
     return ret
 
