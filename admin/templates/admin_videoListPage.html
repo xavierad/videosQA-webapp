@@ -141,8 +141,11 @@
       <div class="ui text container">
         <br>
         <!-- U S E R S   S T A T I S T S   &   L O G S   L I S T   L I N K s -->
-        <a href="{{ url_for("admin.user_statistics") }}" class="item" style="float:right">User Statistics</a>
-        <a href="{{ url_for("admin.logs_file") }}" class="item" style="float:right">Logs List |</a>
+        <div style="float:right">
+        <a href="{{ url_for("admin.user_statistics") }}" class="item">Users Statistics</a>
+        <a>|</a>
+        <a href="{{ url_for("admin.logs_file") }}" class="item">Logs List</a>
+        </div>
         <br> 
         <!-- L I S T   o f   V I D E O S -->
         <h3>List of videos</h3>    
