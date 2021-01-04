@@ -1,3 +1,9 @@
+<!-- -------------------------------------------------------------------------------------
+#                   Architectures and Internet Systems Project 2020/2021
+#
+#                 Developed by Pedro Martin (87094) & Xavier Dias (87136)
+-------------------------------------------------------------------------------------- -->
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -13,8 +19,6 @@
 
     <script>
 
-      
-      
       // a function to get the users and render them into a table
       function getUsersList() {
         $.ajax({
@@ -39,7 +43,6 @@
       function getUserStatistics(user){
         $("#listStatistics").show(); 
         console.log(user['name'])
-
         $.ajax({
           url: '/API/users/'+user['user_id']+'/',
           type: "GET",
@@ -96,16 +99,13 @@
 
       $(document).ready(function(){
         $("#listStatistics").hide();
+
+        // to display the users list
         getUsersList()
-        
       });
 
     </script>
   </head>
-
-
-
-
     <title>STATISTICS PAGE</title>
     <body style="background-color: #ede9e4;">
       <div class="ui vertical masthead center aligned">
@@ -124,7 +124,7 @@
       <div class="ui container">
       <br>
       <h3>Select a User from the table</h3>
-
+      <!-- L I S T    O F    U S E R S -->
       <h3>List of Users</h3>
     <table class="ui celled table selectable" id="usersTable" style="width:50%">
       <thead>
@@ -136,8 +136,8 @@
       </tbody>
     </table>
     <div id=listStatistics></div>
-    
     <br>
+    <!-- S T A T I S T I C s   B A R S   C H A R T -->
     <br>
     <canvas id="myCanvas" width="1500" height="400">
     </canvas>

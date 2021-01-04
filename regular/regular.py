@@ -1,3 +1,9 @@
+# -------------------------------------------------------------------------------------
+#                   Architectures and Internet Systems Project 2020/2021
+#
+# Developed by Pedro Martin (87094) & Xavier Dias (87136)
+# -------------------------------------------------------------------------------------
+
 from flask import Flask, render_template, Blueprint, redirect, url_for
 
 def construct_regular_bp(fenix_blueprint):
@@ -16,12 +22,11 @@ def construct_regular_bp(fenix_blueprint):
             resp = fenix_blueprint.session.get("/api/fenix/v1/person/")
             #resp contains the response made to /api/fenix/vi/person (information about current user)
             user = resp.json() 
-            # print(resp.json())
             return render_template("regularPage.html", username=user['username'], name=user['name'])
         except:
             return redirect(url_for("fenix-example.login"))
             
-
+    # to display the video page selected from the list of videos
     @regular.route('/video_page')
     @regular.route('/video_page/<string:id>')
     def video_page(id):
@@ -34,7 +39,6 @@ def construct_regular_bp(fenix_blueprint):
             resp = fenix_blueprint.session.get("/api/fenix/v1/person/")
             #resp contains the response made to /api/fenix/vi/person (information about current user)
             user = resp.json() 
-            # print(resp.json())
             return render_template("regular_videoPage.html", videoID=id, username=user['username'], name=user['name'])  
         except:
             return redirect(url_for("fenix-example.login"))

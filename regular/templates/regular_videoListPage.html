@@ -1,3 +1,8 @@
+<!-- -------------------------------------------------------------------------------------
+#                   Architectures and Internet Systems Project 2020/2021
+#
+#                 Developed by Pedro Martin (87094) & Xavier Dias (87136)
+-------------------------------------------------------------------------------------- -->
 
 <!DOCTYPE html>
 <html>
@@ -8,6 +13,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-xmlrpc/0.4.3/jquery.xmlrpc.js"> </script>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>    
     <script>
+
+      // to get the number of questions (qandas) for each video
       function getVideoQandas(videoID){
         $.ajax({
           url: '/API/questions/'+videoID+'/',
@@ -22,6 +29,7 @@
         })
       }
 
+      // to update the video table filling it with every video available at the DB
       function updateVideostable(){
         $.ajax({
           url: '/API/videos/',
@@ -44,6 +52,7 @@
         });
       }
 
+      // to add a new video to the videos DB
       function addNewVideo(url, description){
         // look at the server to understand what data should be sent.
         let requestData={"description": description, 'url': url}
@@ -60,6 +69,7 @@
             }
         });
          
+        // increases the counting for the number of video submission of the user
         $.ajax({  
             url: '/API/users/'+'{{username}}'+'/videosRegistred/',
             type: "PUT",
@@ -75,6 +85,8 @@
 
       $(document).ready(function(){
         updateVideostable()
+
+        // Updates video table by an users request
         $("#buttonUpdateVideotable").click(
           // to update the table when clicked
           function(){
@@ -82,6 +94,7 @@
           }
         )            
         
+        // to add a new video
         $("#buttonAddVideo").click(function(){
           newVideoURl = $("#newVideoURL").val()
           newVideoDESC = $("#newVideoDescription").val()
@@ -92,6 +105,7 @@
           }         
         });
 
+        // to make sure the user is not sleeping while adding a new video
         $('.ui.form').form({
           on: 'blur',
           fields: {
@@ -126,6 +140,7 @@
   <body style="background-color: #ede9e4;">
       <div class="ui text container">
         <br>  
+        <!-- L I S T   o f   V I D E O S -->
         <h3>List of videos</h3>    
         <table class="ui celled table selectable" id="videosTable">
           <thead class="full-width">
@@ -141,15 +156,7 @@
             </tr>
             <tr>
               <th colspan="3">
-                <!-- <form class="ui form">
-                  <div class="ui small input">
-                    <input type="text" placeholder="Video URL" id="newVideoURL" name="VideoURL">              
-                    <input type="text" placeholder="Video Description" id="newVideoDescription" name="videoDescription">
-                  </div>
-                  <br>
-                  <button class="ui right floated small icon button" id="buttonAddVideo" type="button">Add new Video</button>     
-                </form> -->
-                
+                <!-- A D D   N E W   V I D E O -->
                 <form class="ui form" onsubmit="return false">
                   <div class="field">
                     <label>URL</label>
