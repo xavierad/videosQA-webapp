@@ -44,7 +44,7 @@ def construct_admin_bp(fenix_blueprint):
             #if the user is authenticated then a request to FENIX is made
             resp = fenix_blueprint.session.get("/api/fenix/v1/person/")
             #resp contains the response made to /api/fenix/vi/person (information about current user)
-            user = resp.json() 
+            user = resp.json()
             return render_template("user_statistics.html", username=user['username'], name=user['name'])
         except:
             return redirect(url_for("fenix-example.login"))
@@ -56,14 +56,13 @@ def construct_admin_bp(fenix_blueprint):
             resp = fenix_blueprint.session.get("/api/fenix/v1/person/")
             #resp contains the response made to /api/fenix/vi/person (information about current user)
             user = resp.json() 
-            return render_template("logs_list_page.html", username=user['username'], name=user['name'])
+            with open("log.txt", "r") as f:
+                logs = f.read()
+                
+            return render_template("logs_list_page.html", username=user['username'], name=user['name'], logs=logs)
         except:
             return redirect(url_for("fenix-example.login"))
 
-    @admin.route('/get_and_read_file')
-    def get_and_read_file():
-        f = open("log.txt", "r")
-        text = f.read()
-        return text
+
 
     return admin 
