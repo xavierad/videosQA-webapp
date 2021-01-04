@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css"  href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.7/dist/semantic.css">
+    <script  src="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.7/dist/semantic.js">  </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-xmlrpc/0.4.3/jquery.xmlrpc.js"> </script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+    <link href="https://vjs.zencdn.net/7.8.4/video-js.css" rel="stylesheet" />
+    <script src="http://vjs.zencdn.net/7.8.4/video.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-youtube/2.6.1/Youtube.min.js"></script>
+
+    <script>
+
+    function readFile(file, out) {
+        var http = new XMLHttpRequest();
+        http.open('get', file);
+        http.onreadystatechange = function () {
+            out.innerHTML = http.responseText.replace(/\n/g, '<br>');
+        };
+        http.send();
+    }
+      
+
+      
+
+        $(document).ready(function(){
+
+        //readFile('log.txt', document.getElementById('text-file'));
+
+        
+        });
+
+    </script>
+  </head>
+
+
+
+
+    <title>LOGS PAGE</title>
+    <body style="background-color: #ede9e4;">
+      <div class="ui vertical masthead center aligned">
+        <div class="ui container">
+          <div class="ui large secondary pointing menu">
+            <a href="{{ url_for("admin.admin_page") }}" class="item">Back</a>
+            <a href="{{ url_for("home_page") }}" class=" item">Home</a>
+            <div class="right menu">
+              <p class="item">Welcome {{name.split()[0]}}!</p>
+              <a href="{{ url_for("logout") }}" class="item">Logout</a>
+            </div>           
+          </div>
+        </div>  
+      </div>
+
+      <div class="ui container">
+      <br>
+      <h3>Logs List</h3>
+
+
+      <iframe id="txtviewer" height="400" width="800" src="log.txt"></iframe>
+
+    </div>
+    </body>
+  </head>
+</html>

@@ -49,4 +49,15 @@ def construct_admin_bp(fenix_blueprint):
         except:
             return redirect(url_for("fenix-example.login"))
 
+    @admin.route('/logs_file')
+    def logs_file():
+        try:
+            #if the user is authenticated then a request to FENIX is made
+            resp = fenix_blueprint.session.get("/api/fenix/v1/person/")
+            #resp contains the response made to /api/fenix/vi/person (information about current user)
+            user = resp.json() 
+            return render_template("logs_list_page.html", username=user['username'], name=user['name'])
+        except:
+            return redirect(url_for("fenix-example.login"))
+
     return admin 
