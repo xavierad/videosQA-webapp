@@ -43,6 +43,7 @@
         <div class="ui vertical masthead center aligned segment">
 
             {% if loggedIn %}
+            <body style="background-color: #ede9e4;"></body>
                 <div class="ui container">
                     <div class="ui large secondary pointing menu">
                         <a href="{{ url_for("home_page") }}" class="active item">Home</a>
@@ -61,6 +62,7 @@
                     </h1>
                     <h2>Welcome {{userName.split()[0]}}!</h2>
                 </div>
+            </body>
             {% else %}
                 <div class="ui text container">
                     <br>

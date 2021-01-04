@@ -348,7 +348,7 @@
     </script>  
   </head>
   <title>Video APP</title>
-  <body>
+  <body style="background-color: #ede9e4;">
     <div class="ui vertical masthead center aligned">
       <div class="ui container">
         <div class="ui large secondary pointing menu">
@@ -410,7 +410,7 @@
                     <form class="ui form" id="newQuestionForm" onsubmit="return false">
                       <div class="field">
                         <label>Question</label>
-                        <input name="question" type="text" placeholder="Question" id="newQuestion">
+                        <input name="question" type="text" placeholder="Question" id="newQuestion" onfocus="this.value=''">
                       </div>
                       <div class="ui submit button" type="button" id="buttonAddQuestion">Add New Question</div>
                       <div class="ui error message"></div>
@@ -442,7 +442,7 @@
                     <form class="ui form" id="newAnswerForm" onsubmit="return false">
                       <div class="field">
                         <label>Answer</label>
-                        <input name="answer" type="text" placeholder="Answer" id="newAnswer">
+                        <input name="answer" type="text" placeholder="Answer" id="newAnswer" onfocus="this.value=''">
                       </div>
                       <div class="ui submit button" type="button" id="buttonAddAnswer">Add New Answer</div>
                       <div class="ui error message"></div>

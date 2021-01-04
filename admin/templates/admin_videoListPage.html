@@ -124,7 +124,7 @@
 
   </head>
 
-  <body>
+  <body style="background-color: #ede9e4;">
       <div class="ui text container">
         <br>
         <a href="{{ url_for("admin.user_statistics") }}" class="item" style="float:right">User Statistics</a>
@@ -156,11 +156,11 @@
                 <form class="ui form" onsubmit="return false">
                   <div class="field">
                     <label>URL</label>
-                    <input name="videoURL" type="text" id="newVideoURL">
+                    <input name="videoURL" type="text" id="newVideoURL" onfocus="this.value=''">
                   </div>
                   <div class="field">
                     <label>Description</label>
-                    <input name="videoDesc" type="text" id="newVideoDescription">
+                    <input name="videoDesc" type="text" id="newVideoDescription" onfocus="this.value=''">
                   </div>
                   <div class="ui submit button" type="button" id="buttonAddVideo">Add New Video</div>
                   <div class="ui error message"></div>

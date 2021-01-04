@@ -123,7 +123,7 @@
 
   </head>
 
-  <body>
+  <body style="background-color: #ede9e4;">
       <div class="ui text container">
         <br>  
         <h3>List of videos</h3>    
@@ -153,11 +153,11 @@
                 <form class="ui form" onsubmit="return false">
                   <div class="field">
                     <label>URL</label>
-                    <input name="videoURL" type="text" placeholder="Video URL" id="newVideoURL">
+                    <input name="videoURL" type="text" placeholder="Video URL" id="newVideoURL" onfocus="this.value=''">
                   </div>
                   <div class="field">
                     <label>Description</label>
-                    <input name="videoDesc" type="text" placeholder="Video Description" id="newVideoDescription">
+                    <input name="videoDesc" type="text" placeholder="Video Description" id="newVideoDescription" onfocus="this.value=''">
                   </div>
                   <div class="ui submit button" type="button" id="buttonAddVideo">Add New Video</div>
                   <div class="ui error message"></div>
