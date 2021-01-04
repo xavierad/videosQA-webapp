@@ -11,33 +11,7 @@
     <script src="http://vjs.zencdn.net/7.8.4/video.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-youtube/2.6.1/Youtube.min.js"></script>
 
-    <script>
-
-    function readFile(file, out) {
-        var http = new XMLHttpRequest();
-        http.open('get', file);
-        http.onreadystatechange = function () {
-            out.innerHTML = http.responseText.replace(/\n/g, '<br>');
-        };
-        http.send();
-    }
-      
-
-      
-
-        $(document).ready(function(){
-
-        //readFile('log.txt', document.getElementById('text-file'));
-
-        
-        });
-
-    </script>
   </head>
-
-
-
-
     <title>LOGS PAGE</title>
     <body style="background-color: #ede9e4;">
       <div class="ui vertical masthead center aligned">
@@ -58,7 +32,10 @@
       <h3>Logs List</h3>
 
 
-      <iframe id="txtviewer" height="400" width="800" src="log.txt"></iframe>
+      <object data="get_and_read_file" width="800" height="400">
+        <embed src="get_and_read_file" width="800" height="400"> </embed>
+        Error: Embedded data could not be displayed.
+    </object>
 
     </div>
     </body>

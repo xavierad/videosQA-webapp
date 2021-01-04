@@ -792,3 +792,57 @@ TIMESTAMP            | ENDPOINT                                 | EVENT
 
 04/01/2021 20:22:02  | http://127.0.0.1:8002/API/questions/5/   | List of question(s) dictionary returned [{'question': 'Ahahahah Clouseau...', 'question_id': 4, 'time': '1.143709', 'user': 'ist187094', 'video_id': 5}]
 
+04/01/2021 20:59:13  | http://127.0.0.1:8000/API/videos         | List of video(s) dictionary returned [{'description': '5/3 turbolence', 'video_id': 1}, {'description': 'Paul is playing bach', 'video_id': 2}, {'description': 'Learn how to cook, man!', 'video_id': 3}, {'description': 'Oh yeahh', 'video_id': 4}, {'description': 'Clouseau...', 'video_id': 5}]
+
+04/01/2021 20:59:13  | http://127.0.0.1:8002/API/questions/3/   | List of question(s) dictionary returned []
+
+04/01/2021 20:59:13  | http://127.0.0.1:8002/API/questions/1/   | List of question(s) dictionary returned [{'question': "What's the matter?", 'question_id': 1, 'time': '0.8961350686645507', 'user': 'ist187136', 'video_id': 1}]
+
+04/01/2021 20:59:13  | http://127.0.0.1:8002/API/questions/2/   | List of question(s) dictionary returned [{'question': 'I have a question: is this ac-dc?', 'question_id': 2, 'time': '1.585995078201294', 'user': 'ist187136', 'video_id': 2}, {'question': "But it's look alike ac-dc!", 'question_id': 3, 'time': '48.73789908010864', 'user': 'ist187136', 'video_id': 2}]
+
+04/01/2021 20:59:13  | http://127.0.0.1:8002/API/questions/4/   | List of question(s) dictionary returned []
+
+04/01/2021 20:59:13  | http://127.0.0.1:8002/API/questions/5/   | List of question(s) dictionary returned [{'question': 'Ahahahah Clouseau...', 'question_id': 4, 'time': '1.143709', 'user': 'ist187094', 'video_id': 5}]
+
+04/01/2021 20:59:31  | http://127.0.0.1:8002/API/questions/2/   | List of question(s) dictionary returned [{'question': 'I have a question: is this ac-dc?', 'question_id': 2, 'time': '1.585995078201294', 'user': 'ist187136', 'video_id': 2}, {'question': "But it's look alike ac-dc!", 'question_id': 3, 'time': '48.73789908010864', 'user': 'ist187136', 'video_id': 2}]
+
+04/01/2021 20:59:31  | http://127.0.0.1:8000/API/videos/2       | Single video dictionary returned {'description': 'Paul is playing bach', 'url': 'https://www.youtube.com/watch?v=A8TgA-gMNB4&ab_channel=PaulBarton', 'video_id': 2, 'views': 2}
+
+04/01/2021 20:59:33  | http://127.0.0.1:8000/API/videos/2       | Single video dictionary returned {'description': 'Paul is playing bach', 'url': 'https://www.youtube.com/watch?v=A8TgA-gMNB4&ab_channel=PaulBarton', 'video_id': 2, 'views': 2}
+
+04/01/2021 20:59:51  | http://127.0.0.1:8000/API/videos         | List of video(s) dictionary returned [{'description': '5/3 turbolence', 'video_id': 1}, {'description': 'Paul is playing bach', 'video_id': 2}, {'description': 'Learn how to cook, man!', 'video_id': 3}, {'description': 'Oh yeahh', 'video_id': 4}, {'description': 'Clouseau...', 'video_id': 5}]
+
+04/01/2021 20:59:51  | http://127.0.0.1:8002/API/questions/3/   | List of question(s) dictionary returned []
+
+04/01/2021 20:59:51  | http://127.0.0.1:8002/API/questions/1/   | List of question(s) dictionary returned [{'question': "What's the matter?", 'question_id': 1, 'time': '0.8961350686645507', 'user': 'ist187136', 'video_id': 1}]
+
+04/01/2021 20:59:51  | http://127.0.0.1:8002/API/questions/2/   | List of question(s) dictionary returned [{'question': 'I have a question: is this ac-dc?', 'question_id': 2, 'time': '1.585995078201294', 'user': 'ist187136', 'video_id': 2}, {'question': "But it's look alike ac-dc!", 'question_id': 3, 'time': '48.73789908010864', 'user': 'ist187136', 'video_id': 2}]
+
+04/01/2021 20:59:51  | http://127.0.0.1:8002/API/questions/5/   | List of question(s) dictionary returned [{'question': 'Ahahahah Clouseau...', 'question_id': 4, 'time': '1.143709', 'user': 'ist187094', 'video_id': 5}]
+
+04/01/2021 20:59:51  | http://127.0.0.1:8002/API/questions/4/   | List of question(s) dictionary returned []
+
+04/01/2021 21:00:02  | http://127.0.0.1:8000/API/videos         | List of video(s) dictionary returned [{'description': '5/3 turbolence', 'video_id': 1}, {'description': 'Paul is playing bach', 'video_id': 2}, {'description': 'Learn how to cook, man!', 'video_id': 3}, {'description': 'Oh yeahh', 'video_id': 4}, {'description': 'Clouseau...', 'video_id': 5}]
+
+04/01/2021 21:00:02  | http://127.0.0.1:8002/API/questions/2/   | List of question(s) dictionary returned [{'question': 'I have a question: is this ac-dc?', 'question_id': 2, 'time': '1.585995078201294', 'user': 'ist187136', 'video_id': 2}, {'question': "But it's look alike ac-dc!", 'question_id': 3, 'time': '48.73789908010864', 'user': 'ist187136', 'video_id': 2}]
+
+04/01/2021 21:00:02  | http://127.0.0.1:8002/API/questions/1/   | List of question(s) dictionary returned [{'question': "What's the matter?", 'question_id': 1, 'time': '0.8961350686645507', 'user': 'ist187136', 'video_id': 1}]
+
+04/01/2021 21:00:02  | http://127.0.0.1:8002/API/questions/3/   | List of question(s) dictionary returned []
+
+04/01/2021 21:00:02  | http://127.0.0.1:8002/API/questions/4/   | List of question(s) dictionary returned []
+
+04/01/2021 21:00:02  | http://127.0.0.1:8002/API/questions/5/   | List of question(s) dictionary returned [{'question': 'Ahahahah Clouseau...', 'question_id': 4, 'time': '1.143709', 'user': 'ist187094', 'video_id': 5}]
+
+04/01/2021 21:04:22  | http://127.0.0.1:8000/API/videos         | List of video(s) dictionary returned [{'description': '5/3 turbolence', 'video_id': 1}, {'description': 'Paul is playing bach', 'video_id': 2}, {'description': 'Learn how to cook, man!', 'video_id': 3}, {'description': 'Oh yeahh', 'video_id': 4}, {'description': 'Clouseau...', 'video_id': 5}]
+
+04/01/2021 21:04:22  | http://127.0.0.1:8002/API/questions/1/   | List of question(s) dictionary returned [{'question': "What's the matter?", 'question_id': 1, 'time': '0.8961350686645507', 'user': 'ist187136', 'video_id': 1}]
+
+04/01/2021 21:04:22  | http://127.0.0.1:8002/API/questions/2/   | List of question(s) dictionary returned [{'question': 'I have a question: is this ac-dc?', 'question_id': 2, 'time': '1.585995078201294', 'user': 'ist187136', 'video_id': 2}, {'question': "But it's look alike ac-dc!", 'question_id': 3, 'time': '48.73789908010864', 'user': 'ist187136', 'video_id': 2}]
+
+04/01/2021 21:04:22  | http://127.0.0.1:8002/API/questions/3/   | List of question(s) dictionary returned []
+
+04/01/2021 21:04:22  | http://127.0.0.1:8002/API/questions/5/   | List of question(s) dictionary returned [{'question': 'Ahahahah Clouseau...', 'question_id': 4, 'time': '1.143709', 'user': 'ist187094', 'video_id': 5}]
+
+04/01/2021 21:04:22  | http://127.0.0.1:8002/API/questions/4/   | List of question(s) dictionary returned []
+

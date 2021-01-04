@@ -60,4 +60,10 @@ def construct_admin_bp(fenix_blueprint):
         except:
             return redirect(url_for("fenix-example.login"))
 
+    @admin.route('/get_and_read_file')
+    def get_and_read_file():
+        f = open("log.txt", "r")
+        text = f.read()
+        return text
+
     return admin 
