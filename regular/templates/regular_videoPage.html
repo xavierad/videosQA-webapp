@@ -1,3 +1,9 @@
+<!-- -------------------------------------------------------------------------------------
+#                   Architectures and Internet Systems Project 2020/2021
+#
+#                 Developed by Pedro Martin (87094) & Xavier Dias (87136)
+-------------------------------------------------------------------------------------- -->
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -84,8 +90,6 @@
           success: function (data) {
             console.log(data)
             answers = data['answers']
-            // $('#listAnswersTitle').empty()
-            // $('#listAnswersTitle').append('<h4>Question: '+question['question']+'<br>Time: '+question['time']+'<br>User: '+question['user']+'</h4>')
             $('#answersTable > tbody:last-child').empty()
             answers.forEach(a => {
               $('#answersTable > tbody:last-child').
@@ -110,6 +114,7 @@
             updateQuestionstable()
           }
         });   
+        //increases the counting of the number of questions submited by the user
         $.ajax({  
           url: '/API/users/'+'{{username}}'+'/nquestions/',
           type: "PUT",
@@ -138,7 +143,8 @@
             console.log(data)
             updateAnswerstable(question_id)
           }
-        });        
+        });      
+        //increases the counting of the number of answers submited by the user  
         $.ajax({  
           url: '/API/users/'+'{{username}}'+'/nanswers/',
           type: "PUT",
@@ -176,12 +182,6 @@
         $("#answersTable").hide(); // by default the page hides the list of answers
         $("#newAnswerForm").hide(); // by default the page hides the new answer form            
 
-        // to show new question form
-        // vPlayer.on("pause", function () {
-        //   $("#newQuestionForm")[0].reset(); // reset previous values
-        //   $("#newQuestionForm").show(); 
-        // });
-
         // to hide new question form
         vPlayer.on("play", function () {
           $("#buttonNewQuestion").show();
@@ -217,8 +217,6 @@
             vPlayer.currentTime( parseFloat($("#resumetime").val()))
             vPlayer.play()
           }
-          
- 
         })
 
         // when a new answer is added
@@ -256,12 +254,10 @@
                 console.log(data)
                 url = data['url']
                 console.log(url)
-                //TODO 8 - update the player with the url retrieved
                 vPlayer.src({ "type": "video/youtube", "src": url});
                 vPlayer.play()
-                
+                // inscreases the counting for number of video views
                 $.ajax({
-                  //TODO 9 - increase the number of views
                   url: '/API/videos/'+videoID+'/views',
                   type: "PUT",
                   dataType: "json",
@@ -271,6 +267,7 @@
                 })                          
               }
             });
+            // inscreases the counting for number of user video views
             $.ajax({  
               url: '/API/users/'+'{{username}}'+'/videoViews/',
               type: "PUT",
@@ -293,25 +290,7 @@
           console.log(notPlayedyet)
         })
 
-        // dúvida: por que é que esta função não funciona quando se quer carregar no botão? (tive que adicionar onclick="getQuestion()")
-        // get the details about the question
-        // $("#buttonQDetails").click(function() {
-        //   console.log('hereee')
-        //   $.ajax({            
-        //     // retrieve the corresponding URL by 
-        //     // calling the /questions/<question_id>/ REST endpoint)
-        //     url: '/API/questions/'+question_id+'/',
-        //     type: "GET",
-        //     dataType: "json",
-        //     success: function (data) {
-        //       console.log(data)
-        //       url = data['url']
-        //       console.log(url)
-                                      
-        //     }
-        //   });
-        // })
-
+        // makes sure the user is not sleeping while adding a question
         $('#newQuestionForm').form({
           on: 'blur',
           fields: {
@@ -327,6 +306,7 @@
           }
         });
 
+        // makes sure the user is not sleeping while adding an answer
         $('#newAnswerForm').form({
           on: 'blur',
           fields: {
@@ -341,8 +321,6 @@
             },
           }
         });  
-
-
       });
 
     </script>  
@@ -384,7 +362,7 @@
           </div>
           <div class="column">
             <br>
-            <!-- Q U E S T I O N S  &  A N S W E R S -->
+            <!-- L I S T    O F   Q U E S T I O N S -->
             <h3>List of questions</h3>
             <table class="ui celled table" id="questionsTable" >
               <thead class="full-width">
@@ -400,13 +378,7 @@
                 </tr>
                 <tr>
                   <th colspan="3">
-                    <!-- <form id="newQuestionForm">
-                      <div class="ui input">
-                        <input type="text" placeholder="Question" id="newQuestion" >     
-                      </div>  
-                      <button class="ui right floated small icon button" id="buttonAddQuestion" type="button">Add new question</button>
-                    </form>  -->
-                    
+                    <!-- N E W   Q U E S T I O N -->
                     <form class="ui form" id="newQuestionForm" onsubmit="return false">
                       <div class="field">
                         <label>Question</label>
@@ -421,7 +393,7 @@
               <tbody>
               </tbody>      
             </table>
-            
+            <!-- L I S T    O F    A N S W E R S -->
             <div id="listAnswersTitle"></div>
             <table class="ui celled table" id="answersTable" >
               <thead>
@@ -432,13 +404,7 @@
               <tfoot class="full-width">
                 <tr>
                   <th colspan="3">
-                    <!-- <form id="newAnswerForm">
-                      <div class="ui input">
-                        <input type="text" placeholder="Answer" id="newAnswer">
-                      </div>
-                      <button class="ui right floated small icon button" id="buttonAddAnswer" type="button">Add new answer</button>     
-                    </form>  -->
-
+                    <!-- N E W   A N S W E R -->
                     <form class="ui form" id="newAnswerForm" onsubmit="return false">
                       <div class="field">
                         <label>Answer</label>

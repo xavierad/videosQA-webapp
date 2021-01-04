@@ -1,7 +1,14 @@
 
+<!-- -------------------------------------------------------------------------------------
+#                   Architectures and Internet Systems Project 2020/2021
+#
+#                 Developed by Pedro Martin (87094) & Xavier Dias (87136)
+-------------------------------------------------------------------------------------- -->
+
 <!DOCTYPE html>
 <html>    
     <head>
+        <!--Web Design References-->
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
         <link rel="stylesheet" type="text/css"  href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.7/dist/semantic.css">
         <script  src="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.7/dist/semantic.js">  </script>
@@ -9,6 +16,7 @@
         <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>    
         <script>
             $(document).ready(function(){
+                // Adds loged in user to the user's DB
                 if ('{{userID}}' != '') {                  
                     addNewUser()   
                 }
@@ -19,6 +27,7 @@
                     $("#admin_option").show();
                 }
 
+                // to add a new user to the DB
                 function addNewUser(){            
                     var newUserID = '{{userID}}'
                     var newUserNAME = '{{userName}}'
@@ -42,6 +51,7 @@
         <title>{% block title %}{% endblock %} Video APP</title>
         <div class="ui vertical masthead center aligned segment">
 
+            <!--Home Page setup-->
             {% if loggedIn %}
             <body style="background-color: #ede9e4;"></body>
                 <div class="ui container">
@@ -64,6 +74,7 @@
                 </div>
             </body>
             {% else %}
+            <!--Log In Page setup-->
                 <div class="ui text container">
                     <br>
                     <h1 class="ui header">VQA Project</h1>
