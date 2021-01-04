@@ -1,39 +1,8 @@
-
-
-
-
-
-
-'''
-Dúvidas:
-( ) - 308 response?
-(X) - can log be only global variable present in proxy? 
-(X) - confirm extensibility logic of video_app
-(X) - index.html porquÊ no static e não no template?
-(X) - login: token and takes too much time
-(X) - when an user wants to add new question he must click on New Question and video should be paused. Can we make it otherwise (pause to be able que add new question)?
-( ) - 
-
-A fazer:
-(X) - videos request endpoints
-(X) - videos list page
-(X) - video page (watch and count view (not for a user particulary))
-(X) - proxy endpoints related to user manager
-( ) - TO FIX: when entered on admin page, token is taken again (but it's not necessary)
-( ) - verify logs
-( ) - very fault tolerances
-( ) - 
-
-'''
-
 # -------------------------------------------------------------------------------------
 #                   Architectures and Internet Systems Project 2020/2021
 #
 # Developed by Pedro Martin (87094) & Xavier Dias (87136)
 # -------------------------------------------------------------------------------------
-
-
-#ist14021 - João Silva
 
 import os 
 from flask import Flask, abort, request, redirect, url_for, session, jsonify, render_template
@@ -79,7 +48,7 @@ def write_to_log(f="log.txt", mode="w", endpoint="ENDPOINT", timestamp="TIMESTAM
         log.write('{: <20s} | {: <40s} | {:}\n\n'.format(timestamp, endpoint , event))
 
 # Initializing log.txt
-if os.path.exists('log.txt'):
+if not os.path.exists('log.txt'):
     write_to_log(mode="w")
     
 
@@ -218,7 +187,7 @@ def createNewQuestion(video_id):
     if ret:
         now = datetime.now()    
         write_to_log(mode="a",timestamp=now.strftime("%d/%m/%Y %H:%M:%S"),
-            endpoint=url, event=f'User {this_user.id} created a new question with id {ret}, datatype of dictionary, content {j}')  
+            endpoint=url, event=f'User {this_user.id} created a new question with id {ret}, Question datatype, content {j}')  
         print(ret)
         return {"id": ret}
     else:
@@ -257,7 +226,7 @@ def createNewAnswer(video_id, question_id):
     if ret:
         now = datetime.now()    
         write_to_log(mode="a",timestamp=now.strftime("%d/%m/%Y %H:%M:%S"),
-            endpoint=url, event=f'User {this_user.id} created a new answer with id {ret}, datatype of dictionary, content {j} ')  
+            endpoint=url, event=f'User {this_user.id} created a new answer with id {ret}, Answer datatype, content {j} ')  
         print(ret)
         return {"id": ret}
     else:
@@ -310,7 +279,7 @@ def createNewUser():
     if ret != {}:
         now = datetime.now()    
         write_to_log(mode="a",timestamp=now.strftime("%d/%m/%Y %H:%M:%S"),
-            endpoint=url, event=f'Created new user {ret}, datatype dictionary, content {j}')  
+            endpoint=url, event=f'Created new user {ret}, User datatype , content {j}')  
         print(ret)
         return {"id": ret}
     elif ret == {}:
