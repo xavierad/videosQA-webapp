@@ -16,7 +16,7 @@ python video_app.py
 ```
 python user_manager.py
 ```
--Code Line for proxy application (port: 8002):
+- Code Line for proxy application (port: 8002):
 ```
 python qanda.py
 ```
